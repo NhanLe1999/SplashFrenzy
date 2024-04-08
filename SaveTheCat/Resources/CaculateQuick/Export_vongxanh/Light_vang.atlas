@@ -1,0 +1,48 @@
+
+Light_vang.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Vang-1
+  rotate: false
+  xy: 569, 53
+  size: 166, 166
+  orig: 166, 166
+  offset: 0, 0
+  index: -1
+Vang-2
+  rotate: true
+  xy: 737, 21
+  size: 227, 226
+  orig: 227, 226
+  offset: 0, 0
+  index: -1
+Vang-3
+  rotate: false
+  xy: 350, 2
+  size: 217, 217
+  orig: 217, 217
+  offset: 0, 0
+  index: -1
+Vang-4
+  rotate: false
+  xy: 640, 250
+  size: 258, 259
+  orig: 258, 259
+  offset: 0, 0
+  index: -1
+Vang-5
+  rotate: false
+  xy: 350, 221
+  size: 288, 288
+  orig: 288, 288
+  offset: 0, 0
+  index: -1
+Vang-6
+  rotate: false
+  xy: 2, 163
+  size: 346, 346
+  orig: 346, 346
+  offset: 0, 0
+  index: -1

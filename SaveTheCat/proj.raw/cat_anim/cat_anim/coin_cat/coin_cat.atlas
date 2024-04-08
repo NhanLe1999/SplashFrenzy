@@ -1,0 +1,90 @@
+
+coin_cat.png
+size: 191,298
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0
+  rotate: false
+  xy: 2, 2
+  size: 65, 67
+  orig: 87, 89
+  offset: 11, 10
+  index: -1
+1
+  rotate: false
+  xy: 2, 71
+  size: 64, 70
+  orig: 87, 89
+  offset: 13, 9
+  index: -1
+10
+  rotate: false
+  xy: 2, 143
+  size: 67, 68
+  orig: 87, 89
+  offset: 10, 10
+  index: -1
+2
+  rotate: false
+  xy: 71, 139
+  size: 58, 72
+  orig: 87, 89
+  offset: 18, 9
+  index: -1
+3
+  rotate: true
+  xy: 68, 90
+  size: 47, 74
+  orig: 87, 89
+  offset: 25, 9
+  index: -1
+4
+  rotate: false
+  xy: 153, 220
+  size: 31, 76
+  orig: 87, 89
+  offset: 32, 8
+  index: -1
+5
+  rotate: false
+  xy: 151, 58
+  size: 18, 85
+  orig: 87, 89
+  offset: 35, 0
+  index: -1
+6
+  rotate: false
+  xy: 118, 12
+  size: 31, 76
+  orig: 87, 89
+  offset: 25, 8
+  index: -1
+7
+  rotate: false
+  xy: 69, 13
+  size: 47, 75
+  orig: 87, 89
+  offset: 16, 8
+  index: -1
+8
+  rotate: false
+  xy: 131, 145
+  size: 58, 73
+  orig: 87, 89
+  offset: 11, 9
+  index: -1
+9
+  rotate: false
+  xy: 87, 225
+  size: 64, 71
+  orig: 87, 89
+  offset: 10, 9
+  index: -1
+fx
+  rotate: false
+  xy: 2, 213
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1

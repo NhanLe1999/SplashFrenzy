@@ -1,0 +1,100 @@
+{
+"skeleton": {
+	"hash": "EYZZPEyNbOGUrxeTUfT2VhZNb9Q",
+	"spine": "3.8.99",
+	"x": -129,
+	"y": -129,
+	"width": 258,
+	"height": 259,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Vong_1", "parent": "root" },
+	{ "name": "Vnag-3", "parent": "root" },
+	{ "name": "Vong-4", "parent": "root" }
+],
+"slots": [
+	{ "name": "Vang-2", "bone": "Vong_1", "attachment": "Vang-2" },
+	{ "name": "Vang-3", "bone": "Vnag-3", "attachment": "Vang-3" },
+	{ "name": "Vang-4", "bone": "Vong-4", "attachment": "Vang-4" },
+	{ "name": "Light", "bone": "root" }
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"Light": {
+				"attachment": [
+					{ "name": "Vang-1", "time": 0.0 },
+					{ "time": 0.2667, "name": "Vang-5" }
+				]
+			},
+			"Vang-2": {
+				"color": [
+					{ "time": 0.1667, "color": "ffffffff" },
+					{ "time": 0.3333, "color": "ffffff00" }
+				]
+			},
+			"Vang-3": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{ "time": 0.1667, "color": "ffffff00" },
+					{ "time": 0.3333, "color": "ffffffff" },
+					{ "time": 0.5, "color": "ffffff00" }
+				]
+			},
+			"Vang-4": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{ "time": 0.5, "color": "ffffff00" },
+					{ "time": 0.6667, "color": "ffffffff" },
+					{ "time": 0.8333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Vong_1": {
+				"scale": [
+					{ "time": 0.0, "x": 1.0, "y": 1.0 },
+					{ "time": 0.1667, "x": 1.192, "y": 1.192 },
+					{ "time": 0.3333, "x": 1.367, "y": 1.367 }
+				]
+			},
+			"Vnag-3": {
+				"scale": [
+					{ "time": 0.1667, "x": 1.0, "y": 1.0 },
+					{ "time": 0.3333, "x": 1.144, "y": 1.144 },
+					{ "time": 0.5, "x": 1.441, "y": 1.441 }
+				]
+			},
+			"Vong-4": {
+				"scale": [
+					{ "x": 1.209, "y": 1.209, "curve": "stepped", "time": 0.0 },
+					{ "time": 0.5, "x": 1.209, "y": 1.209 },
+					{ "time": 0.6667, "x": 1.418, "y": 1.418 },
+					{ "time": 0.8333, "x": 1.58, "y": 1.58 }
+				]
+			}
+		}
+	}
+},
+"skins": {
+	"default": {
+		"Light": {
+			"Vang-1": { "width": 166, "height": 166 },
+			"Vang-5": { "width": 288, "height": 288 },
+			"Vang-6": { "width": 346, "height": 346 }
+		},
+		"Vang-2": {
+			"Vang-2": { "x": 0.5, "width": 227, "height": 226 }
+		},
+		"Vang-3": {
+			"Vang-3": { "x": 0.5, "y": 0.5, "width": 217, "height": 217 }
+		},
+		"Vang-4": {
+			"Vang-4": { "y": 0.5, "width": 258, "height": 259 }
+		}
+	}
+}
+}

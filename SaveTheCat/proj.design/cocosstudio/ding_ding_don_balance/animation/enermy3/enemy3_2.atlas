@@ -1,0 +1,41 @@
+
+enemy3_2.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ellipse 758 copy 2
+  rotate: false
+  xy: 2, 2
+  size: 25, 25
+  orig: 27, 27
+  offset: 1, 1
+  index: -1
+Layer 761
+  rotate: false
+  xy: 101, 30
+  size: 40, 35
+  orig: 42, 37
+  offset: 1, 1
+  index: -1
+Layer 764
+  rotate: false
+  xy: 2, 29
+  size: 97, 97
+  orig: 99, 99
+  offset: 1, 1
+  index: -1
+Layer 765
+  rotate: false
+  xy: 176, 74
+  size: 73, 52
+  orig: 75, 54
+  offset: 1, 1
+  index: -1
+Layer 766
+  rotate: false
+  xy: 101, 67
+  size: 73, 59
+  orig: 75, 61
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,138 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "SaveTheCat/Resources/map/title_map/m_1.tmx",
+    "automapping.whileDrawing": true,
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "D:/project/Os/StepRushdie/StepRushdie/Resources/tilemap/level_1.tmx": {
+            "scale": 0.187625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2003.9973351099268,
+                "y": 644.9033977348433
+            }
+        },
+        "SaveTheCat/Resources/map/title_map/dr_background_water.tsx": {
+            "scaleInDock": 0.5
+        },
+        "SaveTheCat/Resources/map/title_map/dr_object_conveyer_a.tsx": {
+            "scaleInDock": 1
+        },
+        "SaveTheCat/Resources/map/title_map/dr_object_conveyer_b.tsx": {
+            "scaleInDock": 1
+        },
+        "SaveTheCat/Resources/map/title_map/img_map_game.tsx": {
+            "scaleInDock": 1
+        },
+        "SaveTheCat/Resources/map/title_map/img_new_obj.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "SaveTheCat/Resources/map/title_map/img_obj.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5
+        },
+        "SaveTheCat/Resources/map/title_map/img_obj_new.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5
+        },
+        "SaveTheCat/Resources/map/title_map/img_obj_new_1.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "SaveTheCat/Resources/map/title_map/lv_1.tmx": {
+            "scale": 0.21565,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1001.6230002318572,
+                "y": 1001.6230002318571
+            }
+        },
+        "SaveTheCat/Resources/map/title_map/m_1.tmx": {
+            "expandedObjectLayers": [
+                13,
+                16,
+                14,
+                17,
+                15,
+                9,
+                11,
+                8,
+                18,
+                12
+            ],
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 915.1515151515152,
+                "y": 3066.666666666667
+            }
+        },
+        "SaveTheCat/Resources/map/title_map/m_1.tmx#img_obj": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "SaveTheCat/Resources/map/title_map/m_2.tmx": {
+            "expandedObjectLayers": [
+                11,
+                14,
+                17,
+                8,
+                16,
+                9,
+                13,
+                12,
+                18,
+                15
+            ],
+            "scale": 0.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 516,
+                "y": 3738
+            }
+        },
+        "SaveTheCat/Resources/map/title_map/m_3.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 566.6666666666667,
+                "y": 3690.909090909091
+            }
+        },
+        "SaveTheCat/Resources/map/title_map/new_img_map.tsx": {
+            "scaleInDock": 0.5
+        },
+        "img_obj.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "last.externalTilesetPath": "D:/project/Os/SaveTheCat/SaveTheCat/Resources/map/title_map",
+    "last.imagePath": "D:/project/Os/SaveTheCat/SaveTheCat/Resources/map/title_map",
+    "map.height": 30,
+    "map.tileHeight": 135,
+    "map.tileWidth": 198,
+    "map.width": 5,
+    "openFiles": [
+        "SaveTheCat/Resources/map/title_map/m_1.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "SaveTheCat/Resources/map/title_map/m_1.tmx",
+        "SaveTheCat/Resources/map/title_map/lv_1.tmx",
+        "SaveTheCat/Resources/map/title_map/m_2.tmx",
+        "SaveTheCat/Resources/map/title_map/img_obj_new_1.tsx"
+    ],
+    "resizeMap.removeObjects": true,
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 135,
+        "width": 198
+    }
+}

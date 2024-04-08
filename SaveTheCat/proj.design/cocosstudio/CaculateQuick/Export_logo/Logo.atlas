@@ -1,0 +1,48 @@
+
+Logo.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Goi-3
+  rotate: false
+  xy: 2, 151
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+Goi-y4
+  rotate: false
+  xy: 2, 151
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+Goi-y1
+  rotate: true
+  xy: 366, 112
+  size: 88, 89
+  orig: 88, 89
+  offset: 0, 0
+  index: -1
+Goiy-2
+  rotate: true
+  xy: 457, 112
+  size: 88, 90
+  orig: 88, 90
+  offset: 0, 0
+  index: -1
+Text-1
+  rotate: false
+  xy: 2, 2
+  size: 634, 108
+  orig: 634, 108
+  offset: 0, 0
+  index: -1
+quickly
+  rotate: false
+  xy: 53, 121
+  size: 311, 79
+  orig: 311, 79
+  offset: 0, 0
+  index: -1

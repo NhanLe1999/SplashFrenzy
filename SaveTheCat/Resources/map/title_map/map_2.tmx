@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="7" height="7" tilewidth="80" tileheight="80" infinite="0" nextlayerid="8" nextobjectid="34">
+ <tileset firstgid="1" source="img_game.tsx"/>
+ <layer id="3" name="Tile Layer 1" width="7" height="7">
+  <data encoding="csv">
+31,33,33,33,33,33,35,
+55,1,1,1,1,2,59,
+55,1,2,1,2,2,59,
+55,1,2,2,2,2,59,
+55,1,2,1,1,2,59,
+55,1,2,1,1,2,59,
+79,81,81,81,81,81,83
+</data>
+ </layer>
+ <objectgroup id="4" name="o_blue_3">
+  <object id="1" gid="77" x="80" y="240" width="80" height="80"/>
+ </objectgroup>
+ <objectgroup id="7" name="o_tg">
+  <object id="25" gid="77" x="80" y="240" width="80" height="80"/>
+ </objectgroup>
+ <objectgroup id="6" name="o_white_1_num.3">
+  <object id="15" gid="77" x="80" y="240" width="80" height="80"/>
+  <object id="19" gid="53" x="80" y="400" width="80" height="80"/>
+  <object id="31" gid="108" x="319" y="226" width="80" height="80"/>
+ </objectgroup>
+ <objectgroup id="5" name="o_red_1_num.4">
+  <object id="6" gid="77" x="80" y="240" width="80" height="80"/>
+  <object id="10" gid="29" x="80" y="320" width="80" height="80"/>
+ </objectgroup>
+</map>

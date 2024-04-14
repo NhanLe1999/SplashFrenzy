@@ -112,19 +112,26 @@ void CaculateQuickGameScene::didLoadFromCSB()
 
     _character = Sprite::create("BlackpinkIsland/character/PTModelSprite_ID58592.png");
     _character->setPosition(Vec2(_screenSize / 2));
-    root_layout->addChild(_character);
+    _tileMap->addChild(_character);
     RunActionCharator(Anim::COIN);
 
     PhysicsShapeCache::getInstance()->setBodyOnSprite("nv_1", _character, COLLISION_NV);
 
     getGroupNameByPoint("tuong", 88);
 
-
-    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, 3420, 1620));
+    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width / 2, _screenSize.height));
     followAction->setTag(9090);
     _tileMap->stopActionByTag(9090);
     _tileMap->runAction(followAction);
     _physicSceneWorld->setGravity(Vec2(0, -980));
+
+    cocos2d::Follow* followAction1 = cocos2d::Follow::create(this);
+    auto root_layout1 = utils::findChild(this, "root_layout");
+    root_layout1->runAction(followAction1);
+    
+    cocos2d::Follow* followAction2 = cocos2d::Follow::create(this);
+    auto root_game_play = utils::findChild(this, "root_game_play");
+    root_game_play->runAction(followAction2);
 
 
     //_character->getPhysicsBody()->setContactTestBitmask(true);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="10" nextobjectid="54">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="12" nextobjectid="57">
  <tileset firstgid="1" source="img_map.tsx"/>
  <layer id="2" name="Tile Layer 1" width="100" height="18">
   <data encoding="csv">
@@ -70,6 +70,7 @@
  <objectgroup id="9" name="tuong_phai_thap">
   <object id="43" gid="45" x="1800" y="800" width="50" height="50"/>
  </objectgroup>
+ <objectgroup id="11" name="tuong_trai_thap"/>
  <objectgroup id="5" name="tuong_phai_thap_tam_giac"/>
  <objectgroup id="6" name="tuong_trai_cao_tam_giac">
   <object id="38" gid="3" x="1700" y="750" width="50" height="50"/>

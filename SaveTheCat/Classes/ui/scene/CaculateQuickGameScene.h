@@ -104,7 +104,8 @@ private:
 /// 
 /// 
     void RunActionCharator(Anim anim);
-    void getGroupNameByPoint(std::string name, int collison);
+    void getGroupNameByPoint(std::string name, std::string pathSr, int collison);
+    Sprite* CreateObject(std::string path, Vec2 point, std::string nameSprite = "", int collison = 0);
 
 
     void updateLabel(std::string labelName, std::string data);

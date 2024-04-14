@@ -117,9 +117,19 @@ void CaculateQuickGameScene::didLoadFromCSB()
 
     PhysicsShapeCache::getInstance()->setBodyOnSprite("nv_1", _character, COLLISION_NV);
 
-    getGroupNameByPoint("tuong", 88);
+    getGroupNameByPoint("tuong", "BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_8.png", 88);
+    getGroupNameByPoint("tuong_phai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_3.png", 88);
+    getGroupNameByPoint("tuong_phai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_4.png", 88);
+    getGroupNameByPoint("tuong_trai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_2.png", 88);
+    getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
+    getGroupNameByPoint("tuong_trai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_12.png", 88);
+    getGroupNameByPoint("tuong_phai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_13.png", 88);
 
-    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width / 2, _screenSize.height));
+  // getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
+
+
+
+    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width, _screenSize.height));
     followAction->setTag(9090);
     _tileMap->stopActionByTag(9090);
     _tileMap->runAction(followAction);
@@ -137,7 +147,7 @@ void CaculateQuickGameScene::didLoadFromCSB()
     //_character->getPhysicsBody()->setContactTestBitmask(true);
 }
 
-void CaculateQuickGameScene::getGroupNameByPoint(std::string name, int collison)
+void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int collison)
 {
     auto group = _tileMap->objectGroupNamed(name);
 
@@ -162,15 +172,21 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, int collison)
 
         Sprite* sprite = nullptr;
 
-        if (name == "tuong") {
-            sprite = Sprite::create("BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_8.png");
-            sprite->setAnchorPoint(Point(0.5, 0));
-            sprite->setPosition(cocos2d::Vec2(x, y) + Vec2(width / 2, height));
-            sprite->stopAllActions();
-            sprite->setTag(9);
-            sprite->setScale(0.5f);
-            PhysicsShapeCache::getInstance()->setBodyOnSprite("tuong", sprite, 22);
+        if (name == "tuong_trai_thap" || name == "tuong_phai_thap")
+        {
+            name = "tuong";
         }
+        sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
+
+
+        sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
+
+        if (name == "tuong_phai_thap_tam_giac" || name == "tuong_trai_thap_tam_giac")
+        {
+            sprite->setAnchorPoint(Vec2(0.5f, 1));
+        }
+
+
 
         if (sprite == nullptr) {
             continue;
@@ -190,9 +206,26 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, int collison)
     }
 }
 
+Sprite* CaculateQuickGameScene::CreateObject(std::string path, Vec2 point, std::string name, int collison)
+{
+    Sprite* sprite = nullptr;
+    sprite = Sprite::create(path);
+    sprite->setAnchorPoint(Point(0.5, 0));
+    sprite->setPosition(point);
+    sprite->stopAllActions();
+    sprite->setScale(0.5f);
+
+    if (name != "")
+    {
+        PhysicsShapeCache::getInstance()->setBodyOnSprite(name, sprite, collison);
+    }
+
+    return sprite;
+}
+
 void CaculateQuickGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
 {
-    float x = 200, y = 550;
+    float x = 500, y = 550;
     switch (keyCode)
     {
     case EventKeyboard::KeyCode::KEY_UP_ARROW:

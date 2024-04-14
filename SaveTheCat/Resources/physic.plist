@@ -676,7 +676,7 @@
                 <key>anchorpoint</key>
                 <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
-                <true/>
+                <false/>
                 <key>affected_by_gravity</key>
                 <true/>
                 <key>allows_rotation</key>
@@ -708,7 +708,7 @@
                         <key>collision_mask</key>
                         <integer>4294967295</integer>
                         <key>contact_test_mask</key>
-                        <integer>0</integer>
+                        <integer>4294967295</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
@@ -733,7 +733,7 @@
                 <key>anchorpoint</key>
                 <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
-                <true/>
+                <false/>
                 <key>affected_by_gravity</key>
                 <true/>
                 <key>allows_rotation</key>
@@ -793,7 +793,7 @@
                 <key>affected_by_gravity</key>
                 <true/>
                 <key>allows_rotation</key>
-                <true/>
+                <false/>
                 <key>linear_damping</key>
                 <real>0</real>
                 <key>velocity_limit</key>

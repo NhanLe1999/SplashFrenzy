@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="7" height="7" tilewidth="80" tileheight="80" infinite="0" nextlayerid="8" nextobjectid="34">
- <tileset firstgid="1" source="img_game.tsx"/>
- <layer id="3" name="Tile Layer 1" width="7" height="7">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="11" nextobjectid="54">
+ <tileset firstgid="1" source="img_map.tsx"/>
+ <layer id="10" name="Tile Layer 1" width="20" height="10">
   <data encoding="csv">
-31,33,33,33,33,33,35,
-55,1,1,1,1,2,59,
-55,1,2,1,2,2,59,
-55,1,2,2,2,2,59,
-55,1,2,1,1,2,59,
-55,1,2,1,1,2,59,
-79,81,81,81,81,81,83
+82,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+82,82,0,0,0,82,82,0,0,0,0,0,0,0,0,82,82,82,0,0,
+82,0,0,0,0,0,0,0,82,82,0,82,0,0,82,82,82,0,0,0,
+0,0,82,82,0,0,0,0,0,0,82,82,82,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,82,82,82,82,82,82,0,0,82,82,0,0,0,
+82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,93,93,
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0
 </data>
  </layer>
- <objectgroup id="4" name="o_blue_3">
-  <object id="1" gid="77" x="80" y="240" width="80" height="80"/>
+ <objectgroup id="3" name="tuong">
+  <object id="5" gid="25" x="0" y="400" width="50" height="50"/>
+  <object id="6" gid="25" x="50" y="400" width="50" height="50"/>
+  <object id="7" gid="25" x="100" y="400" width="50" height="50"/>
+  <object id="8" gid="25" x="150" y="400" width="50" height="50"/>
+  <object id="9" gid="25" x="200" y="400" width="50" height="50"/>
+  <object id="10" gid="25" x="250" y="400" width="50" height="50"/>
+  <object id="11" gid="25" x="300" y="400" width="50" height="50"/>
+  <object id="12" gid="25" x="350" y="400" width="50" height="50"/>
+  <object id="13" gid="25" x="400" y="400" width="50" height="50"/>
+  <object id="14" gid="25" x="450" y="400" width="50" height="50"/>
+  <object id="15" gid="25" x="500" y="400" width="50" height="50"/>
+  <object id="16" gid="25" x="550" y="400" width="50" height="50"/>
+  <object id="17" gid="25" x="600" y="400" width="50" height="50"/>
+  <object id="18" gid="25" x="650" y="400" width="50" height="50"/>
+  <object id="19" gid="25" x="700" y="400" width="50" height="50"/>
+  <object id="20" gid="25" x="750" y="400" width="50" height="50"/>
+  <object id="21" gid="25" x="800" y="400" width="50" height="50"/>
+  <object id="22" gid="25" x="850" y="400" width="50" height="50"/>
  </objectgroup>
- <objectgroup id="7" name="o_tg">
-  <object id="25" gid="77" x="80" y="240" width="80" height="80"/>
- </objectgroup>
- <objectgroup id="6" name="o_white_1_num.3">
-  <object id="15" gid="77" x="80" y="240" width="80" height="80"/>
-  <object id="19" gid="53" x="80" y="400" width="80" height="80"/>
-  <object id="31" gid="108" x="319" y="226" width="80" height="80"/>
- </objectgroup>
- <objectgroup id="5" name="o_red_1_num.4">
-  <object id="6" gid="77" x="80" y="240" width="80" height="80"/>
-  <object id="10" gid="29" x="80" y="320" width="80" height="80"/>
- </objectgroup>
+ <objectgroup id="9" name="tuong_phai_thap"/>
+ <objectgroup id="5" name="tuong_phai_thap_tam_giac"/>
+ <objectgroup id="6" name="tuong_trai_cao_tam_giac"/>
+ <objectgroup id="7" name="tuong_trai_thap_tam_giac"/>
+ <objectgroup id="8" name="tuong_trai_thap_tam_giac"/>
+ <objectgroup id="4" name="tuong_phai_cao_tam_giac"/>
 </map>

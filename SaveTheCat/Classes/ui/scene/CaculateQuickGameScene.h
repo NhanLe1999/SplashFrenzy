@@ -21,7 +21,7 @@ using namespace cocos2d;
 #define KEY_SKILL_HAMMER "key_skill_hammer"
 #define KEY_SKILL_FROG "key_skill_frog"
 
-#define COLLISION_FOG 10
+#define COLLISION_NV 10
 #define COLLISION_GO 11
 #define COLLISION_NAM 12
 #define COLLISION_GO_TRON 13
@@ -91,6 +91,7 @@ private:
 
     void SetUpdataLevel();
     void SetDataCurrentLevel(int level_id);
+    void RunAnimNv(Anim anim);
 
     //////
   
@@ -99,6 +100,13 @@ private:
 /// </summary>
 /// 
 /// 
+/// 
+/// 
+/// 
+    void RunActionCharator(Anim anim);
+    void getGroupNameByPoint(std::string name, int collison);
+
+
     void updateLabel(std::string labelName, std::string data);
 
     void UpdateTextSkillHammer();
@@ -110,6 +118,8 @@ private:
         _physicSceneWorld = world;
     }
 
+    void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+    void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
 
 private:
 
@@ -138,7 +148,7 @@ private:
     //////
     bool _isGamePlay = false;
 
-    Sprite* _frog;
+    Sprite* _character;
 
     float _speed = 250.0f;
     float _gravity = 350.0f;

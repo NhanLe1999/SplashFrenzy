@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with http://www.physicseditor.de -->
+<bodydef version="1.0">
+    <bodies numBodies="8">
+
+        <body name="nv_1" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_2" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_3" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_4" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_5" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_6" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_7" dynamic="true" numFixtures="0">
+
+        </body>
+
+        <body name="nv_8" dynamic="true" numFixtures="0">
+
+        </body>
+
+    </bodies>
+    <metadata>
+        <format>1</format>
+        <ptm_ratio></ptm_ratio>
+    </metadata>
+</bodydef>

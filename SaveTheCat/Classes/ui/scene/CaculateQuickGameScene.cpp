@@ -44,12 +44,13 @@ std::once_flag _game_scene;
 
 Scene *CaculateQuickGameScene::createScene()
 {
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
 
     if (scene)
     {
-       //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+       scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = CaculateQuickGameScene::createView();
+        view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
         view->didLoadFromCSB();
         scene->addChild(view);
@@ -98,109 +99,160 @@ void CaculateQuickGameScene::didLoadFromCSB()
         txtLv->setString(std::to_string(_currentLevelID));
     }
 
-    if (auto r = utils::findChild(this, "root_layout"))
-    {
-        auto path = cocos2d::StringUtils::format("map/title_map/map_%d.tmx", 2);
-        _tileMap = TMXTiledMap::create(path);
-        _tileMap->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        _tileMap->setName("objectPause__tileMap");
-        _tileMap->setPosition(_screenSize / 2);
-        auto size = _tileMap->getContentSize();
-        r->addChild(_tileMap, 10000);
+    auto root_layout = utils::findChild(this, "root_layout");
 
-        auto my = MySlider::createView();
-        my->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        my->setPosition(_tileMap->getContentSize() / 2);
-        _tileMap->addChild(my);
-        my->SetSizeForSlideBar(_tileMap->getContentSize());
-
-    }
-
-    if (auto node = utils::findChild(this, "top_game"))
-    {
-        if ((_screenSize.width * (1 - 0.03 * 2)) < 1241)
-        {
-            node->setScale((_screenSize.width - _screenSize.width * 0.03 * 2) / 1404.00);
-        }
-        else {
-            node->setAnchorPoint(Vec2(0.5, 1));
-            node->setPositionX(_screenSize.width / 2);
-        }
-    }
-
-    auto contactListener = EventListenerPhysicsContact::create();
-
-    this->scheduleOnce([this](float dt) {
-        _isGamePlay = true;
-        }, 0.5f, "_isGamePlay");
-  
-    _currentFrogState = State::RELAX;
-
-    _NStar = utils::findChild(this, "bg_star_level");
-
-    OnUpdateNumSkillGame();
-
-    this->schedule([this](float dt) {
-        if (_isGameOver) {
-            return;
-        }
-
-        _timer += 1.0f;
-        //CCLOG("Gameover:%f", _timer);
-        },1.0f, "delay_game_over");
+    auto path = cocos2d::StringUtils::format("map/title_map/map_%d.tmx", 2);
+    _tileMap = TMXTiledMap::create(path);
+    _tileMap->setAnchorPoint(Vec2(0, 0));
+    _tileMap->setName("objectPause__tileMap");
+    auto sizeMap = _tileMap->getContentSize();
+    _tileMap->setPosition(Vec2(sizeMap.width / 2, sizeMap.height / 2));
+    this->addChild(_tileMap, 10000);
    
+
+    _character = Sprite::create("BlackpinkIsland/character/PTModelSprite_ID58592.png");
+    _character->setPosition(Vec2(_screenSize / 2));
+    root_layout->addChild(_character);
+    RunActionCharator(Anim::COIN);
+
+    PhysicsShapeCache::getInstance()->setBodyOnSprite("nv_1", _character, COLLISION_NV);
+
+    getGroupNameByPoint("tuong", 88);
+
+
+    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, 3420, 1620));
+    followAction->setTag(9090);
+    _tileMap->stopActionByTag(9090);
+    _tileMap->runAction(followAction);
+    _physicSceneWorld->setGravity(Vec2(0, -980));
+
+
+    //_character->getPhysicsBody()->setContactTestBitmask(true);
+}
+
+void CaculateQuickGameScene::getGroupNameByPoint(std::string name, int collison)
+{
+    auto group = _tileMap->objectGroupNamed(name);
+
+    if (!group)
+    {
+        return;
+    }
+
+    auto listValuOfGroup = group->getObjects();
+
+    for (int i = 0; i < listValuOfGroup.size(); i++)
+    {
+        auto value = listValuOfGroup[i];
+        auto k1 = value.asValueMap();
+
+        auto x = k1["x"].asFloat();
+        auto y = k1["y"].asFloat();
+
+        auto width = k1["width"].asFloat();
+
+        auto height = k1["height"].asFloat();
+
+        Sprite* sprite = nullptr;
+
+        if (name == "tuong") {
+            sprite = Sprite::create("BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_8.png");
+            sprite->setAnchorPoint(Point(0.5, 0));
+            sprite->setPosition(cocos2d::Vec2(x, y) + Vec2(width / 2, height));
+            sprite->stopAllActions();
+            sprite->setTag(9);
+            sprite->setScale(0.5f);
+            PhysicsShapeCache::getInstance()->setBodyOnSprite("tuong", sprite, 22);
+        }
+
+        if (sprite == nullptr) {
+            continue;
+        }
+
+
+        _tileMap->addChild(sprite);
+
+        CCLOG("%f, %f", x, y);
+
+        auto listener = EventListenerKeyboard::create();
+        listener->onKeyPressed = CC_CALLBACK_2(CaculateQuickGameScene::onKeyPressed, this);
+        listener->onKeyReleased = CC_CALLBACK_2(CaculateQuickGameScene::onKeyReleased, this);
+
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+    }
+}
+
+void CaculateQuickGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+{
+    float x = 200, y = 550;
+    switch (keyCode)
+    {
+    case EventKeyboard::KeyCode::KEY_UP_ARROW:
+        CCLOG("Up arrow key is pressed.");
+        _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, y));
+        break;
+    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+        CCLOG("Down arrow key is pressed.");
+        break;
+    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        _character->getPhysicsBody()->setVelocity(Vec2(-x, _character->getPhysicsBody()->getVelocity().y));
+        CCLOG("Left arrow key is pressed.");
+        break;
+    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+        CCLOG("Right arrow key is pressed.");
+        _character->getPhysicsBody()->setVelocity(Vec2(x, _character->getPhysicsBody()->getVelocity().y));
+        break;
+    default:
+        break;
+    }
+}
+
+void CaculateQuickGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
+{
+    switch (keyCode)
+    {
+    case EventKeyboard::KeyCode::KEY_UP_ARROW:
+        CCLOG("Up arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+        CCLOG("Down arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        CCLOG("Left arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+        CCLOG("Right arrow key is released.");
+        break;
+    default:
+        break;
+    }
+}
+
+void CaculateQuickGameScene::RunActionCharator(Anim anim)
+{
+    auto anim1 = HELPER_MANAGER->getAnimate("BlackpinkIsland/character/PTModelSprite_ID58592.png",
+        "FROG_RELAX", "BlackpinkIsland/character/PTModelSprite_ID%d.png", 58592, 58602, 0.1f, -1);
+    _character->setTag(999);
+    _character->stopAllActions();
+    _character->runAction(anim1);
 }
 
 void CaculateQuickGameScene::SetUpdataLevel()
 {
-    _levels = {
-        {1, 5, {"+", "+"}},
-        {2, 6, {"+", "+"}},
-        {1, 6, {"+", "-"}},
-        {2, 7, {"-", "+"}},
-        {1, 8, {"+", "+"}},
-        {1, 8, {"-", "+"}},
-        {1, 9, {"-", "-"}},
-        {1, 10, {"+", "+"}},
-        {10, 20, {"+", "-"}},
-        {10, 21, {"+", "+"}},
-        {12, 22, {"+", "-"}},
-        {13, 23, {"-", "-"}},
-        {1, 24, {"+", "+"}},
-        {1, 5, {"+", "+"}},
-        {2, 6, {"+", "+"}},
-        {1, 6, {"+", "-"}},
-        {2, 7, {"-", "+"}},
-        {1, 8, {"+", "+"}},
-        {1, 8, {"-", "+"}},
-        {1, 9, {"-", "-"}},
-        {1, 10, {"+", "+"}},
-        {10, 20, {"+", "-"}},
-        {10, 21, {"+", "+"}},
-        {12, 22, {"+", "-"}},
-        {13, 23, {"-", "-"}},
-        {1, 24, {"+", "+"}},
-        {20, 30, {"+", "+"}},
-        {1, 40, {"+", "+"}},
-
-        {1, 100, {"+", "+"}},
-        {1, 200, {"+", "+"}},
-        {1, 300, {"+", "+"}},
-        {1, 400, {"+", "+"}},
-    };
 
 }
 
 void CaculateQuickGameScene::SetDataCurrentLevel(int level_id)
 {
-    if (level_id > _levels.size())
+    /*if (level_id > _levels.size())
     {
         int levelId = cocos2d::random(0, (int)_levels.size() - 1);
         _currentLevelConfig = _levels[levelId];
     }
     else {
         _currentLevelConfig = _levels[level_id];
-    }
+    }*/
 }
 
 void CaculateQuickGameScene::OnUpdateNumSkillGame()
@@ -286,7 +338,7 @@ void CaculateQuickGameScene::onSkillHammer(cocos2d::Ref* sender)
 
 
     SOUND_MANAGER->playClickEffect();
-    _frog->unschedule("delay_OnCollisionFrogAnGoMuc");
+    //_frog->unschedule("delay_OnCollisionFrogAnGoMuc");
     UpdateTextSkillHammer();
 }
 

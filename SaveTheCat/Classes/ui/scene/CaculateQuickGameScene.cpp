@@ -48,7 +48,7 @@ Scene *CaculateQuickGameScene::createScene()
 
     if (scene)
     {
-       scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+     //  scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = CaculateQuickGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -101,7 +101,7 @@ void CaculateQuickGameScene::didLoadFromCSB()
 
     auto root_layout = utils::findChild(this, "root_layout");
 
-    auto path = cocos2d::StringUtils::format("map/title_map/map_%d.tmx", 2);
+    auto path = cocos2d::StringUtils::format("map/title_map/map_%d.tmx", 1);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -113,17 +113,21 @@ void CaculateQuickGameScene::didLoadFromCSB()
     _character = Sprite::create("BlackpinkIsland/character/PTModelSprite_ID58592.png");
     _character->setPosition(Vec2(_screenSize / 2));
     _tileMap->addChild(_character);
-    RunActionCharator(Anim::COIN);
+    RunActionCharator(Anim::NV_1);
+    _character->setName("Nv");
 
     PhysicsShapeCache::getInstance()->setBodyOnSprite("nv_1", _character, COLLISION_NV);
 
-    getGroupNameByPoint("tuong", "BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_8.png", 88);
-    getGroupNameByPoint("tuong_phai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_3.png", 88);
-    getGroupNameByPoint("tuong_phai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_4.png", 88);
-    getGroupNameByPoint("tuong_trai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_2.png", 88);
-    getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
-    getGroupNameByPoint("tuong_trai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_12.png", 88);
-    getGroupNameByPoint("tuong_phai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_13.png", 88);
+    getGroupNameByPoint("tuong", "BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_8.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_phai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_3.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_phai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_4.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_trai_cao_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_2.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_trai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_12.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_phai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_13.png", COLLISION_TUONG);
+    getGroupNameByPoint("obj_t_1","BlackpinkIsland/ground/ground_world_1/t_1.png", COLLISION_TUONG);
+    getGroupNameByPoint("mushrom_world_1","", COLLISION_ENEMY);
+    getGroupNameByPoint("kim_cuong","", COLLISION_DIAMOND);
 
   // getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
 
@@ -143,7 +147,17 @@ void CaculateQuickGameScene::didLoadFromCSB()
     auto root_game_play = utils::findChild(this, "root_game_play");
     root_game_play->runAction(followAction2);
 
+    auto listener = EventListenerKeyboard::create();
+    listener->onKeyPressed = CC_CALLBACK_2(CaculateQuickGameScene::onKeyPressed, this);
+    listener->onKeyReleased = CC_CALLBACK_2(CaculateQuickGameScene::onKeyReleased, this);
 
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(CaculateQuickGameScene::onContactBegin, this);
+    contactListener->onContactSeparate = CC_CALLBACK_1(CaculateQuickGameScene::onContactSeparate, this);
+    contactListener->onContactPreSolve = CC_CALLBACK_2(CaculateQuickGameScene::onContactPreSolve, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
     //_character->getPhysicsBody()->setContactTestBitmask(true);
 }
 
@@ -176,10 +190,25 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
         {
             name = "tuong";
         }
-        sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
+
+        Anim ani = Anim::DEFAULT;
+        bool isCollisonBismask = true;
+
+        if (name == "mushrom_world_1")
+        {
+            ani = Anim::MUSHROM_WORD_1;
+        }
+
+        if (name == "kim_cuong")
+        {
+            ani = Anim::DIAMOND;
+            isCollisonBismask = false;
+        }
+
+        sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
 
 
-        sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
+       // sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
 
         if (name == "tuong_phai_thap_tam_giac" || name == "tuong_trai_thap_tam_giac")
         {
@@ -197,77 +226,31 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
 
         CCLOG("%f, %f", x, y);
 
-        auto listener = EventListenerKeyboard::create();
-        listener->onKeyPressed = CC_CALLBACK_2(CaculateQuickGameScene::onKeyPressed, this);
-        listener->onKeyReleased = CC_CALLBACK_2(CaculateQuickGameScene::onKeyReleased, this);
-
-        _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
     }
 }
 
-Sprite* CaculateQuickGameScene::CreateObject(std::string path, Vec2 point, std::string name, int collison)
+Sprite* CaculateQuickGameScene::CreateObject(std::string path, Vec2 point, std::string name, int collison, Anim anim)
 {
     Sprite* sprite = nullptr;
-    sprite = Sprite::create(path);
+
+    sprite = anim != Anim::DEFAULT ? GetAnim(anim) : Sprite::create(path);
+
     sprite->setAnchorPoint(Point(0.5, 0));
     sprite->setPosition(point);
-    sprite->stopAllActions();
     sprite->setScale(0.5f);
 
     if (name != "")
     {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(name, sprite, collison);
+        //sprite->getPhysicsBody()->setCollisionBitmask(isCollisonBismak);
+        int kk = sprite->getPhysicsBody()->getCollisionBitmask();
+        int k = 0;
     }
+    sprite->setName(name);
 
     return sprite;
 }
 
-void CaculateQuickGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
-{
-    float x = 500, y = 550;
-    switch (keyCode)
-    {
-    case EventKeyboard::KeyCode::KEY_UP_ARROW:
-        CCLOG("Up arrow key is pressed.");
-        _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, y));
-        break;
-    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-        CCLOG("Down arrow key is pressed.");
-        break;
-    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-        _character->getPhysicsBody()->setVelocity(Vec2(-x, _character->getPhysicsBody()->getVelocity().y));
-        CCLOG("Left arrow key is pressed.");
-        break;
-    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-        CCLOG("Right arrow key is pressed.");
-        _character->getPhysicsBody()->setVelocity(Vec2(x, _character->getPhysicsBody()->getVelocity().y));
-        break;
-    default:
-        break;
-    }
-}
-
-void CaculateQuickGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
-{
-    switch (keyCode)
-    {
-    case EventKeyboard::KeyCode::KEY_UP_ARROW:
-        CCLOG("Up arrow key is released.");
-        break;
-    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-        CCLOG("Down arrow key is released.");
-        break;
-    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-        CCLOG("Left arrow key is released.");
-        break;
-    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-        CCLOG("Right arrow key is released.");
-        break;
-    default:
-        break;
-    }
-}
 
 void CaculateQuickGameScene::RunActionCharator(Anim anim)
 {
@@ -416,6 +399,153 @@ void CaculateQuickGameScene::onSkillFrog(cocos2d::Ref* sender)
     UpdateTextSkillFrog();
 }   
 
+void CaculateQuickGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+{
+    float x = 350, y = 550;
+    switch (keyCode)
+    {
+    case EventKeyboard::KeyCode::KEY_UP_ARROW:
+        CCLOG("Up arrow key is pressed.");
+        if (_numJum >= 2)
+        {
+            return;
+        }
+        _numJum++;
+        _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, y));
+        break;
+    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+        CCLOG("Down arrow key is pressed.");
+        break;
+    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        _character->getPhysicsBody()->setVelocity(Vec2(-x, _character->getPhysicsBody()->getVelocity().y));
+        CCLOG("Left arrow key is pressed.");
+        _character->setScaleX(-std::abs(_character->getScaleX()));
+        break;
+    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+        CCLOG("Right arrow key is pressed.");
+        _character->getPhysicsBody()->setVelocity(Vec2(x, _character->getPhysicsBody()->getVelocity().y));
+        _character->setScaleX(std::abs(_character->getScaleX()));
+        break;
+    default:
+        break;
+    }
+}
+
+void CaculateQuickGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
+{
+    switch (keyCode)
+    {
+    case EventKeyboard::KeyCode::KEY_UP_ARROW:
+        CCLOG("Up arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+        CCLOG("Down arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        CCLOG("Left arrow key is released.");
+        break;
+    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+        CCLOG("Right arrow key is released.");
+        break;
+    default:
+        break;
+    }
+}
+bool CaculateQuickGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
+{
+    //if (_isGameOver) { return true; }
+
+    PhysicsBody* a = contact.getShapeA()->getBody();
+    PhysicsBody* b = contact.getShapeB()->getBody();
+
+    int aCollision = a->getCollisionBitmask();
+    int bCollision = b->getCollisionBitmask();
+
+   /* if ((COLLISION_FOG == aCollision && COLLISION_GO == bCollision) || (COLLISION_FOG == bCollision && COLLISION_GO == aCollision))
+    {
+
+        if (COLLISION_GO == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionHeroAndOt();
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionHeroAndOt();
+            }
+        }
+    }*/
+    if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
+    {
+        _numJum = 0;
+    }
+
+    return true;
+}
+
+void CaculateQuickGameScene::onContactSeparate(PhysicsContact& contact)
+{
+   /* if (!_isGamePlay)
+    {
+        return;
+    }*/
+    PhysicsBody* a = contact.getShapeA()->getBody();
+    PhysicsBody* b = contact.getShapeB()->getBody();
+
+    int aCollision = a->getCollisionBitmask();
+    int bCollision = b->getCollisionBitmask();
+
+    if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
+    {
+        _numJum = 0;
+        /*if (COLLISION_GO_TRON == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                _currentFrogState = State::JUMP;
+                OnContactSeparateFrogAndGoTron();
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                _currentFrogState = State::JUMP;
+                OnContactSeparateFrogAndGoTron();
+            }
+        }*/
+    }
+    else if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision)) {
+
+    }
+}
+
+bool CaculateQuickGameScene::onContactPreSolve(PhysicsContact& contact, PhysicsContactPreSolve& solve)
+{
+    PhysicsBody* a = contact.getShapeA()->getBody();
+    PhysicsBody* b = contact.getShapeB()->getBody();
+
+    int aCollision = a->getCollisionBitmask();
+    int bCollision = b->getCollisionBitmask();
+
+    if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision))
+    {
+
+    }
+
+    if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
+    {
+        _numJum = 0;
+    }
+    return true;
+}
+
 void CaculateQuickGameScene::onShopButtonClicked(cocos2d::Ref* sender)
 {
     this->onGamePause();
@@ -474,33 +604,25 @@ Sprite* CaculateQuickGameScene::GetAnim(Anim anim)
 
     switch (anim)
     {
-    case Anim::COIN:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/coin/animtion_coin0.png",
-            "COIN", "CaculateQuick/animation/coin/animtion_coin%d.png", 0, 15, 0.05f, -1);
+    case Anim::MUSHROM_WORD_1:
+        sprite = HELPER_MANAGER->getAnimateSprite("BlackpinkIsland/animation/enemy/mushroom/mushrom_world_1/mushroom_run_0.png",
+            "MUSHROM_WORD_1", "BlackpinkIsland/animation/enemy/mushroom/mushrom_world_1/mushroom_run_%d.png", 0, 4, 0.05f, -1);
         break;
-    case Anim::FROG_JUMP:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/frog_jump/animation_frog_jump0.png",
-            "FROG_JUMP", "CaculateQuick/animation/frog_jump/animation_frog_jump%d.png", 0, 59, 0.05f, -1);
+    case Anim::DIAMOND:
+        sprite = HELPER_MANAGER->getAnimateSprite("BlackpinkIsland/animation/get_diamond/animation_get_dianond01.png",
+            "DIAMOND", "BlackpinkIsland/animation/get_diamond/animation_get_dianond0%d.png", 1, 7, 0.05f, -1);
         break;
-    case Anim::FROG_RELAX:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/frog_relax/animation_frog_relax0.png",
-            "FROG_RELAX", "CaculateQuick/animation/frog_relax/animation_frog_relax%d.png", 0, 19, 0.05f, -1);
+    case Anim::GET_NOTE:
+        sprite = HELPER_MANAGER->getAnimateSprite("BlackpinkIsland/animation/get_note/animation_get_note01.png",
+            "GET_NOTE", "BlackpinkIsland/animation/get_note/animation_get_note0%d.png", 0, 7, 0.05f, -1);
         break;
-    case Anim::SPARK:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/spark/animation_spark0.png",
-            "SPARK", "CaculateQuick/animation/spark/animation_spark%d.png", 0, 17, 0.05f, -1);
+    case Anim::KEY:
+        sprite = HELPER_MANAGER->getAnimateSprite("BlackpinkIsland/animation/key/aniamtion_key00.png",
+            "KEY", "BlackpinkIsland/animation/key/aniamtion_key0%d.png", 0, 11, 0.05f, -1);
         break;
-    case Anim::STAR:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/star/animtion_star0.png",
-            "STAR", "CaculateQuick/animation/star/animtion_star%d.png", 0, 15, 0.05f, -1);
-        break;
-    case Anim::WATER:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/water/animation_water0.png",
-            "WATER", "CaculateQuick/animation/water/animation_water%d.png", 0, 19, 0.05f, 1);
-        break;
-    case Anim::WIN:
-        sprite = HELPER_MANAGER->getAnimateSprite("CaculateQuick/animation/win/animation_win0.png",
-            "WIN", "CaculateQuick/animation/win/animation_win%d.png", 0, 29, 0.05f, -1);
+    case Anim::MUSIC:
+        sprite = HELPER_MANAGER->getAnimateSprite("BlackpinkIsland/animation/note/animation_note00.png",
+            "MUSIC", "BlackpinkIsland/animation/note/animation_note0%d.png", 0, 19, 0.05f, 1);
         break;
     default:
         break;

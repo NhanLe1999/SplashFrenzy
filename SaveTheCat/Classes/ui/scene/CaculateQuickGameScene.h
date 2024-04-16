@@ -22,9 +22,10 @@ using namespace cocos2d;
 #define KEY_SKILL_FROG "key_skill_frog"
 
 #define COLLISION_NV 10
-#define COLLISION_GO 11
-#define COLLISION_NAM 12
-#define COLLISION_GO_TRON 13
+#define COLLISION_TUONG 20
+#define COLLISION_ENEMY 12
+#define COLLISION_DIAMOND 13
+
 #define COLLISION_GO_DIC 14
 #define COLLISION_GO_MUC 15
 #define COLLISION_SEN 16    
@@ -39,13 +40,13 @@ using namespace cocos2d;
 
 
 enum class Anim {
-    COIN,
-    FROG_JUMP,
-    FROG_RELAX,
-    SPARK,
-    STAR,
-    WATER,
-    WIN,
+    DEFAULT,
+    NV_1,
+    MUSHROM_WORD_1,
+    DIAMOND,
+    GET_NOTE,
+    KEY,
+    MUSIC,
 };
 
 enum State
@@ -93,6 +94,10 @@ private:
     void SetDataCurrentLevel(int level_id);
     void RunAnimNv(Anim anim);
 
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+    void onContactSeparate(PhysicsContact& contact);
+    bool onContactPreSolve(PhysicsContact& contact, PhysicsContactPreSolve& solve);
+
     //////
   
 /// <summary>
@@ -105,7 +110,7 @@ private:
 /// 
     void RunActionCharator(Anim anim);
     void getGroupNameByPoint(std::string name, std::string pathSr, int collison);
-    Sprite* CreateObject(std::string path, Vec2 point, std::string nameSprite = "", int collison = 0);
+    Sprite* CreateObject(std::string path, Vec2 point, std::string nameSprite = "", int collison = 0, Anim anim = Anim::DEFAULT);
 
 
     void updateLabel(std::string labelName, std::string data);
@@ -181,8 +186,11 @@ private:
     float pointX = 0.0f;
     float _timer = 0.0f;
 
+    /// <summary>
+    /// 
+    /// </summary>
     TMXTiledMap* _tileMap = nullptr;
-
+    int _numJum = 0;
 
 };
 

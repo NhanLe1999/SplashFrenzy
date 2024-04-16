@@ -91,7 +91,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     SOUND_MANAGER->init();
     
-    PhysicsShapeCache::getInstance()->addShapesWithFile("physic.plist");
+    PhysicsShapeCache::getInstance()->addShapesWithFile("physic.xml.plist");
 
 
     for (int i = 0; i < 10; i++)

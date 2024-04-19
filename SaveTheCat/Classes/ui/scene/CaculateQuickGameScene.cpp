@@ -126,6 +126,7 @@ void CaculateQuickGameScene::didLoadFromCSB()
     getGroupNameByPoint("tuong_trai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_12.png", COLLISION_TUONG);
     getGroupNameByPoint("tuong_phai_thap","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_13.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_t_1","BlackpinkIsland/ground/ground_world_1/t_1.png", COLLISION_TUONG);
+    getGroupNameByPoint("obj_rotation","BlackpinkIsland/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("mushrom_world_1","", COLLISION_ENEMY);
     getGroupNameByPoint("kim_cuong","", COLLISION_DIAMOND);
 
@@ -171,6 +172,7 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
     }
 
     auto listValuOfGroup = group->getObjects();
+    int j = 0;
 
     for (int i = 0; i < listValuOfGroup.size(); i++)
     {
@@ -206,6 +208,15 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
         }
 
         sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
+        if (name == "obj_rotation")
+        {
+            auto moveCircular = CircularMove::create(2, sprite->getPosition(), j % 2 == 0 ? 100 : -100);
+            moveCircular->SetSpr(sprite);
+            moveCircular->SetSpeed();
+            auto ac = RepeatForever::create(moveCircular);
+            sprite->runAction(ac);
+            j++;
+        }
 
 
        // sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);

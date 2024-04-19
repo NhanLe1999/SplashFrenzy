@@ -1144,9 +1144,9 @@
                         <key>density</key>
                         <real>1</real>
                         <key>restitution</key>
-                        <real>0.20000000298023224</real>
+                        <real>0.2</real>
                         <key>friction</key>
-                        <real>0.699999988079071</real>
+                        <real>0.7</real>
                         <key>tag</key>
                         <integer>0</integer>
                         <key>group</key>
@@ -1163,10 +1163,84 @@
                         <key>circle</key>
                         <dict>
                             <key>radius</key>
-                            <real>93.057</real>
+                            <real>67.667</real>
                             <key>position</key>
                             <string>{ 0.000,0.250 }</string>
                         </dict>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>obj_rotation</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <true/>
+                <key>affected_by_gravity</key>
+                <true/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1e+06</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1e+06</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.20000000298023224</real>
+                        <key>friction</key>
+                        <real>0.699999988079071</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>4294967295</integer>
+                        <key>collision_mask</key>
+                        <integer>4294967295</integer>
+                        <key>contact_test_mask</key>
+                        <integer>4294967295</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 42.00000,-48.00000 }</string>
+                                <string>{ 37.00000,-50.00000 }</string>
+                                <string>{ -37.00000,-50.00000 }</string>
+                                <string>{ 37.00000,50.00000 }</string>
+                                <string>{ 42.00000,48.00000 }</string>
+                                <string>{ 50.00000,38.00000 }</string>
+                                <string>{ 50.00000,-37.00000 }</string>
+                                <string>{ 48.00000,-42.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -48.00000,-42.00000 }</string>
+                                <string>{ -50.00000,-37.00000 }</string>
+                                <string>{ -37.00000,50.00000 }</string>
+                                <string>{ 37.00000,50.00000 }</string>
+                                <string>{ -37.00000,-50.00000 }</string>
+                                <string>{ -42.00000,-48.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -37.00000,50.00000 }</string>
+                                <string>{ -50.00000,-37.00000 }</string>
+                                <string>{ -50.00000,38.00000 }</string>
+                                <string>{ -42.00000,48.00000 }</string>
+                            </array>
+                        </array>
                         
                     </dict>
 

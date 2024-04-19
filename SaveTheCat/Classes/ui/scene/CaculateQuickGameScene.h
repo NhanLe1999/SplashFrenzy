@@ -3,7 +3,7 @@
 #include "CaculateQuickCocostudioMacro.h"
 #include "spine/SkeletonAnimation.h"
 #include "LevelGamePlay.h"
-
+#include "CircularMove.h";
 
 
 using namespace spine;

@@ -25,8 +25,8 @@ using namespace cocos2d;
 #define COLLISION_TUONG 20
 #define COLLISION_ENEMY 12
 #define COLLISION_DIAMOND 13
+#define COLLISION_XUONG_RONG 14
 
-#define COLLISION_GO_DIC 14
 #define COLLISION_GO_MUC 15
 #define COLLISION_SEN 16    
 #define COLLISION_NC 17
@@ -112,6 +112,11 @@ private:
     void getGroupNameByPoint(std::string name, std::string pathSr, int collison);
     Sprite* CreateObject(std::string path, Vec2 point, std::string nameSprite = "", int collison = 0, Anim anim = Anim::DEFAULT);
 
+    void OnCollisionCharaterAndNam(Node* nam);
+    void OnCollisionCharaterAndDiamon(Node* diamon);
+    void OnCollisionCharaterAndXuongRong();
+    void OnGameOver();
+        
 
     void updateLabel(std::string labelName, std::string data);
 
@@ -191,6 +196,9 @@ private:
     /// </summary>
     TMXTiledMap* _tileMap = nullptr;
     int _numJum = 0;
+    bool _isRun = false;
+    Vec2 _currentVelocity = Vec2(0, 0);
+    int _indexJump = 0;
 
 };
 

@@ -48,7 +48,7 @@ Scene *CaculateQuickGameScene::createScene()
 
     if (scene)
     {
-     //  scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+       scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = CaculateQuickGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -129,9 +129,13 @@ void CaculateQuickGameScene::didLoadFromCSB()
     getGroupNameByPoint("obj_rotation","BlackpinkIsland/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("mushrom_world_1","", COLLISION_ENEMY);
     getGroupNameByPoint("kim_cuong","", COLLISION_DIAMOND);
+    getGroupNameByPoint("chia_khoa","", COLLISION_DIAMOND);
+    getGroupNameByPoint("xuong_rong_1","BlackpinkIsland/object/PTModelSprite_ID55205.png", COLLISION_XUONG_RONG);
+    getGroupNameByPoint("xuong_rong_doc","BlackpinkIsland/object/PTModelSprite_ID37838.png", COLLISION_XUONG_RONG);
 
   // getGroupNameByPoint("tuong_trai_thap_tam_giac","BlackpinkIsland/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
 
+   
 
 
     cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width, _screenSize.height));
@@ -207,6 +211,12 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
             isCollisonBismask = false;
         }
 
+        if (name == "chia_khoa")
+        {
+            ani = Anim::KEY;
+            isCollisonBismask = false;
+        }
+
         sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
         if (name == "obj_rotation")
         {
@@ -218,6 +228,29 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
             j++;
         }
 
+        if (name == "mushrom_world_1")
+        {
+            int s = cocos2d::random(50, 200);
+            sprite->setTag(s);
+            sprite->setPositionY(sprite->getPositionY() - 10);
+            float time = cocos2d::rand_0_1() *(float)cocos2d::random(1, 5);
+            sprite->scheduleOnce([sprite](float dt) {
+                sprite->schedule([sprite](float  dt) {
+
+                    auto tag = sprite->getTag();
+
+                    sprite->getPhysicsBody()->setVelocity(Vec2(sprite->getTag(), 0));
+                    sprite->setTag(-sprite->getTag());
+                    sprite->setScaleX(-sprite->getScaleX());
+
+                    }, 1.55f, "delay_mushRom_run");
+                }, time, "delay_mushRom_run_scheduleOnce");
+
+            sprite->getPhysicsBody()->setContactTestBitmask(true);
+
+        }
+
+
 
        // sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, 23);
 
@@ -227,6 +260,27 @@ void CaculateQuickGameScene::getGroupNameByPoint(std::string name, std::string p
         }
 
 
+        if (name == "xuong_rong_1")
+        {
+            sprite->setScale(0.8f);
+            sprite->setPosition(sprite->getPosition() + Vec2(20, 0));
+        }
+
+        if (name == "xuong_rong_doc")
+        {
+            auto point1 = this->convertToWorldSpaceAR(sprite->getPosition());
+
+            sprite->schedule([=](float dt) {
+
+                auto point2 = this->convertToWorldSpaceAR(_character->getPosition());
+                if (std::abs(point1.x - point2.x)<= 10.0f)
+                {
+                    sprite->getPhysicsBody()->setDynamic(true);
+                }
+
+                }, "check_point");
+
+        }
 
         if (sprite == nullptr) {
             continue;
@@ -442,6 +496,12 @@ void CaculateQuickGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event*
     }
 }
 
+void CaculateQuickGameScene::OnGameOver()
+{
+
+}
+
+
 void CaculateQuickGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 {
     switch (keyCode)
@@ -453,10 +513,12 @@ void CaculateQuickGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event
         CCLOG("Down arrow key is released.");
         break;
     case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        _character->unschedule("check_run_charater");
         CCLOG("Left arrow key is released.");
         break;
     case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
         CCLOG("Right arrow key is released.");
+        _character->unschedule("check_run_charater");
         break;
     default:
         break;
@@ -494,8 +556,63 @@ bool CaculateQuickGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
     if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
     {
         _numJum = 0;
+        _isRun = false;
+        _character->unschedule("delay_down");
     }
-
+    else if ((COLLISION_NV == aCollision && COLLISION_ENEMY == bCollision) || (COLLISION_NV == bCollision && COLLISION_ENEMY == aCollision))
+    {
+        if (COLLISION_ENEMY == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndNam(parent);
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndNam(parent);
+            }
+        }
+    }
+    else if ((COLLISION_NV == aCollision && COLLISION_DIAMOND == bCollision) || (COLLISION_NV == bCollision && COLLISION_DIAMOND == aCollision))
+    {
+        if (COLLISION_DIAMOND == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndNam(parent);
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndNam(parent);
+            }
+        }
+    }
+    else if ((COLLISION_NV == aCollision && COLLISION_XUONG_RONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_XUONG_RONG == aCollision))
+    {
+        if (COLLISION_XUONG_RONG == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndXuongRong();
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndXuongRong();
+            }
+        }
+    }
     return true;
 }
 
@@ -513,7 +630,12 @@ void CaculateQuickGameScene::onContactSeparate(PhysicsContact& contact)
 
     if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
     {
-        _numJum = 0;
+        _character->scheduleOnce([=](float dt) {
+          /*  if (_numJum)
+            {
+                _character->getPhysicsBody()->setVelocity(Vec2(0, -2));
+            }*/
+        }, 0.01f, "delay_down");
         /*if (COLLISION_GO_TRON == aCollision)
         {
             auto parent = a->getOwner();
@@ -545,16 +667,32 @@ bool CaculateQuickGameScene::onContactPreSolve(PhysicsContact& contact, PhysicsC
     int aCollision = a->getCollisionBitmask();
     int bCollision = b->getCollisionBitmask();
 
-    if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision))
-    {
-
-    }
-
     if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
     {
         _numJum = 0;
     }
     return true;
+}
+
+void CaculateQuickGameScene::OnCollisionCharaterAndNam(Node* nam)
+{
+    nam->scheduleOnce([=](float dt) {
+        nam->removeFromParent();
+        }, 0.005f, "OnCollisionCharaterAndNam");
+}
+
+void CaculateQuickGameScene::OnCollisionCharaterAndDiamon(Node* diamon)
+{
+    diamon->scheduleOnce([=](float d) {
+        diamon->removeFromParent();
+        }, 0.005f, "OnCollisionCharaterAndNam");
+}
+
+void CaculateQuickGameScene::OnCollisionCharaterAndXuongRong()
+{
+    _character->scheduleOnce([=](float d) {
+        OnGameOver();
+        }, 0.005f, "OnCollisionCharaterAndNam");
 }
 
 void CaculateQuickGameScene::onShopButtonClicked(cocos2d::Ref* sender)

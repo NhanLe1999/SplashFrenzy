@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="16" nextobjectid="77">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="19" nextobjectid="101">
  <tileset firstgid="1" source="img_map.tsx"/>
  <layer id="2" name="Tile Layer 1" width="100" height="18">
   <data encoding="csv">
@@ -64,7 +64,6 @@
   <object id="33" gid="25" x="1550" y="800" width="50" height="50"/>
   <object id="34" gid="25" x="1500" y="800" width="50" height="50"/>
   <object id="35" gid="25" x="1600" y="800" width="50" height="50"/>
-  <object id="41" gid="23" x="1650" y="800" width="50" height="50"/>
   <object id="44" gid="25" x="1850" y="800" width="50" height="50"/>
   <object id="45" gid="25" x="1900" y="800" width="50" height="50"/>
   <object id="46" gid="25" x="1950" y="800" width="50" height="50"/>
@@ -79,7 +78,38 @@
  <objectgroup id="9" name="tuong_phai_thap">
   <object id="43" gid="45" x="1800" y="800" width="50" height="50"/>
  </objectgroup>
- <objectgroup id="11" name="tuong_trai_thap"/>
+ <objectgroup id="11" name="tuong_trai_thap">
+  <object id="77" gid="23" x="1650" y="800" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="16" name="xuong_rong_1">
+  <object id="78" gid="83" x="2300" y="800" width="50" height="50"/>
+  <object id="79" gid="83" x="2350" y="800" width="50" height="50"/>
+  <object id="80" gid="83" x="2400" y="800" width="50" height="50"/>
+  <object id="81" gid="83" x="2450" y="800" width="50" height="50"/>
+  <object id="82" gid="83" x="2500" y="800" width="50" height="50"/>
+  <object id="83" gid="83" x="2300" y="850" width="50" height="50"/>
+  <object id="84" gid="83" x="2350" y="850" width="50" height="50"/>
+  <object id="85" gid="83" x="2400" y="850" width="50" height="50"/>
+  <object id="86" gid="83" x="2500" y="850" width="50" height="50"/>
+  <object id="87" gid="83" x="2450" y="850" width="50" height="50"/>
+  <object id="88" gid="83" x="2300" y="900" width="50" height="50"/>
+  <object id="89" gid="83" x="2350" y="900" width="50" height="50"/>
+  <object id="90" gid="83" x="2400" y="850" width="50" height="50"/>
+  <object id="91" gid="83" x="2400" y="900" width="50" height="50"/>
+  <object id="92" gid="83" x="2450" y="900" width="50" height="50"/>
+  <object id="93" gid="83" x="2500" y="900" width="50" height="50"/>
+  <object id="94" gid="83" x="2550" y="800" width="50" height="50"/>
+  <object id="95" gid="83" x="2550" y="850" width="50" height="50"/>
+  <object id="96" gid="83" x="2550" y="900" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="17" name="xuong_rong_doc">
+  <object id="97" gid="95" x="750" y="200" width="50" height="50"/>
+  <object id="98" gid="95" x="850" y="200" width="50" height="50"/>
+  <object id="99" gid="95" x="950" y="200" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="18" name="chia_khoa">
+  <object id="100" gid="87" x="750" y="550" width="50" height="50"/>
+ </objectgroup>
  <objectgroup id="6" name="tuong_trai_cao_tam_giac">
   <object id="38" gid="3" x="1700" y="750" width="50" height="50"/>
  </objectgroup>

@@ -84,12 +84,13 @@ void SFGameScene::didLoadFromCSB()
     _screenSize = Director::getInstance()->getVisibleSize();
     UserDefault::getInstance()->setBoolForKey("key_is_play_anim_swip", false);
 
-    SetDataAnimForCharater();
-
     if (auto txtLv = utils::findChild<ui::Text*>(this, "txt_level"))
     {
         txtLv->setString(std::to_string(_currentLevelID));
     }
+
+    _currentIdCharater = UserDefault::getInstance()->getIntegerForKey("CharacterActive", 1);
+    SetDataAnimForCharater();
 
     auto pointX = 0;
 
@@ -114,7 +115,7 @@ void SFGameScene::didLoadFromCSB()
 
     _character = Sprite::create(GetCurrentAnimCharater()._pathSpr);
     _character->setPosition(Vec2(_screenSize / 2));
-    _tileMap->addChild(_character);
+    _tileMap->addChild(_character, INT_MAX);
     RunActionCharator(Anim::NV_1);
     _character->setName("Nv");
 
@@ -192,11 +193,11 @@ void SFGameScene::didLoadFromCSB()
 
     _physicSceneWorld->setGravity(Vec2(0, -980));
 
-    cocos2d::Follow* followAction1 = cocos2d::Follow::create(this);
+   /* cocos2d::Follow* followAction1 = cocos2d::Follow::create(this);
      root_layout->runAction(followAction1);
 
     cocos2d::Follow* followAction2 = cocos2d::Follow::create(this);
-    root_game_play->runAction(followAction2);
+    root_game_play->runAction(followAction2);*/
 
 
     if (auto btn_left = utils::findChild<Button*>(this, "btn_left"))
@@ -533,7 +534,6 @@ Sprite* SFGameScene::CreateObject(std::string path, Vec2 point, std::string name
 
 void SFGameScene::SetDataAnimForCharater()
 {
-    _currentIdCharater = 9;
     switch (_currentIdCharater)
     {
     case 1:
@@ -668,7 +668,7 @@ void SFGameScene::RunActionCharator(Anim anim)
     CCLOG("DMMMMMMM");
 
     Animate* anim1 = HELPER_MANAGER->getAnimate(data._pathSpr,
-        data._nameAnim, data._pahtAnim.c_str(), data._numStart, data._numnEnd, 0.1f, data._loop);;
+        data._nameAnim, data._pahtAnim.c_str(), data._numStart, data._numnEnd, 0.1f, data._loop, data._state == StatusNV::RUN);;
 
     _NewStatusNv = _currentStatusNv;
     
@@ -711,6 +711,7 @@ void SFGameScene::updateScore(int scoreAdd)
 {
     HELPER_MANAGER->AddNumberCoin(scoreAdd, false);
     _score += scoreAdd;
+    _currentCoin += scoreAdd;
     updateLabel("txt_score", std::to_string(_score));
 }
 
@@ -718,6 +719,7 @@ void SFGameScene::updateDiamond(int scoreAdd)
 {
     HELPER_MANAGER->AddNumberCoin(scoreAdd, true);
     _Diamond += scoreAdd;
+    _currentGem += scoreAdd;
     updateLabel("txt_diamond", std::to_string(_Diamond));
 }
 
@@ -1144,7 +1146,7 @@ void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 {
     this->onGamePause();
     SOUND_MANAGER->playClickEffect();
-    auto view = BPEndLayer::create(false, _Diamond, _score);
+    auto view = BPEndLayer::create(false, _currentGem, _currentCoin);
    
     view->setCallback([this]() {
         onGameResume();
@@ -1179,7 +1181,7 @@ void SFGameScene::gameOver(int score)
             lvl->removeFromParent();
         }
 
-        auto view = BPEndLayer::create(true,100,100);
+        auto view = BPEndLayer::create(true, _currentGem, _currentCoin);
         /*view->updateHighScore({ _scroreAdd, _currentLevelID });
         view->OnShowNumStar(0);*/
 

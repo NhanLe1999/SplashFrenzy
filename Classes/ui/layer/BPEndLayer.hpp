@@ -42,4 +42,6 @@ private:
     int _lv = 1;
     std::function<void()> _callback;
     cocos2d::Sprite* _background;
+    int _currentGem = 0;
+    int _currentScore = 0;
 };

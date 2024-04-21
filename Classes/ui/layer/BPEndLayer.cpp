@@ -20,6 +20,8 @@ bool BPEndLayer::init(bool isOver, int gem, int music){
         return false;
     }
     SOUND_MANAGER->playLoseEffect();
+    _currentGem = gem;
+    _currentScore = music;
 
     _lv = BPGameManager::GetInstance()->_currentLv;
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -50,8 +52,7 @@ void BPEndLayer::initLabel() {
     bgMusic->addChild(headMusic);
     headMusic->setAnchorPoint(Vec2(0, 0.5));
     headMusic->setPosition(Vec2(0, bgMusic->getContentSize().height / 2));
-    int coin = UserDefault::getInstance()->getIntegerForKey("UserMusic", 0);
-    auto _numberMusic = Label::createWithTTF(std::to_string(coin), "fonts/Baloo2-Bold.ttf", 50);
+    auto _numberMusic = Label::createWithTTF(std::to_string(_currentScore), "fonts/Baloo2-Bold.ttf", 50);
     _numberMusic->setPosition(Vec2(197, bgMusic->getContentSize().height / 2));
 
     bgMusic->addChild(_numberMusic);
@@ -65,8 +66,7 @@ void BPEndLayer::initLabel() {
     bgCoin->addChild(headCoin);
     headCoin->setAnchorPoint(Vec2(0, 0.5));
     headCoin->setPosition(Vec2(0, bgCoin->getContentSize().height / 2));
-    coin = UserDefault::getInstance()->getIntegerForKey("UserCoin", 0);
-    auto _numberCoin = Label::createWithTTF(std::to_string(coin), "fonts/Baloo2-Bold.ttf", 50);
+    auto _numberCoin = Label::createWithTTF(std::to_string(_currentGem), "fonts/Baloo2-Bold.ttf", 50);
     _numberCoin->setPosition(Vec2(197, bgMusic->getContentSize().height / 2));
     bgCoin->addChild(_numberCoin);
 }

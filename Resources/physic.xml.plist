@@ -1150,7 +1150,7 @@
                         <key>collision_mask</key>
                         <integer>4294967295</integer>
                         <key>contact_test_mask</key>
-                        <integer>0</integer>
+                        <integer>4294967295</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         

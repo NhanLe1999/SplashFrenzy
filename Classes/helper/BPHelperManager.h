@@ -58,8 +58,8 @@ public:
     void removeAllChildByTag(Node* parent, int tag);
     void runSacleEffect(Node* parent);
 
-    Animate* getAnimate(std::string pathSrpite, std::string nameAnim, const char* prefixName, int start, int end, float delay, int loop);
-    cocos2d::Animation* createAnimation(const char* prefixName, int start, int end, float delay, int loop = -1);
+    Animate* getAnimate(std::string pathSrpite, std::string nameAnim, const char* prefixName, int start, int end, float delay, int loop, bool isUp = true);
+    cocos2d::Animation* createAnimation(const char* prefixName, int start, int end, float delay, int loop = -1, bool isUp = true);
     Sprite* getAnimateSprite(std::string pathSrpite, std::string nameAnim, const char* prefixName, int start, int end, float delay, int loop);
 
     int GetTotalNumberCoin(bool isDiamond);

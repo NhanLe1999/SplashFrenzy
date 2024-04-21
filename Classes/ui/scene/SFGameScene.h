@@ -218,6 +218,9 @@ private:
 
     std::vector<DataPathAnim> _dataAnimCharater;
 
+    int _currentCoin = 0;
+    int _currentGem = 0;
+
 };
 
 CREATE_READER(SFGameScene);

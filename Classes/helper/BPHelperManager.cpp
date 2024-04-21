@@ -347,11 +347,11 @@ void BPHelperManager::removeAllChildByTag(Node* parent, int tag) {
     }
 }
 
-Animate* BPHelperManager::getAnimate(std::string pathSrpite, std::string nameAnim, const char* prefixName, int start, int end, float delay, int loop)\
+Animate* BPHelperManager::getAnimate(std::string pathSrpite, std::string nameAnim, const char* prefixName, int start, int end, float delay, int loop, bool isUp)\
 {
     auto animation = AnimationCache::getInstance()->getAnimation(nameAnim);
     if (animation == nullptr) {
-        animation = BPHelperManager::GetInstance()->createAnimation(prefixName, start, end, delay, loop);
+        animation = BPHelperManager::GetInstance()->createAnimation(prefixName, start, end, delay, loop, isUp);
         AnimationCache::getInstance()->addAnimation(animation, nameAnim);
     }
     Animate* animate = Animate::create(animation);
@@ -371,25 +371,45 @@ Sprite* BPHelperManager::getAnimateSprite(std::string pathSrpite, std::string na
     return sprite;
 }
 
-Animation* BPHelperManager::createAnimation(const char* prefixName, int start, int end, float delay, int loop)
+Animation* BPHelperManager::createAnimation(const char* prefixName, int start, int end, float delay, int loop, bool isUp)
 {
     Vector<SpriteFrame*> animFrames;
-
-    for (int i = start; i <= end; i++)
+    if (isUp)
     {
-        auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat(prefixName, i)->getCString());
+        for (int i = start; i <= end; i++)
+        {
+            auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat(prefixName, i)->getCString());
 
-        if (frame != nullptr) {
-            animFrames.pushBack(frame);
-        }
-        else {
-            auto sprite = Sprite::create(String::createWithFormat(prefixName, i)->getCString());
-            if (sprite == nullptr) {
-                sprite = Sprite::createWithSpriteFrameName(String::createWithFormat(prefixName, i)->getCString());
+            if (frame != nullptr) {
+                animFrames.pushBack(frame);
             }
-            animFrames.pushBack(sprite->getSpriteFrame());
+            else {
+                auto sprite = Sprite::create(String::createWithFormat(prefixName, i)->getCString());
+                if (sprite == nullptr) {
+                    sprite = Sprite::createWithSpriteFrameName(String::createWithFormat(prefixName, i)->getCString());
+                }
+                animFrames.pushBack(sprite->getSpriteFrame());
+            }
         }
     }
+    else {
+        for (int i = end; i >= start; i--)
+        {
+            auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat(prefixName, i)->getCString());
+
+            if (frame != nullptr) {
+                animFrames.pushBack(frame);
+            }
+            else {
+                auto sprite = Sprite::create(String::createWithFormat(prefixName, i)->getCString());
+                if (sprite == nullptr) {
+                    sprite = Sprite::createWithSpriteFrameName(String::createWithFormat(prefixName, i)->getCString());
+                }
+                animFrames.pushBack(sprite->getSpriteFrame());
+            }
+        }
+    }
+    
 
     auto resultAni = Animation::createWithSpriteFrames(animFrames, delay);
 

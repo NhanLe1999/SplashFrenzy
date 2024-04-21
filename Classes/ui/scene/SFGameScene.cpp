@@ -540,8 +540,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = { 
             {"RUN_1", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58595.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58595,58602, -1},
-            {"JUMP_1", StatusNV::JUMP, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58592.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58592,58594, 0},
-            {"RELEAX_1", StatusNV::RELEAX, "res/BlackPink/character/PTModelSprite_ID58592.png", "res/BlackPink/character/PTModelSprite_ID%d.png", 58592,58595, -1},
+            {"JUMP_1", StatusNV::JUMP, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58593.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58593,58594, 0},
+            {"RELEAX_1", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58592.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58592,58595, -1},
             {"DIE_1", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58595.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58595,58596, 0}
 
         };
@@ -552,7 +552,7 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_2", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58668.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58668,58674, -1},
-            {"JUMP_2", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62580.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62580,62582, 0},
+            {"JUMP_2", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62581.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62581,62582, 0},
             {"RELEAX_2", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58659.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58659,58662, -1},
             {"DIE_2", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58659.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58659,58660, 0}
         

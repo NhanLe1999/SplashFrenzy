@@ -27,7 +27,6 @@ cmake_minimum_required(VERSION 3.6)
 
 
 
-
 set(APP_NAME NinjaRun)
 
 project(${APP_NAME})

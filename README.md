@@ -1,1 +1,1 @@
-# SplashFrenzy
+# CosmicChroma

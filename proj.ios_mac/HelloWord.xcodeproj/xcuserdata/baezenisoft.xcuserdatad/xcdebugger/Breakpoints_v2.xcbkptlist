@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5CF8604E-6707-4C9E-B41C-C66A8668B010"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F41C685-5D37-4D25-9126-DEA1315DA65A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Entity/DbEntity.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "DbEntity::init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DADACED-0C16-448B-848C-275EA5B6A34F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/layer/SRChooseLvLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "SRChooseLvLayer::loadLvConfig()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9A2707A-5A53-4516-BECB-4E6AA7778CA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/layer/SRChooseLvLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "SRChooseLvLayer::loadLvConfig()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB252C34-6CF8-43AE-B867-6ACE80243386"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/layer/SRChooseLvLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "SRChooseLvLayer::initButtonLv()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C478CA5B-6CC7-4B99-A716-BB4AEAFDF099"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/layer/SRChooseLvLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "SRChooseLvLayer::initButtonLv()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F982A5E3-6BA1-4A95-8214-D87CDA047AEB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/layer/FTSChooseLvLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "FTSChooseLvLayer::clickButtonLvEvent(sender)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F982A5E3-6BA1-4A95-8214-D87CDA047AEB - e680dafee3a95ffc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FTSChooseLvLayer::clickButtonLvEvent(cocos2d::Ref*)"
+                  moduleName = "HelloWord-mobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baezenisoft/Documents/GitHub/FillTruckSlot/Classes/ui/layer/FTSChooseLvLayer.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "F982A5E3-6BA1-4A95-8214-D87CDA047AEB - e680dafee3a95fdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FTSChooseLvLayer::clickButtonLvEvent(cocos2d::Ref*)"
+                  moduleName = "HelloWord-mobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baezenisoft/Documents/GitHub/FillTruckSlot/Classes/ui/layer/FTSChooseLvLayer.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "F982A5E3-6BA1-4A95-8214-D87CDA047AEB - e680dafee3a95fdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FTSChooseLvLayer::clickButtonLvEvent(cocos2d::Ref*)"
+                  moduleName = "HelloWord-mobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baezenisoft/Documents/GitHub/FillTruckSlot/Classes/ui/layer/FTSChooseLvLayer.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95382657-924D-4279-AF33-662CB2050766"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/helper/SoundManager.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "SoundManager::playTapEffect()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "95382657-924D-4279-AF33-662CB2050766 - a73239c2c0f3c7b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SoundManager::playMainMenuMusic(bool)"
+                  moduleName = "HelloWord-mobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baezenisoft/Documents/GitHub/FillTruckSlot/Classes/helper/SoundManager.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "95382657-924D-4279-AF33-662CB2050766 - c07adc6b2ba6d66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SoundManager::playTapEffect()"
+                  moduleName = "HelloWord-mobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baezenisoft/Documents/GitHub/FillTruckSlot/Classes/helper/SoundManager.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8E8C1CB-7C65-4006-93C4-02A66C4F8C35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ui/scene/SFGameScene.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "SFGameScene::initMap()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

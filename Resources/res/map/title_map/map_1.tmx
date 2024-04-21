@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="22" nextobjectid="168">
+ <tileset firstgid="1" source="img_map.tsx"/>
+ <layer id="2" name="Tile Layer 1" width="100" height="18">
+  <data encoding="csv">
+82,82,82,82,82,82,82,82,82,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,82,82,82,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,0,82,82,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,82,0,82,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,82,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,82,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,0,0,0,82,82,0,0,0,0,0,0,0,0,82,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,0,0,0,0,0,0,0,82,82,0,82,0,0,82,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+0,0,82,82,0,0,0,0,0,0,82,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+0,0,0,0,0,0,0,82,82,82,82,82,82,0,0,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,93,93,0,74,74,74,74,74,74,74,74,74,74,74,74,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9
+</data>
+ </layer>
+ <objectgroup id="14" name="kim_cuong">
+  <object id="62" gid="69" x="800" y="650" width="50" height="50"/>
+  <object id="63" gid="69" x="700" y="650" width="50" height="50"/>
+  <object id="64" gid="69" x="1050" y="650" width="50" height="50"/>
+  <object id="66" gid="69" x="750" y="650" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="12" name="obj_t_1">
+  <object id="166" gid="65" x="1200" y="550" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="21" name="go"/>
+ <objectgroup id="20" name="obj_tuong_move_up">
+  <object id="164" gid="65" x="950" y="850" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="3" name="tuong">
+  <object id="5" gid="25" x="0" y="800" width="50" height="50"/>
+  <object id="6" gid="25" x="50" y="800" width="50" height="50"/>
+  <object id="7" gid="25" x="100" y="800" width="50" height="50"/>
+  <object id="8" gid="25" x="150" y="800" width="50" height="50"/>
+  <object id="9" gid="25" x="200" y="800" width="50" height="50"/>
+  <object id="10" gid="25" x="250" y="800" width="50" height="50"/>
+  <object id="11" gid="25" x="300" y="800" width="50" height="50"/>
+  <object id="12" gid="25" x="350" y="800" width="50" height="50"/>
+  <object id="13" gid="25" x="400" y="800" width="50" height="50"/>
+  <object id="14" gid="25" x="450" y="800" width="50" height="50"/>
+  <object id="15" gid="25" x="500" y="800" width="50" height="50"/>
+  <object id="16" gid="25" x="550" y="800" width="50" height="50"/>
+  <object id="17" gid="25" x="600" y="800" width="50" height="50"/>
+  <object id="18" gid="25" x="650" y="800" width="50" height="50"/>
+  <object id="19" gid="25" x="700" y="800" width="50" height="50"/>
+  <object id="20" gid="25" x="750" y="800" width="50" height="50"/>
+  <object id="21" gid="25" x="800" y="800" width="50" height="50"/>
+  <object id="22" gid="25" x="850" y="800" width="50" height="50"/>
+  <object id="23" gid="72" x="1044.7" y="794.697" width="50" height="50"/>
+  <object id="24" gid="25" x="1050" y="800" width="50" height="50"/>
+  <object id="25" gid="25" x="1100" y="800" width="50" height="50"/>
+  <object id="26" gid="25" x="1250" y="800" width="50" height="50"/>
+  <object id="27" gid="25" x="1150" y="800" width="50" height="50"/>
+  <object id="28" gid="25" x="1200" y="800" width="50" height="50"/>
+  <object id="29" gid="25" x="1300" y="800" width="50" height="50"/>
+  <object id="30" gid="25" x="1400" y="800" width="50" height="50"/>
+  <object id="31" gid="25" x="1350" y="800" width="50" height="50"/>
+  <object id="32" gid="25" x="1450" y="800" width="50" height="50"/>
+  <object id="33" gid="25" x="1550" y="800" width="50" height="50"/>
+  <object id="34" gid="25" x="1500" y="800" width="50" height="50"/>
+  <object id="35" gid="25" x="1600" y="800" width="50" height="50"/>
+  <object id="44" gid="25" x="1850" y="800" width="50" height="50"/>
+  <object id="45" gid="25" x="1900" y="800" width="50" height="50"/>
+  <object id="46" gid="25" x="1950" y="800" width="50" height="50"/>
+  <object id="47" gid="25" x="2000" y="800" width="50" height="50"/>
+  <object id="48" gid="25" x="2050" y="800" width="50" height="50"/>
+  <object id="49" gid="25" x="2100" y="800" width="50" height="50"/>
+  <object id="50" gid="25" x="2150" y="800" width="50" height="50"/>
+  <object id="51" gid="25" x="2250" y="800" width="50" height="50"/>
+  <object id="52" gid="25" x="2200" y="800" width="50" height="50"/>
+  <object id="53" gid="85" x="2311" y="1126.33" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="9" name="tuong_phai_thap">
+  <object id="43" gid="45" x="1800" y="800" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="11" name="tuong_trai_thap">
+  <object id="77" gid="23" x="1650" y="800" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="16" name="xuong_rong_1">
+  <object id="78" gid="83" x="2300" y="800" width="50" height="50"/>
+  <object id="79" gid="83" x="2350" y="800" width="50" height="50"/>
+  <object id="80" gid="83" x="2400" y="800" width="50" height="50"/>
+  <object id="81" gid="83" x="2450" y="800" width="50" height="50"/>
+  <object id="82" gid="83" x="2500" y="800" width="50" height="50"/>
+  <object id="83" gid="83" x="2300" y="850" width="50" height="50"/>
+  <object id="84" gid="83" x="2350" y="850" width="50" height="50"/>
+  <object id="85" gid="83" x="2400" y="850" width="50" height="50"/>
+  <object id="86" gid="83" x="2500" y="850" width="50" height="50"/>
+  <object id="87" gid="83" x="2450" y="850" width="50" height="50"/>
+  <object id="88" gid="83" x="2300" y="900" width="50" height="50"/>
+  <object id="89" gid="83" x="2350" y="900" width="50" height="50"/>
+  <object id="90" gid="83" x="2400" y="850" width="50" height="50"/>
+  <object id="91" gid="83" x="2400" y="900" width="50" height="50"/>
+  <object id="92" gid="83" x="2450" y="900" width="50" height="50"/>
+  <object id="93" gid="83" x="2500" y="900" width="50" height="50"/>
+  <object id="94" gid="83" x="2550" y="800" width="50" height="50"/>
+  <object id="95" gid="83" x="2550" y="850" width="50" height="50"/>
+  <object id="96" gid="83" x="2550" y="900" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="17" name="xuong_rong_doc">
+  <object id="97" gid="95" x="750" y="200" width="50" height="50"/>
+  <object id="98" gid="95" x="850" y="200" width="50" height="50"/>
+  <object id="99" gid="95" x="950" y="200" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="18" name="chia_khoa">
+  <object id="100" gid="87" x="750" y="550" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="6" name="tuong_trai_cao_tam_giac">
+  <object id="38" gid="3" x="1700" y="750" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="7" name="tuong_trai_thap_tam_giac">
+  <object id="37" gid="1" x="1650" y="750" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="8" name="tuong_phai_thap_tam_giac">
+  <object id="40" gid="7" x="1800" y="750" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="13" name="mushrom_world_1">
+  <object id="59" gid="67" x="1350" y="750" width="50" height="50"/>
+  <object id="60" gid="67" x="1150" y="750" width="50" height="50"/>
+  <object id="61" gid="67" x="800" y="750" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="4" name="tuong_phai_cao_tam_giac">
+  <object id="39" gid="5" x="1750" y="750" width="50" height="50"/>
+ </objectgroup>
+ <objectgroup id="19" name="tuong_khoa">
+  <object id="101" gid="9" x="1450" y="400" width="50" height="50"/>
+  <object id="102" gid="9" x="1450" y="450" width="50" height="50"/>
+  <object id="103" gid="9" x="1450" y="500" width="50" height="50"/>
+  <object id="104" gid="9" x="1450" y="600" width="50" height="50"/>
+  <object id="105" gid="9" x="1450" y="550" width="50" height="50"/>
+  <object id="106" gid="9" x="1450" y="200" width="50" height="50"/>
+  <object id="107" gid="9" x="1450" y="50" width="50" height="50"/>
+  <object id="108" gid="9" x="1450" y="100" width="50" height="50"/>
+  <object id="109" gid="9" x="1450" y="250" width="50" height="50"/>
+  <object id="110" gid="9" x="1450" y="150" width="50" height="50"/>
+  <object id="111" gid="9" x="1450" y="300" width="50" height="50"/>
+  <object id="112" gid="9" x="1450" y="350" width="50" height="50"/>
+  <object id="113" gid="9" x="1450" y="650" width="50" height="50"/>
+  <object id="114" gid="9" x="1450" y="700" width="50" height="50"/>
+  <object id="115" gid="9" x="1450" y="750" width="50" height="50"/>
+  <object id="116" gid="9" x="1500" y="750" width="50" height="50"/>
+  <object id="117" gid="9" x="1500" y="150" width="50" height="50"/>
+  <object id="118" gid="9" x="1500" y="50" width="50" height="50"/>
+  <object id="119" gid="9" x="1500" y="100" width="50" height="50"/>
+  <object id="120" gid="9" x="1500" y="200" width="50" height="50"/>
+  <object id="121" gid="9" x="1500" y="300" width="50" height="50"/>
+  <object id="122" gid="9" x="1500" y="250" width="50" height="50"/>
+  <object id="123" gid="9" x="1500" y="350" width="50" height="50"/>
+  <object id="124" gid="9" x="1500" y="400" width="50" height="50"/>
+  <object id="125" gid="9" x="1500" y="500" width="50" height="50"/>
+  <object id="126" gid="9" x="1500" y="450" width="50" height="50"/>
+  <object id="127" gid="9" x="1500" y="550" width="50" height="50"/>
+  <object id="128" gid="9" x="1500" y="600" width="50" height="50"/>
+  <object id="129" gid="9" x="1500" y="700" width="50" height="50"/>
+  <object id="130" gid="9" x="1500" y="650" width="50" height="50"/>
+  <object id="131" gid="9" x="1550" y="50" width="50" height="50"/>
+  <object id="132" gid="9" x="1550" y="100" width="50" height="50"/>
+  <object id="133" gid="9" x="1550" y="150" width="50" height="50"/>
+  <object id="134" gid="9" x="1550" y="250" width="50" height="50"/>
+  <object id="135" gid="9" x="1550" y="200" width="50" height="50"/>
+  <object id="136" gid="9" x="1550" y="350" width="50" height="50"/>
+  <object id="137" gid="9" x="1550" y="300" width="50" height="50"/>
+  <object id="138" gid="9" x="1550" y="450" width="50" height="50"/>
+  <object id="139" gid="9" x="1550" y="400" width="50" height="50"/>
+  <object id="140" gid="9" x="1550" y="500" width="50" height="50"/>
+  <object id="141" gid="9" x="1550" y="550" width="50" height="50"/>
+  <object id="142" gid="9" x="1550" y="650" width="50" height="50"/>
+  <object id="143" gid="9" x="1550" y="600" width="50" height="50"/>
+  <object id="144" gid="9" x="1550" y="700" width="50" height="50"/>
+  <object id="145" gid="9" x="1550" y="750" width="50" height="50"/>
+  <object id="146" gid="9" x="1600" y="50" width="50" height="50"/>
+  <object id="147" gid="9" x="1600" y="100" width="50" height="50"/>
+  <object id="148" gid="9" x="1600" y="150" width="50" height="50"/>
+  <object id="149" gid="9" x="1600" y="200" width="50" height="50"/>
+  <object id="150" gid="9" x="1600" y="250" width="50" height="50"/>
+  <object id="151" gid="9" x="1650" y="300" width="50" height="50"/>
+  <object id="152" gid="9" x="1600" y="300" width="50" height="50"/>
+  <object id="153" gid="9" x="1600" y="350" width="50" height="50"/>
+  <object id="154" gid="9" x="1600" y="400" width="50" height="50"/>
+  <object id="155" gid="9" x="1600" y="450" width="50" height="50"/>
+  <object id="156" gid="9" x="1600" y="550" width="50" height="50"/>
+  <object id="157" gid="9" x="1600" y="500" width="50" height="50"/>
+  <object id="158" gid="9" x="1600" y="600" width="50" height="50"/>
+  <object id="159" gid="9" x="1600" y="650" width="50" height="50"/>
+  <object id="160" gid="9" x="1600" y="700" width="50" height="50"/>
+  <object id="161" gid="9" x="1600" y="750" width="50" height="50"/>
+ </objectgroup>
+</map>

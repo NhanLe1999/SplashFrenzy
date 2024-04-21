@@ -3,136 +3,1896 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "SaveTheCat/Resources/map/title_map/m_1.tmx",
-    "automapping.whileDrawing": true,
+    "activeFile": "Resources/res/SplashFrenzy/map/title_map/map_20.tmx",
     "expandedProjectPaths": [
+        "."
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
-        "D:/project/Os/StepRushdie/StepRushdie/Resources/tilemap/level_1.tmx": {
-            "scale": 0.187625,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 2003.9973351099268,
-                "y": 644.9033977348433
-            }
-        },
-        "SaveTheCat/Resources/map/title_map/dr_background_water.tsx": {
-            "scaleInDock": 0.5
-        },
-        "SaveTheCat/Resources/map/title_map/dr_object_conveyer_a.tsx": {
+        "": {
             "scaleInDock": 1
         },
-        "SaveTheCat/Resources/map/title_map/dr_object_conveyer_b.tsx": {
+        "#jqk_object_wall_9": {
             "scaleInDock": 1
         },
-        "SaveTheCat/Resources/map/title_map/img_map_game.tsx": {
-            "scaleInDock": 1
-        },
-        "SaveTheCat/Resources/map/title_map/img_new_obj.tsx": {
-            "dynamicWrapping": false,
-            "scaleInDock": 0.5,
-            "scaleInEditor": 1
-        },
-        "SaveTheCat/Resources/map/title_map/img_obj.tsx": {
-            "dynamicWrapping": false,
-            "scaleInDock": 0.5
-        },
-        "SaveTheCat/Resources/map/title_map/img_obj_new.tsx": {
-            "dynamicWrapping": false,
-            "scaleInDock": 0.5
-        },
-        "SaveTheCat/Resources/map/title_map/img_obj_new_1.tsx": {
-            "scaleInDock": 0.5,
-            "scaleInEditor": 1
-        },
-        "SaveTheCat/Resources/map/title_map/lv_1.tmx": {
-            "scale": 0.21565,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 1001.6230002318572,
-                "y": 1001.6230002318571
-            }
-        },
-        "SaveTheCat/Resources/map/title_map/m_1.tmx": {
+        "C:/GitHub/FillTruckSlot/Resources/map/maze1.tmx": {
             "expandedObjectLayers": [
-                13,
-                16,
-                14,
-                17,
-                15,
-                9,
-                11,
-                8,
-                18,
-                12
+                7
             ],
-            "scale": 0.33,
-            "selectedLayer": 0,
+            "scale": 1.0968181818181817,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 915.1515151515152,
-                "y": 3066.666666666667
+                "x": 327.310401989225,
+                "y": 237.9610443431413
             }
         },
-        "SaveTheCat/Resources/map/title_map/m_1.tmx#img_obj": {
+        "C:/GitHub/FillTruckSlot/Resources/map/maze1_30x30.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/GitHub/FillTruckSlot/Resources/map/tileset_30x30.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/FPT SHOP/AppData/Local/Temp/5c10bd94-fe14-41b0-b9bb-42d80b77dff9_StepRushdie.zip.ff9/Resources/tilemap/bg.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1
         },
-        "SaveTheCat/Resources/map/title_map/m_2.tmx": {
-            "expandedObjectLayers": [
-                11,
-                14,
-                17,
-                8,
-                16,
-                9,
-                13,
-                12,
-                18,
-                15
-            ],
-            "scale": 0.5,
-            "selectedLayer": 2,
+        "C:/Users/FPT SHOP/AppData/Local/Temp/5c10bd94-fe14-41b0-b9bb-42d80b77dff9_StepRushdie.zip.ff9/Resources/tilemap/level_1.tmx": {
+            "scale": 0.17076249999999998,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 516,
-                "y": 3738
+                "x": 1996.9255544982068,
+                "y": 641.2414903740574
             }
         },
-        "SaveTheCat/Resources/map/title_map/m_3.tmx": {
+        "Resources/res/JQK/map/check.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": -0.5,
+                "y": 737.5
+            }
+        },
+        "Resources/res/JQK/map/check.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx": {
+            "expandedObjectLayers": [
+                11,
+                2,
+                14,
+                12,
+                7
+            ],
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1716.6666666666665,
+                "y": 1098.4848484848485
+            }
+        },
+        "Resources/res/JQK/map/map1.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map1.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx": {
+            "expandedObjectLayers": [
+                7,
+                4,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.25,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 632,
+                "y": 894
+            }
+        },
+        "Resources/res/JQK/map/map10.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map10.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx": {
+            "expandedObjectLayers": [
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 1528,
+                "y": 881
+            }
+        },
+        "Resources/res/JQK/map/map11.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map11.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx": {
+            "expandedObjectLayers": [
+                7,
+                4,
+                5,
+                2
+            ],
+            "scale": 0.75,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1201.3333333333333,
+                "y": 773.9999999999999
+            }
+        },
+        "Resources/res/JQK/map/map12.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map12.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx": {
+            "expandedObjectLayers": [
+                16,
+                15,
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1250,
+                "y": 749
+            }
+        },
+        "Resources/res/JQK/map/map13.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map13.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx": {
+            "expandedObjectLayers": [
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2,
+                14
+            ],
+            "scale": 0.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1250,
+                "y": 749
+            }
+        },
+        "Resources/res/JQK/map/map14.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map14.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx": {
+            "expandedObjectLayers": [
+                16,
+                15,
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.75,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1249.3333333333333,
+                "y": 750
+            }
+        },
+        "Resources/res/JQK/map/map15.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map15.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx": {
+            "expandedObjectLayers": [
+                16,
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.75,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1249.3333333333333,
+                "y": 750
+            }
+        },
+        "Resources/res/JQK/map/map16.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map16.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx": {
+            "expandedObjectLayers": [
+                7,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1250,
+                "y": 749
+            }
+        },
+        "Resources/res/JQK/map/map17.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map17.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx": {
+            "expandedObjectLayers": [
+                15,
+                7,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1250,
+                "y": 749.5
+            }
+        },
+        "Resources/res/JQK/map/map18.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map18.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx": {
+            "expandedObjectLayers": [
+                16,
+                15,
+                7,
+                13,
+                4,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 1.5,
+            "selectedLayer": 9,
+            "viewCenter": {
+                "x": 1250,
+                "y": 749.6666666666666
+            }
+        },
+        "Resources/res/JQK/map/map19.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map19.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx": {
+            "expandedObjectLayers": [
+                7,
+                12,
+                11,
+                2,
+                14
+            ],
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1290.6666666666667,
+                "y": 824.6666666666667
+            }
+        },
+        "Resources/res/JQK/map/map2.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map2.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx": {
+            "expandedObjectLayers": [
+                16,
+                15,
+                13,
+                12,
+                11
+            ],
+            "scale": 0.75,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1274.6666666666667,
+                "y": 823.3333333333333
+            }
+        },
+        "Resources/res/JQK/map/map20.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map20.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx": {
+            "expandedObjectLayers": [
+                5,
+                11,
+                4,
+                2,
+                14,
+                12,
+                7
+            ],
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1427.3333333333333,
+                "y": 975.3333333333333
+            }
+        },
+        "Resources/res/JQK/map/map3.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map3.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx": {
+            "expandedObjectLayers": [
+                5,
+                11,
+                4,
+                2,
+                14,
+                12,
+                7
+            ],
+            "scale": 0.33,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 2028.7878787878788,
+                "y": 1256.060606060606
+            }
+        },
+        "Resources/res/JQK/map/map4.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map4.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx": {
+            "expandedObjectLayers": [
+                5,
+                11,
+                4,
+                2,
+                12,
+                15,
+                7
+            ],
+            "scale": 0.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1433,
+                "y": 827
+            }
+        },
+        "Resources/res/JQK/map/map5.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map5.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx": {
+            "expandedObjectLayers": [
+                5,
+                13,
+                11,
+                4,
+                2,
+                14,
+                12,
+                7
+            ],
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1295.3333333333333,
+                "y": 567.3333333333333
+            }
+        },
+        "Resources/res/JQK/map/map6.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map6.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx": {
+            "expandedObjectLayers": [
+                5,
+                13,
+                11,
+                4,
+                2,
+                14,
+                12,
+                15,
+                16,
+                7
+            ],
+            "scale": 0.75,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 1436.6666666666665,
+                "y": 873.9999999999999
+            }
+        },
+        "Resources/res/JQK/map/map7.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map7.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx": {
+            "expandedObjectLayers": [
+                16,
+                15,
+                13,
+                5,
+                12,
+                11,
+                2
+            ],
+            "scale": 0.33,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 1248.4848484848487,
+                "y": 746.9696969696969
+            }
+        },
+        "Resources/res/JQK/map/map8.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map8.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx": {
+            "expandedObjectLayers": [
+                7,
+                4,
+                12,
+                11,
+                2,
+                14
+            ],
+            "scale": 0.33,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 1018.1818181818181,
+                "y": 1034.848484848485
+            }
+        },
+        "Resources/res/JQK/map/map9.tmx#bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#boom": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#circle_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#circle_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#iron_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#iron_long": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#iron_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#jqk_object_wall_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wall_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wall_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wall_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wall_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wood_big": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map9.tmx#wood_small": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_1.tmx": {
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 607,
+                "y": 618
+            }
+        },
+        "Resources/res/JQK/map/map_1.tmx#jqk_object_wall_10": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_1.tmx#jqk_object_wall_11": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_1.tmx#jqk_object_wall_9": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx": {
+            "expandedObjectLayers": [
+                5,
+                9,
+                2,
+                7,
+                8,
+                4,
+                6,
+                3
+            ],
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 663.3333333333333,
+                "y": 18.66666666666663
+            }
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_enemy_bad_bich": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_enemy_bad_co": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_enemy_bad_ro": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_enemy_bad_tep": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_object_wall_10": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_object_wall_11": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_object_wall_8": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/map_2.tmx#jqk_object_wall_9": {
+            "scaleInDock": 1
+        },
+        "Resources/res/JQK/map/untitled.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": -1332,
+                "y": 1716
+            }
+        },
+        "Resources/res/SlimeFill/map/map.tmx": {
             "scale": 0.33,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 566.6666666666667,
-                "y": 3690.909090909091
+                "x": 1242.4242424242425,
+                "y": 477.27272727272737
             }
         },
-        "SaveTheCat/Resources/map/title_map/new_img_map.tsx": {
+        "Resources/res/SlimeFill/map/map.tmx#sf_tutorial_play": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.33
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_1": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_10": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_2": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_3": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_4": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_5": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_6": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_7": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_8": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_9": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SlimeFill/map/map.tmx#sf_ui_skin_freeze_full": {
+            "scaleInDock": 1
+        },
+        "Resources/res/SplashFrenzy/map/title_map/img_game.tsx": {
             "scaleInDock": 0.5
         },
-        "img_obj.tsx": {
+        "Resources/res/SplashFrenzy/map/title_map/map_1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 598,
+                "y": 229.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_10.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 0.9873214285714286,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 278.5313799963828,
+                "y": 278.5313799963827
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_11.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                8,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 299.33333333333326,
+                "y": 267.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_12.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 316,
+                "y": 245.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_13.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 0.9873214285714286,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 278.5313799963828,
+                "y": 279.5442213781878
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_14.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 2,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 227.5,
+                "y": 306.5
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_15.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": 9,
+            "viewCenter": {
+                "x": 332.6666666666667,
+                "y": 256.66666666666663
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_16.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 0.9873214285714286,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 276.5056972327727,
+                "y": 278.5313799963827
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_17.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 322.66666666666663,
+                "y": 286.66666666666663
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_18.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 282.66666666666663,
+                "y": 255.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_19.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 0.9873214285714286,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 278.5313799963828,
+                "y": 279.5442213781878
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_2.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 302.66666666666663,
+                "y": 279.66666666666663
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_20.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 300.66666666666663,
+                "y": -772.6666666666666
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_3.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 280,
+                "y": 280.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_3.tmx#img_game": {
             "scaleInDock": 1
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_4.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 0.9873214285714286,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 279.5442213781878,
+                "y": 280.0506420690903
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_5.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                16,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 280,
+                "y": 280.5
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_6.tmx": {
+            "scale": 0.9873214285714286,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 773.8108156990414,
+                "y": 282.58274552360285
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_7.tmx": {
+            "expandedObjectLayers": [
+                14,
+                10,
+                15,
+                13,
+                9,
+                11,
+                12
+            ],
+            "scale": 1.5,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 272,
+                "y": 307.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_8.tmx": {
+            "expandedObjectLayers": [
+                10,
+                11
+            ],
+            "scale": 1.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 303.33333333333326,
+                "y": 291.33333333333337
+            }
+        },
+        "Resources/res/SplashFrenzy/map/title_map/map_9.tmx": {
+            "expandedObjectLayers": [
+                17
+            ],
+            "scale": 1.5,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 293.33333333333326,
+                "y": 237.33333333333337
+            }
         }
     },
-    "last.externalTilesetPath": "D:/project/Os/SaveTheCat/SaveTheCat/Resources/map/title_map",
-    "last.imagePath": "D:/project/Os/SaveTheCat/SaveTheCat/Resources/map/title_map",
+    "last.imagePath": "D:/CosmicChroma/Resources/res/JQK/object",
     "map.height": 30,
-    "map.tileHeight": 135,
-    "map.tileWidth": 198,
-    "map.width": 5,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 50,
+    "map.tileWidth": 50,
+    "map.width": 50,
     "openFiles": [
-        "SaveTheCat/Resources/map/title_map/m_1.tmx"
+        "Resources/res/SplashFrenzy/map/title_map/map_2.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_3.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_4.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_5.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_6.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_7.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_8.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_10.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_11.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_12.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_13.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_14.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_15.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_16.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_17.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_18.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_19.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_20.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_1.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_9.tmx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
-        "SaveTheCat/Resources/map/title_map/m_1.tmx",
-        "SaveTheCat/Resources/map/title_map/lv_1.tmx",
-        "SaveTheCat/Resources/map/title_map/m_2.tmx",
-        "SaveTheCat/Resources/map/title_map/img_obj_new_1.tsx"
+        "Resources/res/SplashFrenzy/map/title_map/map_2.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_3.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_4.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_5.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_6.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_7.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_8.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_10.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_11.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_12.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_13.tmx",
+        "Resources/res/SplashFrenzy/map/title_map/map_14.tmx"
     ],
-    "resizeMap.removeObjects": true,
-    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
-    "tileset.lastUsedFormat": "tsx",
+    "tileset.embedInMap": true,
     "tileset.tileSize": {
-        "height": 135,
-        "width": 198
-    }
+        "height": 50,
+        "width": 50
+    },
+    "tileset.type": 0
 }

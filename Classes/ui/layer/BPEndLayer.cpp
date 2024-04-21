@@ -14,7 +14,7 @@
 #include "BPSoundManager.h"
 #include "BPGameManager.h"
 
-bool BPEndLayer::init(bool isOver){
+bool BPEndLayer::init(bool isOver, int gem, int music){
     if (!Layer::init())
     {
         return false;
@@ -33,7 +33,7 @@ bool BPEndLayer::init(bool isOver){
     }
     _isOver = isOver;
     _background = Sprite::create(path);
-    _background->setPosition((Vec2)visibleSize / 2 + origin + Vec2(0,-45));
+    _background->setPosition((Vec2)visibleSize / 2 + origin);
     this->addChild(_background,1);
     
     initLabel();
@@ -44,7 +44,8 @@ bool BPEndLayer::init(bool isOver){
 void BPEndLayer::initLabel() {
     Sprite* bgMusic = Sprite::create("res/BlackPink/ui/bis_ui_bar_world_1.png");
     _background->addChild(bgMusic);
-    bgMusic->setPosition(Vec2(_background->getContentSize().width / 2, 335));
+    float posY = 342;
+    bgMusic->setPosition(Vec2(_background->getContentSize().width / 2, posY));
     Sprite* headMusic = Sprite::create("res/BlackPink/ui/bis_ui_icon_notes_world_1.png");
     bgMusic->addChild(headMusic);
     headMusic->setAnchorPoint(Vec2(0, 0.5));
@@ -58,7 +59,7 @@ void BPEndLayer::initLabel() {
     Sprite* bgCoin = Sprite::create("res/BlackPink/ui/bis_ui_bar_world_1.png");
     _background->addChild(bgCoin);
 
-    bgCoin->setPosition(Vec2(_background->getContentSize().width / 2, 335 - 105));
+    bgCoin->setPosition(Vec2(_background->getContentSize().width / 2, posY - 105));
 
     Sprite* headCoin = Sprite::create("res/BlackPink/ui/bis_ui_icon_gem_world_1.png");
     bgCoin->addChild(headCoin);

@@ -55,7 +55,9 @@ bool BPMainMenuScene::init()
     float scale = std::max(sacelY, sacelX);
     _background->setScale(scale);
     Sprite* logo = Sprite::create("res/BlackPink/logo/logo.png");
-    logo->setPosition(Vec2(_background->getContentSize().width / 2, 700));
+    logo->setPosition(Vec2(_background->getContentSize().width / 2, 700+700));
+    auto data = std::make_pair(Vec2(_background->getContentSize().width / 2, 700), Vec2(_background->getContentSize().width / 2, 700 + 700));
+    _mapPosElement[logo] = data;
     _background->addChild(logo,10);
     
     float k_currentScaleFactor = logo->getScale();
@@ -63,16 +65,7 @@ bool BPMainMenuScene::init()
     logo->runAction(RepeatForever::create(Sequence::createWithTwoActions(EaseBackIn::create(ScaleTo::create(3.0f, 1.02f * k_currentScaleFactor, 0.9f * k_currentScaleFactor)), EaseBackOut::create(ScaleTo::create(3.0f, 1.0f * k_currentScaleFactor)))));
     initHeader();
     initMainButton();
-    //auto btCheat = cocos2d::ui::Button::create("res/BlackPink/icon/sf_icon_cancel.png");
-    //btCheat->setPosition(Vec2(visibleSize.width/2, visibleSize.height-30));
-    //btCheat->setScale(0.8);
-    //btCheat->addClickEventListener([=](Ref* sender)
-    //    {
-    //        SOUND_MANAGER->playClickEffect();
-    //        UserDefault::getInstance()->setIntegerForKey("UserCoin", 50000);
-    //        UserDefault::getInstance()->setIntegerForKey("UserRandom", 1000);
-    //    });
-    //this->addChild(btCheat);
+    runActionElementIn();
     auto listener = EventListenerTouchAllAtOnce::create();
     listener->onTouchesBegan = CC_CALLBACK_2(BPMainMenuScene::onTouchesBegan, this);
     listener->onTouchesMoved = CC_CALLBACK_2(BPMainMenuScene::onTouchesMoved, this);
@@ -92,54 +85,67 @@ void BPMainMenuScene::initMainButton(){
     float posX = _background->getContentSize().width / 2;
     auto btPlay = cocos2d::ui::Button::create("res/BlackPink/button_main/bis_button_main_play-44.png");
     btPlay->setPressedActionEnabled(true);
-    btPlay->setPosition(Vec2(posX, posY));
+    btPlay->setPosition(Vec2(posX, posY+700));
     _background->addChild(btPlay,10);
     btPlay->setAnchorPoint(Vec2(0.5, 0));
+    auto data = std::make_pair(Vec2(posX, posY), Vec2(posX, posY+700));
+    _mapPosElement[btPlay] = data;
     btPlay->addClickEventListener([=](Ref* sender)
     {
         SOUND_MANAGER->playClickEffect();
-        auto scoreLayer = BPChooseWorld::create();
-        scoreLayer->setName("SRChooseLvLayer");
-        this->addChild(scoreLayer, UI_ZORDER);
         Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this, true);
-        Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(scoreLayer, true);
+        runActionElementOut([=]() {
+            auto scoreLayer = BPChooseWorld::create();
+            scoreLayer->setName("SRChooseLvLayer");
+            this->addChild(scoreLayer, UI_ZORDER);
+            Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(scoreLayer, true);
+            });
     });
     Sprite* light = Sprite::create("res/BlackPink/bis_light.png");
-    light->setPosition(btPlay->getPosition() + Vec2(0, 110));
+    light->setPosition(btPlay->getPosition() + Vec2(0, 110 -700));
     _background->addChild(light);
+    light->runAction(RepeatForever::create(RotateBy::create(10, 360)));
     auto btScore = cocos2d::ui::Button::create("res/BlackPink/button_main/bis_button_main_statistics.png");
     btScore->setPressedActionEnabled(true);
-    btScore->setPosition(Vec2(posX-260, posY));
+    btScore->setPosition(Vec2(posX-260 -700, posY));
+    data = std::make_pair(Vec2(posX - 260, posY), Vec2(posX - 260 - 700, posY));
+    _mapPosElement[btScore] = data;
     btScore->setAnchorPoint(Vec2(0.5, 0));
     _background->addChild(btScore);
     btScore->addClickEventListener([=](Ref* sender)
         {
             SOUND_MANAGER->playClickEffect();
-            auto scoreLayer = BPLeaderboardLayer::create();
-            scoreLayer->setName("SRLeaderboardLayer");
-            this->addChild(scoreLayer, UI_ZORDER);
+
+            runActionElementOut([=]() {
+                auto scoreLayer = BPLeaderboardLayer::create();
+                scoreLayer->setName("SRLeaderboardLayer");
+                this->addChild(scoreLayer, UI_ZORDER);
+                Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(scoreLayer, true);
+                });
             Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this, true);
-            Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(scoreLayer, true);
+            
         });
 
     auto btGolink = cocos2d::ui::Button::create("res/BlackPink/button_main/bis_button_main_golink.png");
     btGolink->setPressedActionEnabled(true);
-    btGolink->setPosition(Vec2(posX + 260, posY));
+    btGolink->setPosition(Vec2(posX + 260 +700, posY));
     btGolink->setAnchorPoint(Vec2(0.5, 0));
+    data = std::make_pair(Vec2(posX + 260, posY), Vec2(posX + 260 +700, posY));
+    _mapPosElement[btGolink] = data;
     _background->addChild(btGolink);
     btGolink->addClickEventListener([=](Ref* sender)
         {
-            BPEndLayer* layer = BPEndLayer::create(false);
-            this->addChild(layer, UI_ZORDER);
-            SOUND_MANAGER->playClickEffect();
+
         });
     
     posY = 120;
     
     auto btSound = cocos2d::ui::Button::create(StringUtils::format("res/BlackPink/button_main/bis_button_main_sound_%s.png", !SOUND_MANAGER->isSoundEffectEnable() ? "off" : "on"));
-    btSound->setPosition(Vec2(posX - 120, posY));
+    btSound->setPosition(Vec2(posX - 120 - 700, posY));
     _background->addChild(btSound); 
     btSound->setAnchorPoint(Vec2(0.5, 0));
+    data = std::make_pair(Vec2(posX - 120, posY), Vec2(posX - 120 - 700, posY));
+    _mapPosElement[btSound] = data;
     btSound->addClickEventListener([=](Ref* sender)
         {
             SOUND_MANAGER->playClickEffect();
@@ -156,9 +162,11 @@ void BPMainMenuScene::initMainButton(){
 
     
     auto btMusic = cocos2d::ui::Button::create(StringUtils::format("res/BlackPink/button_main/bis_button_main_music_%s.png", !SOUND_MANAGER->isMusicEffectEnable() ? "off" : "on"));
-    btMusic->setPosition(Vec2(posX + 130, posY));
+    btMusic->setPosition(Vec2(posX + 120 +700, posY));
     _background->addChild(btMusic);
     btMusic->setAnchorPoint(Vec2(0.5, 0));
+    data = std::make_pair(Vec2(posX + 120, posY), Vec2(posX + 120 + 700, posY));
+    _mapPosElement[btMusic] = data;
     btMusic->addClickEventListener([=](Ref* sender)
         {
             SOUND_MANAGER->playClickEffect();
@@ -177,11 +185,28 @@ void BPMainMenuScene::initMainButton(){
             {
                 SOUND_MANAGER->pauseAllBackgroundMusics();
             }
-
-
             button->loadTextureNormal(StringUtils::format("res/BlackPink/button_main/bis_button_main_music_%s.png", !SOUND_MANAGER->isMusicEffectEnable() ? "off" : "on"));
 
         });
+
+}
+void BPMainMenuScene::runActionElementIn() {
+    for (auto element : _mapPosElement) {
+        auto action = Sequence::create(FadeIn::create(0.1),
+            EaseBackIn::create(MoveTo::create(2, element.second.first)), NULL);
+        element.first->runAction(action);
+    }
+}
+
+void BPMainMenuScene::runActionElementOut(std::function<void()> callback) {
+    for (auto element : _mapPosElement) {
+        auto action = Sequence::create(EaseBackIn::create(MoveTo::create(2, element.second.second)),
+                                        FadeOut::create(0.1), NULL);
+        element.first->runAction(action);
+    }
+    this->runAction(Sequence::create(DelayTime::create(1.8), CallFunc::create([=]() {
+        if (callback) callback();
+        }),NULL));
 }
 void BPMainMenuScene::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags){
     Scene::draw(renderer, transform, flags);

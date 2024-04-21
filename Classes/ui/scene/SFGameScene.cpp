@@ -732,6 +732,7 @@ void SFGameScene::update(float dt)
     if (_character->getPositionY() <= 0)
     {
         OnGameOver();
+        return;
     }
 
     Vec2 velocity = _character->getPhysicsBody()->getVelocity();
@@ -1165,7 +1166,6 @@ void SFGameScene::gameOver(int score)
 
     _currentStatusNv = StatusNV::DIE;
     RunActionCharator(Anim::NV_1);
-    return;
 
    // _scroreAdd = score;
     //updateScore(_scroreAdd);

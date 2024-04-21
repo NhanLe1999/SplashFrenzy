@@ -193,18 +193,18 @@ void BPMainMenuScene::initMainButton(){
 void BPMainMenuScene::runActionElementIn() {
     for (auto element : _mapPosElement) {
         auto action = Sequence::create(FadeIn::create(0.1),
-            EaseBackIn::create(MoveTo::create(2, element.second.first)), NULL);
+            EaseBackIn::create(MoveTo::create(1.5, element.second.first)), NULL);
         element.first->runAction(action);
     }
 }
 
 void BPMainMenuScene::runActionElementOut(std::function<void()> callback) {
     for (auto element : _mapPosElement) {
-        auto action = Sequence::create(EaseBackIn::create(MoveTo::create(2, element.second.second)),
+        auto action = Sequence::create(EaseBackIn::create(MoveTo::create(1.5, element.second.second)),
                                         FadeOut::create(0.1), NULL);
         element.first->runAction(action);
     }
-    this->runAction(Sequence::create(DelayTime::create(1.8), CallFunc::create([=]() {
+    this->runAction(Sequence::create(DelayTime::create(1.4), CallFunc::create([=]() {
         if (callback) callback();
         }),NULL));
 }

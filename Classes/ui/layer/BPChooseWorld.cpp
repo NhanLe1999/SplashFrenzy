@@ -28,6 +28,7 @@ bool BPChooseWorld::init() {
 	btHome->setPosition(Vec2(10, _background->getContentSize().height - 20));
 	btHome->addClickEventListener([=](Ref* sender) {
 		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(this->getParent(), true);
+		((BPMainMenuScene*)this->getParent())->runActionElementIn();
 		this->removeFromParent();
 		});
 
@@ -116,13 +117,15 @@ void BPChooseWorld::initLabel() {
 	Sprite* bgMusic = Sprite::create("res/BlackPink/ui/bis_ui_bar_world_main.png");
 	_background->addChild(bgMusic);
 	bgMusic->setAnchorPoint(Vec2(0, 1));
-	bgMusic->setPosition(Vec2(0,-10));
-	Sprite* headMusic = Sprite::create("res/BlackPink/ui/bis_ui_icon_gem_world_main.png");
+	bgMusic->setPosition(Vec2(0, -10));
+	Sprite* headMusic = Sprite::create("res/BlackPink/ui/bis_ui_icon_notes_world_lock.png");
 	bgMusic->addChild(headMusic);
 	headMusic->setAnchorPoint(Vec2(0, 0.5));
-	headMusic->setPosition(Vec2(0, bgMusic->getContentSize().height /2));
-	auto _numberMusic = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf", 50);
+	headMusic->setPosition(Vec2(0, bgMusic->getContentSize().height / 2));
+	int coin = UserDefault::getInstance()->getIntegerForKey("UserMusic", 0);
+	auto _numberMusic = Label::createWithTTF(std::to_string(coin), "fonts/Baloo2-Bold.ttf", 50);
 	_numberMusic->setPosition(Vec2(197, bgMusic->getContentSize().height / 2));
+
 	bgMusic->addChild(_numberMusic);
 
 	Sprite* bgCoin = Sprite::create("res/BlackPink/ui/bis_ui_bar_world_main.png");
@@ -130,11 +133,12 @@ void BPChooseWorld::initLabel() {
 	bgCoin->setAnchorPoint(Vec2(1, 1));
 	bgCoin->setPosition(Vec2(_background->getContentSize().width, -10));
 
-	Sprite* headCoin = Sprite::create("res/BlackPink/ui/bis_ui_icon_notes_world_main.png");
+	Sprite* headCoin = Sprite::create("res/BlackPink/ui/bis_ui_icon_gem_world_main.png");
 	bgCoin->addChild(headCoin);
 	headCoin->setAnchorPoint(Vec2(0, 0.5));
 	headCoin->setPosition(Vec2(0, bgCoin->getContentSize().height / 2));
-	auto _numberCoin = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf", 50);
+	coin = UserDefault::getInstance()->getIntegerForKey("UserCoin", 0);
+	auto _numberCoin = Label::createWithTTF(std::to_string(coin), "fonts/Baloo2-Bold.ttf", 50);
 	_numberCoin->setPosition(Vec2(197, bgMusic->getContentSize().height / 2));
 	bgCoin->addChild(_numberCoin);
 }

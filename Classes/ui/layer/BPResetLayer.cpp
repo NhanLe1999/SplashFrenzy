@@ -45,14 +45,14 @@ bool BPResetLayer::init()
 
     Button *btCance = Button::create("res/BlackPink/button_main/bis_button_main_cancel.png");
     background->addChild(btCance);
-    btCance->setPosition(Vec2(posX - 110, posY));
+    btCance->setPosition(Vec2(posX + 110, posY));
     btCance->addClickEventListener([=](Ref *sender) {
         this->removeFromParent();
         });
 
     Button *btOK = Button::create("res/BlackPink/button_main/bis_button_main_reset.png");
     background->addChild(btOK);
-    btOK->setPosition(Vec2(posX + 110 , posY));
+    btOK->setPosition(Vec2(posX - 110 , posY));
     btOK->addClickEventListener([=](Ref* sender) {
         this->removeFromParent();
         });

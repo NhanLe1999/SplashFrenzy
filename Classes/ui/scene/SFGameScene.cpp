@@ -1144,7 +1144,7 @@ void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 {
     this->onGamePause();
     SOUND_MANAGER->playClickEffect();
-    auto view = BPEndLayer::create(false);
+    auto view = BPEndLayer::create(false, _Diamond, _score);
    
     view->setCallback([this]() {
         onGameResume();
@@ -1179,7 +1179,7 @@ void SFGameScene::gameOver(int score)
             lvl->removeFromParent();
         }
 
-        auto view = BPEndLayer::create(true);
+        auto view = BPEndLayer::create(true,100,100);
         /*view->updateHighScore({ _scroreAdd, _currentLevelID });
         view->OnShowNumStar(0);*/
 

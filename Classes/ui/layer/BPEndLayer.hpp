@@ -12,10 +12,10 @@ class BPEndLayer : public cocos2d::Layer
 public:
 
 //    CREATE_FUNC(FTSEndLayer);
-    static BPEndLayer* create(bool isOver)
+    static BPEndLayer* create(bool isOver, int gem, int music)
     {
         BPEndLayer *pRet = new(std::nothrow) BPEndLayer();
-        if (pRet && pRet->init(isOver))
+        if (pRet && pRet->init(isOver,gem, music))
         {
             pRet->autorelease();
             return pRet;
@@ -32,7 +32,7 @@ public:
     void setCallback(std::function<void()> callback){
         _callback = callback;
     }
-     virtual bool init(bool isOver);
+     virtual bool init(bool isOver, int gem, int music);
     void onEnter() override;
 protected:
     void initButton();

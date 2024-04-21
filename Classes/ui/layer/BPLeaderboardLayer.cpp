@@ -3,6 +3,7 @@
 #include "BPSoundManager.h"
 #include "BPGameManager.h"
 #include "BPResetLayer.h"
+#include "BPMainMenuScene.h"
 USING_NS_CC;
 
 Scene* BPLeaderboardLayer::createScene()
@@ -53,6 +54,7 @@ bool BPLeaderboardLayer::init()
 	btHome->setPosition(Vec2(10,_background->getContentSize().height - 20));
 	btHome->addClickEventListener([=](Ref* sender) {
 		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(this->getParent(), true);
+		((BPMainMenuScene*)this->getParent())->runActionElementIn();
 		this->removeFromParent();
 		});
 

@@ -193,19 +193,24 @@ void SFGameScene::didLoadFromCSB()
     _pointX += _mapBg->getContentSize().width;
 
     cocos2d::Follow* followAction3 = cocos*/
-    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width * 10, _screenSize.height));
-    followAction->setTag(9090);
-    _tileMap->stopActionByTag(9090);
+
+
+    auto id = cocos2d::random(0, 1111) % 2 + 1;
+    std::string nameMap = cocos2d::StringUtils::format("res/map/map_bg/%d/map_bg.tmx", id);
+    _mapBg = TMXTiledMap::create(nameMap);
+    _mapBg->setAnchorPoint(Vec2(0, 0));
+    _mapBg->setPosition(Vec2(_pointX, 0));
+    this->addChild(_mapBg, 1);
+    float scale = _screenSize.height / _mapBg->getContentSize().height;
+    _mapBg->setScale(scale);
+
+    cocos2d::Follow* followAction1 = cocos2d::Follow::create(_character, Rect(0, 0, _mapBg->getContentSize().width , _screenSize.height));
+    _mapBg->runAction(followAction1);
+
+    cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width, _screenSize.height));
     _tileMap->runAction(followAction);
 
     _physicSceneWorld->setGravity(Vec2(0, -1000));
-
-   /* cocos2d::Follow* followAction1 = cocos2d::Follow::create(this);
-     root_layout->runAction(followAction1);
-
-    cocos2d::Follow* followAction2 = cocos2d::Follow::create(this);
-    root_game_play->runAction(followAction2);*/
-
 
     if (auto btn_left = utils::findChild<Button*>(this, "btn_left"))
     {

@@ -134,66 +134,18 @@ void SFGameScene::didLoadFromCSB()
     getGroupNameByPoint("obj_t_1", "res/BlackPink/ground/ground_world_1/t_1.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_rotation", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("mushrom_world_1", "", COLLISION_ENEMY, sca);
-    getGroupNameByPoint("kim_cuong", "", COLLISION_DIAMOND, 0.7);
-    getGroupNameByPoint("kim_cuong_dynamic", "", COLLISION_DIAMOND, 0.7);
+    getGroupNameByPoint("kim_cuong", "res/BlackPink/object/PTModelSprite_ID56969.png", COLLISION_DIAMOND, 0.7);
+    getGroupNameByPoint("kim_cuong_dynamic", "res/BlackPink/object/PTModelSprite_ID56969.png", COLLISION_DIAMOND, 0.7);
     getGroupNameByPoint("chia_khoa", "", COLLISION_CHIA_KHOA, sca);
     getGroupNameByPoint("xuong_rong_1", "res/BlackPink/object/PTModelSprite_ID55205.png", COLLISION_XUONG_RONG, 0.8f);
     getGroupNameByPoint("xuong_rong_doc", "res/BlackPink/object/PTModelSprite_ID37838.png", COLLISION_XUONG_RONG, sca);
     getGroupNameByPoint("tuong_khoa", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_tuong_move_up", "res/BlackPink/ground/ground_world_1/t_1.png", COLLISION_TUONG);
     getGroupNameByPoint("go_tuong", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
-    getGroupNameByPoint("go_rotation", "res/BlackPink/object/bis_object_falling.png", COLLISION_TUONG);
+    getGroupNameByPoint("go_rotation", "res/BlackPink/object/box.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_nhac", "", COLLISION_NHAC, sca);
 
-
-
-    // getGroupNameByPoint("tuong_trai_thap_tam_giac","res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_1.png", 88);
     this->scheduleUpdate();
-
-
-    /*for (int i = 0; i  < 100; i++)
-    {
-        _mapBg = TMXTiledMap::create("res/map/map_bg/2/map_bg.tmx");
-        _mapBg->setAnchorPoint(Vec2(0, 0));
-        _mapBg->setPosition(Vec2(_pointX, 0));
-        this->addChild(_mapBg, 9999);
-        _pointX += _mapBg->getContentSize().width;
-
-        float scale = _screenSize.height / _mapBg->getContentSize().height;
-        _mapBg->setScale(scale);
-        _listMapBg.push_back(_mapBg);
-    }*/
-
-    /*_mapBg = TMXTiledMap::create("res/map/map_bg/2/map_bg.tmx");
-    _mapBg->setAnchorPoint(Vec2(0, 0));
-    _mapBg->setPosition(Vec2(_pointX, 0));
-    root_game_play->addChild(_mapBg, 9999);
-    _pointX += _mapBg->getContentSize().width;
-
-    float scale = _screenSize.height / _mapBg->getContentSize().height;
-    _mapBg->setScale(scale);
-    _listMapBg.push_back(_mapBg);
-
-    _mapBg->setTag(_indexMap);
-
-    CreateMap(_mapBg);*/
-
-    /*for (int i = 0; i < _listMapBg.size(); i++)
-    {
-        cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width * 90000, _screenSize.height));
-        _listMapBg[i]->runAction(followAction);
-    }
-    */
-   /*2d::Follow::create(_character, Rect(0, 0, _mapBg->getContentSize().width * 90000, _screenSize.height));
-    _mapBg->runAction(followAction3);
- _mapBg = TMXTiledMap::create("res/map/map_bg/2/map_bg.tmx");
-    _mapBg->setAnchorPoint(Vec2(0, 0));
-    _mapBg->setPosition(Vec2(_pointX, 0));
-    root_game_play->addChild(_mapBg, 9999);
-    _pointX += _mapBg->getContentSize().width;
-
-    cocos2d::Follow* followAction3 = cocos*/
-
 
     auto id = cocos2d::random(0, 1111) % 2 + 1;
     std::string nameMap = cocos2d::StringUtils::format("res/map/map_bg/%d/map_bg.tmx", id);
@@ -291,8 +243,6 @@ void SFGameScene::didLoadFromCSB()
                 _currentStatusNv = StatusNV::JUMP;
                 _character->scheduleOnce([this](float dt) {
                     _currentStatusNv = (isMoveRight || isMoveLeft) ? StatusNV::RUN : StatusNV::RELEAX;
-
-                    //_currentStatusNv = StatusNV::RELEAX;
                     }, 1.0f, "delay_change_state");
                 _numJum++;
                 _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, 550));
@@ -306,10 +256,6 @@ void SFGameScene::didLoadFromCSB()
             });
     }
 
-
-
-
-
     auto listener = EventListenerKeyboard::create();
     listener->onKeyPressed = CC_CALLBACK_2(SFGameScene::onKeyPressed, this);
     listener->onKeyReleased = CC_CALLBACK_2(SFGameScene::onKeyReleased, this);
@@ -321,7 +267,6 @@ void SFGameScene::didLoadFromCSB()
     contactListener->onContactSeparate = CC_CALLBACK_1(SFGameScene::onContactSeparate, this);
     contactListener->onContactPreSolve = CC_CALLBACK_2(SFGameScene::onContactPreSolve, this);
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
-    //_character->getPhysicsBody()->setContactTestBitmask(true);
 
 
     _score = HELPER_MANAGER->GetTotalNumberCoin(false);
@@ -329,6 +274,16 @@ void SFGameScene::didLoadFromCSB()
 
     updateScore(0);
     updateDiamond(0);
+
+    if (auto button = utils::findChild<ui::Button*>(this, "btn_sound"))
+    {
+        button->loadTextureNormal(StringUtils::format("res/BlackPink/button_world/button_world_1/bis_button_sound_%s_world_1.png", !SOUND_MANAGER->isSoundEffectEnable() ? "off" : "on"));
+    }
+
+    if (auto button = utils::findChild<ui::Button*>(this, "music"))
+    {
+        button->loadTextureNormal(StringUtils::format("res/BlackPink/button_world/button_world_1/bis_button_music_%s_world_1.png", !SOUND_MANAGER->isMusicEffectEnable() ? "off" : "on"));
+    }
 }
 
 void SFGameScene::CreateMap(TMXTiledMap* map)
@@ -409,11 +364,6 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
             ani = Anim::MUSHROM_WORD_1;
         }
 
-        if (name == "kim_cuong" || name == "kim_cuong_dynamic")
-        {
-            ani = Anim::DIAMOND;
-        }
-
         if (name == "chia_khoa")
         {
             ani = Anim::KEY;
@@ -421,7 +371,7 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
         }
         if (name == "obj_nhac")
         {
-            ani = Anim::GET_NOTE;
+            ani = Anim::NOTE;
         }
 
         sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
@@ -572,7 +522,7 @@ void SFGameScene::SetDataAnimForCharater()
     case 1:
     {
         _dataAnimCharater = { 
-            {"RUN_1", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58595.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58595,58602, -1},
+            {"RUN_1", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58595.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58595,58601, -1},
             {"JUMP_1", StatusNV::JUMP, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58593.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58593,58594, 0},
             {"RELEAX_1", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58592.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58592,58595, -1},
             {"DIE_1", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58596.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58596,58596, 0}
@@ -868,7 +818,6 @@ void SFGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 
 bool SFGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
 {
-    //if (_isGameOver) { return true; }
 
     PhysicsBody* a = contact.getShapeA()->getBody();
     PhysicsBody* b = contact.getShapeB()->getBody();
@@ -876,25 +825,6 @@ bool SFGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
     int aCollision = a->getCollisionBitmask();
     int bCollision = b->getCollisionBitmask();
 
-    /* if ((COLLISION_FOG == aCollision && COLLISION_GO == bCollision) || (COLLISION_FOG == bCollision && COLLISION_GO == aCollision))
-     {
-
-         if (COLLISION_GO == aCollision)
-         {
-             auto parent = a->getOwner();
-             if (parent != nullptr)
-             {
-                 OnCollisionHeroAndOt();
-             }
-         }
-         else {
-             auto parent = b->getOwner();
-             if (parent != nullptr)
-             {
-                 OnCollisionHeroAndOt();
-             }
-         }
-     }*/
     if ((COLLISION_NV == aCollision && COLLISION_TUONG == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG == aCollision))
     {
         _numJum = 0;
@@ -1070,7 +1000,19 @@ void SFGameScene::OnCollisionCharaterAndDiamon(Node* diamon)
     diamon->scheduleOnce([=](float d) {
         SOUND_MANAGER->chooseCorect();
         updateDiamond(1);
+
+        auto anim = GetAnim(Anim::DIAMOND);
+        anim->setPosition(diamon->getPosition());
+        anim->setAnchorPoint(diamon->getAnchorPoint());
+        diamon->getParent()->addChild(anim);
+
+        anim->scheduleOnce([=](float d) {
+            anim->removeFromParent();
+            }, 0.05 * 8, "OnCollisionCharaterAndNam");
+
+
         diamon->removeFromParent();
+
         }, 0.005f, "OnCollisionCharaterAndNam");
 }
 
@@ -1103,6 +1045,16 @@ void SFGameScene::OnCollisionCharaterAndChiaKhoa(Node* ck)
 void SFGameScene::OnCollisionCharaterAndNhac(Node* ck)
 {
     ck->scheduleOnce([=](float d) {
+
+        auto anim = GetAnim(Anim::GET_NOTE);
+        anim->setPosition(ck->getPosition());
+        anim->setAnchorPoint(ck->getAnchorPoint());
+        ck->getParent()->addChild(anim);
+
+        anim->scheduleOnce([=](float d) {
+            anim->removeFromParent();
+            }, 0.05 * 11, "scheduleOnce");
+
         ck->removeFromParent();
         SOUND_MANAGER->chooseCorect();
         updateScore(1);
@@ -1156,9 +1108,13 @@ Sprite* SFGameScene::GetAnim(Anim anim)
         sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/get_diamond/animation_get_dianond01.png",
             "DIAMOND", "res/BlackPink/animation/get_diamond/animation_get_dianond0%d.png", 1, 7, 0.05f, -1);
         break;
-    case Anim::GET_NOTE:
+    case Anim::NOTE:
         sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/note/animation_note00.png",
-            "GET_NOTE", "res/BlackPink/animation/note/animation_note0%d.png", 0, 7, 0.05f, -1);
+            "NOTE", "res/BlackPink/animation/note/animation_note0%d.png", 0, 13, 0.05f, -1);
+        break;
+    case Anim::GET_NOTE:
+        sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/get_note/animation_get_note01.png",
+            "GET_NOTE", "res/BlackPink/animation/get_note/animation_get_note0%d.png", 1, 7, 0.1f, -1);
         break;
     case Anim::KEY:
         sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/key/aniamtion_key00.png",

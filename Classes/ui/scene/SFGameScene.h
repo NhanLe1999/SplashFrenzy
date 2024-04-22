@@ -27,6 +27,7 @@ enum class Anim {
     GET_NOTE,
     KEY,
     MUSIC,
+    NOTE
 };
 
 struct DataPathAnim {

@@ -1178,7 +1178,6 @@ void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 
 void SFGameScene::gameOver(int score)
 {
-    return;
     if (_isGameOver)
     {
         return;

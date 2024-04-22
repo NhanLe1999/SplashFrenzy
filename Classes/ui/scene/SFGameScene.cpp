@@ -103,7 +103,8 @@ void SFGameScene::didLoadFromCSB()
     root_layout = utils::findChild(this, "root_layout");
     auto root_game_play = utils::findChild(this, "root_game_play");
 
-    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
+   // auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
+    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx",3);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -124,7 +125,9 @@ void SFGameScene::didLoadFromCSB()
     float sca = 0.8f;
 
     getGroupNameByPoint("tuong", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_8.png", COLLISION_TUONG, 0.5f);
-    getGroupNameByPoint("tuong_opacity", "", COLLISION_TUONG, 0.5f);
+    getGroupNameByPoint("tuong_opacity", "", COLLISION_TUONG_DIE, 0.5f);
+    getGroupNameByPoint("tuong_opacity_not_die", "", COLLISION_TUONG, 0.5f);
+
     getGroupNameByPoint("tuong_phai_cao_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_3.png", COLLISION_TUONG);
     getGroupNameByPoint("tuong_phai_thap_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_4.png", COLLISION_TUONG);
     getGroupNameByPoint("tuong_trai_cao_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_2.png", COLLISION_TUONG);
@@ -170,24 +173,20 @@ void SFGameScene::didLoadFromCSB()
             switch (type)
             {
             case ui::Widget::TouchEventType::BEGAN:
-                isMoveLeft = true;
-                isMoveRight = false;
-                CCLOG("Left arrow key is pressed.");
-                _character->setScaleX(-std::abs(_character->getScaleX()));
-                _currentStatusNv = StatusNV::RUN;
+                OnMoveLeft();
                 break;
             case ui::Widget::TouchEventType::ENDED:
                 _character->unschedule("check_run_charater");
                 CCLOG("Left arrow key is released.");
                 isMoveLeft = false;
                 _currentStatusNv = StatusNV::RELEAX;
-                _currentStatusNv = isMoveRight ? StatusNV::JUMP : StatusNV::RELEAX;
+                _currentStatusNv = isMoveRight ? OnResetSateNv() : StatusNV::RELEAX;
 
                 break;
             case ui::Widget::TouchEventType::CANCELED:
                 _character->unschedule("check_run_charater");
                 isMoveLeft = false;
-                _currentStatusNv = isMoveRight ? StatusNV::JUMP : StatusNV::RELEAX;
+                _currentStatusNv = isMoveRight ? OnResetSateNv() : StatusNV::RELEAX;
 
                 break;
             default:
@@ -202,22 +201,18 @@ void SFGameScene::didLoadFromCSB()
             switch (type)
             {
             case ui::Widget::TouchEventType::BEGAN:
-                isMoveRight = true;
-                isMoveLeft = false;
-                CCLOG("Right arrow key is pressed.");
-                _character->setScaleX(std::abs(_character->getScaleX()));
-                _currentStatusNv = StatusNV::RUN;
+                OnMoveRight();
                 break;
             case ui::Widget::TouchEventType::ENDED:
                 isMoveRight = false;
                 _character->unschedule("check_run_charater");
-                _currentStatusNv = isMoveLeft ? StatusNV::JUMP : StatusNV::RELEAX;
+                _currentStatusNv = isMoveLeft ? StatusNV::JUMP_UP : StatusNV::RELEAX;
 
                 break;
             case ui::Widget::TouchEventType::CANCELED:
                 isMoveRight = false;
                 _character->unschedule("check_run_charater");
-                _currentStatusNv = isMoveLeft ? StatusNV::JUMP : StatusNV::RELEAX;
+                _currentStatusNv = isMoveLeft ? StatusNV::JUMP_UP : StatusNV::RELEAX;
 
                 break;
             default:
@@ -233,19 +228,7 @@ void SFGameScene::didLoadFromCSB()
             switch (type)
             {
             case ui::Widget::TouchEventType::BEGAN:
-                isMoveUp = true;
-                CCLOG("Up arrow key is pressed.");
-                if (_numJum >= 2)
-                {
-                    return;
-                }
-                SOUND_MANAGER->playJump();
-                _currentStatusNv = StatusNV::JUMP;
-                _character->scheduleOnce([this](float dt) {
-                    _currentStatusNv = (isMoveRight || isMoveLeft) ? StatusNV::RUN : StatusNV::RELEAX;
-                    }, 1.0f, "delay_change_state");
-                _numJum++;
-                _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, 550));
+                OnJump();
                 break;
             case ui::Widget::TouchEventType::ENDED:
                 log("Button Touch Ended");
@@ -284,6 +267,18 @@ void SFGameScene::didLoadFromCSB()
     {
         button->loadTextureNormal(StringUtils::format("res/BlackPink/button_world/button_world_1/bis_button_music_%s_world_1.png", !SOUND_MANAGER->isMusicEffectEnable() ? "off" : "on"));
     }
+}
+
+StatusNV SFGameScene::OnResetSateNv()
+{
+    auto vig = _character->getPhysicsBody()->getVelocity();
+
+    if (vig.y <= 0.01)
+    {
+        return StatusNV::JUMP_DOWN;
+    }
+
+    return StatusNV::JUMP_UP;
 }
 
 void SFGameScene::CreateMap(TMXTiledMap* map)
@@ -351,7 +346,7 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
         Sprite* sprite = nullptr;
         std::string n1 = name;
 
-        if (name == "tuong_trai_thap" || name == "tuong_phai_thap" || name == "go_tuong" || name == "tuong_opacity")
+        if (name == "tuong_trai_thap" || name == "tuong_phai_thap" || name == "go_tuong" || name == "tuong_opacity" || name == "tuong_opacity_not_die")
         {
             name = "tuong";
         }
@@ -376,7 +371,7 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
 
         sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
 
-        if (n1 == "tuong_opacity")
+        if (n1 == "tuong_opacity" || n1 == "tuong_opacity_not_die")
         {
             sprite->setOpacity(0);
         }
@@ -523,7 +518,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = { 
             {"RUN_1", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58595.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58595,58601, -1},
-            {"JUMP_1", StatusNV::JUMP, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58593.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58593,58594, 0},
+            {"JUMP_UP_1", StatusNV::JUMP_UP, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58593.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58593,58593, 0},
+            {"JUMP_DOWN_1", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/nv_1/PTModelSprite_ID58594.png", "res/BlackPink/character/jump/nv_1/PTModelSprite_ID%d.png", 58594,58594, 0},
             {"RELEAX_1", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58592.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58592,58595, -1},
             {"DIE_1", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58596.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58596,58596, 0}
 
@@ -535,7 +531,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_2", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58668.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58668,58674, -1},
-            {"JUMP_2", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62581.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62581,62582, 0},
+            {"JUMP_2_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID62581.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62581,62581, 0},
+            {"JUMP_2_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID62582.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62582,62582, 0},
             {"RELEAX_2", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58659.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58659,58662, -1},
             {"DIE_2", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58660.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58660,58660, 0}
         
@@ -547,7 +544,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_3", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58636.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58636,58641, -1},
-            {"JUMP_3", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62580.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62678,62679, 0},
+            {"JUMP_3_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID62678.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62678,62678, 0},
+            {"JUMP_3_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID62679.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62679,62679, 0},
             {"RELEAX_3", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58627.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58627,58630, -1},
             {"DIE_3", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58644.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58644,58644, 0}
 
@@ -559,7 +557,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_4", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58700.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58700,58705, -1},
-            {"JUMP_4", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62658.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62658,62659, 0},
+            {"JUMP_4_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID62658.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62658,62658, 0},
+            {"JUMP_4_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID62659.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62659,62659, 0},
             {"RELEAX_4", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58691.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58691,58694, -1},
             {"DIE_4", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58692.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58692,58692, 0}
         };
@@ -569,7 +568,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_5", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID63292.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 63292,63297, -1},
-            {"JUMP_5", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID63246.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63246,63247, 0},
+            {"JUMP_5_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID63246.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63246,63246, 0},
+            {"JUMP_5_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID63247.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63247,63247, 0},
             {"RELEAX_5", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID63238.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 63238,63241, -1},
             {"DIE_5", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID63239.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 63239,63239, 0}
         };
@@ -580,7 +580,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_6", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58732.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58732,58737, -1},
-            {"JUMP_6", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62663.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62663,62664, 0},
+            {"JUMP_6_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID62663.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62663,62663, 0},
+            {"JUMP_6_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID62664.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62664,62664, 0},
             {"RELEAX_6", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58723.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58723,58726, -1},
             {"DIE_6", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58724.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58724,58724, 0}
         };
@@ -591,8 +592,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_7", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID63303.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 63303,63308, -1},
-            {"JUMP_7", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID63266.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63266,63267, 0},
-            {"RELEAX_7", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID63257.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 63257,63260, -1},
+            {"JUMP_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID63266.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63266,63266, 0},
+            {"JUMP_7_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID63267.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63267,63267, 0},
             {"RELEAX_7", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID63257.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 63257,63260, -1},
             {"DIE_7", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID63258.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 63257,63258, 0}
         };
@@ -603,7 +604,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_8", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID58764.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 58764,58769, -1},
-            {"JUMP_8", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID62666.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62666,62667, 0},
+            {"JUMP_8_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID62666.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62666,62666, 0},
+            {"JUMP_8_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID62667.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 62667,62667, 0},
             {"RELEAX_8", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID58755.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 58755,58758, -1},
             {"DIE_8", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID58756.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 58756,58756, 0}
         };
@@ -614,7 +616,8 @@ void SFGameScene::SetDataAnimForCharater()
     {
         _dataAnimCharater = {
             {"RUN_9", StatusNV::RUN, "res/BlackPink/character/run/PTModelSprite_ID63313.png", "res/BlackPink/character/run/PTModelSprite_ID%d.png", 63313,63318, -1},
-            {"JUMP_9", StatusNV::JUMP, "res/BlackPink/character/jump/PTModelSprite_ID63287.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63287,63288, 0},
+            {"JUMP_9_UP", StatusNV::JUMP_UP, "res/BlackPink/character/jump/PTModelSprite_ID63287.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63287,63287, 0},
+            {"JUMP_9_DOWN", StatusNV::JUMP_DOWN, "res/BlackPink/character/jump/PTModelSprite_ID63288.png", "res/BlackPink/character/jump/PTModelSprite_ID%d.png", 63288,63288, 0},
             {"RELEAX_9", StatusNV::RELEAX, "res/BlackPink/character/releax/PTModelSprite_ID63278.png", "res/BlackPink/character/releax/PTModelSprite_ID%d.png", 63278,63281, -1},
             {"DIE_9", StatusNV::DIE, "res/BlackPink/character/die/PTModelSprite_ID63279.png", "res/BlackPink/character/die/PTModelSprite_ID%d.png", 63279,63279, 0}
 
@@ -745,44 +748,73 @@ void SFGameScene::OnGameOver()
     gameOver(_score);
 }
 
+void SFGameScene::OnMoveLeft()
+{
+    isMoveLeft = true;
+    isMoveRight = false;
+    CCLOG("Left arrow key is pressed.");
+    _character->setScaleX(-std::abs(_character->getScaleX()));
+    _currentStatusNv = StatusNV::RUN;
+}
+
+
+void SFGameScene::OnMoveRight()
+{
+    isMoveRight = true;
+    isMoveLeft = false;
+    CCLOG("Right arrow key is pressed.");
+    _character->setScaleX(std::abs(_character->getScaleX()));
+    _currentStatusNv = StatusNV::RUN;
+}
+
+void SFGameScene::OnJump()
+{
+    isMoveUp = true;
+    CCLOG("Up arrow key is pressed.");
+    if (_numJum >= 2)
+    {
+        return;
+    }
+    SOUND_MANAGER->playJump();
+    _numJum++;
+    _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, 550));
+    _currentStatusNv = StatusNV::JUMP_UP;
+    _character->scheduleOnce([this](float dt) {
+        //   _currentStatusNv = StatusNV::RELEAX;
+
+        }, 1.0f, "delay_change_state");
+
+    auto py = _character->getPhysicsBody();
+
+    _character->schedule([=](float dt) {
+        //   _currentStatusNv = StatusNV::RELEAX;
+        CCLOG("NHAAN__%f___%f", py->getVelocity().x, py->getVelocity().y);
+
+        if (py->getVelocity().y < 0)
+        {
+            _character->unschedule("delay_change_state1");
+            _currentStatusNv = StatusNV::JUMP_DOWN;
+        }
+
+        }, "delay_change_state1");
+}
+
 void SFGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
 {
     float x = 350, y = 550;
     switch (keyCode)
     {
     case EventKeyboard::KeyCode::KEY_UP_ARROW:
-        isMoveUp = true;
-        CCLOG("Up arrow key is pressed.");
-        if (_numJum >= 2)
-        {
-            return;
-        }
-        SOUND_MANAGER->playJump();
-        _numJum++;
-        _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, y));
-        _currentStatusNv = StatusNV::JUMP;
-        _character->scheduleOnce([this](float dt) {
-                 //   _currentStatusNv = StatusNV::RELEAX;
-                    _currentStatusNv = (isMoveRight || isMoveLeft) ? StatusNV::RUN : StatusNV::RELEAX;
-
-                    }, 1.0f, "delay_change_state");
+        OnJump();
         break;
     case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
         CCLOG("Down arrow key is pressed.");
         break;
     case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-        isMoveLeft = true;
-        isMoveRight = false;
-        CCLOG("Left arrow key is pressed.");
-        _character->setScaleX(-std::abs(_character->getScaleX()));
-        _currentStatusNv = StatusNV::RUN;
+        OnMoveLeft();
         break;
     case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-        isMoveRight = true;
-        isMoveLeft = false;
-        CCLOG("Right arrow key is pressed.");
-        _character->setScaleX(std::abs(_character->getScaleX()));
-        _currentStatusNv = StatusNV::RUN;
+        OnMoveRight();
         break;
     default:
         break;
@@ -803,13 +835,13 @@ void SFGameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
         _character->unschedule("check_run_charater");
         CCLOG("Left arrow key is released.");
         isMoveLeft = false;
-        _currentStatusNv = isMoveRight ? StatusNV::JUMP : StatusNV::RELEAX;
+        _currentStatusNv = isMoveRight ? OnResetSateNv() : StatusNV::RELEAX;
         break;
     case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
         isMoveRight = false;
         CCLOG("Right arrow key is released.");
         _character->unschedule("check_run_charater");
-        _currentStatusNv = isMoveLeft ? StatusNV::JUMP : StatusNV::RELEAX;
+        _currentStatusNv = isMoveLeft ? OnResetSateNv() : StatusNV::RELEAX;
         break;
     default:
         break;
@@ -830,7 +862,7 @@ bool SFGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
         _numJum = 0;
         _isRun = false;
         _character->unschedule("delay_down");
-        if (_currentStatusNv == StatusNV::JUMP)
+        if (_currentStatusNv == OnResetSateNv())
         {
             _currentStatusNv = (isMoveRight || isMoveLeft) ? StatusNV::RUN : StatusNV::RELEAX;
         }
@@ -925,6 +957,24 @@ bool SFGameScene::onContactBegin(cocos2d::PhysicsContact& contact)
             }
         }
     }
+    else if ((COLLISION_NV == aCollision && COLLISION_TUONG_DIE == bCollision) || (COLLISION_NV == bCollision && COLLISION_TUONG_DIE == aCollision))
+    {
+        if (COLLISION_TUONG_DIE == aCollision)
+        {
+            auto parent = a->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndTuongDie(parent);
+            }
+        }
+        else {
+            auto parent = b->getOwner();
+            if (parent != nullptr)
+            {
+                OnCollisionCharaterAndTuongDie(parent);
+            }
+        }
+    }
    
     return true;
 }
@@ -985,6 +1035,16 @@ bool SFGameScene::onContactPreSolve(PhysicsContact& contact, PhysicsContactPreSo
         _numJum = 0;
     }
     return true;
+}
+
+
+void SFGameScene::OnCollisionCharaterAndTuongDie(Node* node)
+{
+    node->scheduleOnce([=](float dt) {
+       
+        OnGameOver();
+
+        }, 0.005f, "OnCollisionCharaterAndNam");
 }
 
 void SFGameScene::OnCollisionCharaterAndNam(Node* nam)

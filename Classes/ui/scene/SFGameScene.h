@@ -15,7 +15,8 @@ enum StatusNV
     DEFAULT,
     RELEAX, 
     RUN,
-    JUMP,
+    JUMP_UP,
+    JUMP_DOWN,
     DIE
 };
 
@@ -55,6 +56,7 @@ struct DataPathAnim {
 
 #define COLLISION_NV 10
 #define COLLISION_TUONG 20
+#define COLLISION_TUONG_DIE 21
 #define COLLISION_ENEMY 12
 #define COLLISION_DIAMOND 13
 #define COLLISION_XUONG_RONG 14
@@ -111,6 +113,7 @@ private:
     void OnCollisionCharaterAndChiaKhoa(Node* ck);
     void OnCollisionCharaterAndNhac(Node* ck);
     void OnCollisionCharaterAndXuongRong();
+    void OnCollisionCharaterAndTuongDie(Node * node);
 
     void CreateMap(TMXTiledMap* map);
     void SetDataAnimForCharater();
@@ -138,6 +141,12 @@ private:
 
     void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
     void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
+
+    void OnJump();
+    void OnMoveLeft();
+    void OnMoveRight();
+
+    StatusNV OnResetSateNv();
 
 private:
 

@@ -183,10 +183,16 @@ void SFGameScene::didLoadFromCSB()
         cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width * 90000, _screenSize.height));
         _listMapBg[i]->runAction(followAction);
     }
+    */
+   /*2d::Follow::create(_character, Rect(0, 0, _mapBg->getContentSize().width * 90000, _screenSize.height));
+    _mapBg->runAction(followAction3);
+ _mapBg = TMXTiledMap::create("res/map/map_bg/2/map_bg.tmx");
+    _mapBg->setAnchorPoint(Vec2(0, 0));
+    _mapBg->setPosition(Vec2(_pointX, 0));
+    root_game_play->addChild(_mapBg, 9999);
+    _pointX += _mapBg->getContentSize().width;
 
-    cocos2d::Follow* followAction3 = cocos2d::Follow::create(_character, Rect(0, 0, _mapBg->getContentSize().width * 90000, _screenSize.height));
-    _mapBg->runAction(followAction3);*/
-
+    cocos2d::Follow* followAction3 = cocos*/
     cocos2d::Follow* followAction = cocos2d::Follow::create(_character, Rect(0, 0, sizeMap.width * 10, _screenSize.height));
     followAction->setTag(9090);
     _tileMap->stopActionByTag(9090);

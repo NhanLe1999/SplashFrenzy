@@ -1214,7 +1214,7 @@ void SFGameScene::onMusicButtonClicked(cocos2d::Ref* sender)
 void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 {
     this->onGamePause();
-    SOUND_MANAGER->chooseCorect();
+    SOUND_MANAGER->playClickEffect();
     auto view = BPEndLayer::create(false, _currentGem, _currentCoin);
    
     view->setCallback([this]() {

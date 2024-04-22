@@ -47,6 +47,7 @@ bool BPResetLayer::init()
     background->addChild(btCance);
     btCance->setPosition(Vec2(posX + 110, posY));
     btCance->addClickEventListener([=](Ref *sender) {
+        SOUND_MANAGER->playClickEffect();
         this->removeFromParent();
         });
 
@@ -54,6 +55,7 @@ bool BPResetLayer::init()
     background->addChild(btOK);
     btOK->setPosition(Vec2(posX - 110 , posY));
     btOK->addClickEventListener([=](Ref* sender) {
+        SOUND_MANAGER->playClickEffect();
         this->removeFromParent();
         });
     return true;

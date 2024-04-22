@@ -27,6 +27,7 @@ bool BPChooseWorld::init() {
 	_background->addChild(btHome);
 	btHome->setPosition(Vec2(10, _background->getContentSize().height - 20));
 	btHome->addClickEventListener([=](Ref* sender) {
+		SOUND_MANAGER->playClickEffect();
 		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(this->getParent(), true);
 		((BPMainMenuScene*)this->getParent())->runActionElementIn();
 		this->removeFromParent();
@@ -36,6 +37,7 @@ bool BPChooseWorld::init() {
 	_background->addChild(btPlay);
 	btPlay->setPosition(Vec2(_background->getContentSize().width + 20, _background->getContentSize().height - 20));
 	btPlay->addClickEventListener([=](Ref* sender) {
+		SOUND_MANAGER->playClickEffect();
 		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(this->getParent(), true);
 		auto layer = BPChooseCharacter::create();
 		this->getParent()->addChild(layer);

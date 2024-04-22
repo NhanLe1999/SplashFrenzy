@@ -95,6 +95,7 @@ void BPEndLayer::initButton(){
     btPlay->setScale(95 / btPlay->getContentSize().width);
     _background->addChild(btPlay);
     btPlay->addClickEventListener([=](Ref* sender){
+        SOUND_MANAGER->playClickEffect();
         if (_isOver) {
             auto scene = SFGameScene::createScene();
             Director::getInstance()->replaceScene(scene);

@@ -45,6 +45,7 @@ bool BPLeaderboardLayer::init()
 	_background->addChild(btReset);
 	btReset->setPosition(Vec2(_background->getContentSize().width / 2, -60));
 	btReset->addClickEventListener([=](Ref* sender) {
+		SOUND_MANAGER->playClickEffect();
 		auto layer = BPResetLayer::create();
 		this->addChild(layer,1000);
 		});
@@ -53,6 +54,7 @@ bool BPLeaderboardLayer::init()
 	_background->addChild(btHome);
 	btHome->setPosition(Vec2(10,_background->getContentSize().height - 20));
 	btHome->addClickEventListener([=](Ref* sender) {
+		SOUND_MANAGER->playClickEffect();
 		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(this->getParent(), true);
 		((BPMainMenuScene*)this->getParent())->runActionElementIn();
 		this->removeFromParent();

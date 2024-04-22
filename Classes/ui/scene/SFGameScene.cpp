@@ -103,8 +103,7 @@ void SFGameScene::didLoadFromCSB()
     root_layout = utils::findChild(this, "root_layout");
     auto root_game_play = utils::findChild(this, "root_game_play");
 
-   // auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
-    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx",3);
+    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -1051,7 +1050,20 @@ void SFGameScene::OnCollisionCharaterAndNam(Node* nam)
 {
     nam->scheduleOnce([=](float dt) {
         SOUND_MANAGER->chooseCorect();
+
+        auto sp = Sprite::create("res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_die.png");
+        sp->setPosition(nam->getPosition());
+        sp->setAnchorPoint(nam->getAnchorPoint());
+        nam->getParent()->addChild(sp);
+        sp->setScaleY(nam->getScaleY());
+        sp->setScaleX(nam->getScaleX());
+        sp->scheduleOnce([=](float dt) {
+            sp->removeFromParent();
+            }, 0.5f, "OnCollisionCharaterAndNam");
+
         nam->removeFromParent();
+
+
         }, 0.005f, "OnCollisionCharaterAndNam");
 }
 

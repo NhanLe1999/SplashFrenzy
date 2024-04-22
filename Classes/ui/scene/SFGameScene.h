@@ -84,6 +84,8 @@ private:
 
     void didLoadFromCSB();
     void onPauseButtonClicked(cocos2d::Ref* sender);
+    void onSoundButtonClicked(cocos2d::Ref* sender);
+    void onMusicButtonClicked(cocos2d::Ref* sender);
     void updateTime(float dt);
     void updateLevel(bool isLevelup = false);
     void updateScore(int scoreAdd);
@@ -92,8 +94,6 @@ private:
     cocos2d::ui::Widget::ccWidgetClickCallback onLocateClickCallback(const std::string& callback_name) override;//3.
 
     Sprite* GetAnim(Anim anim);
-
-    void onShopButtonClicked(cocos2d::Ref* sender);
 
     void SetUpdataLevel();
     void SetDataCurrentLevel(int level_id);

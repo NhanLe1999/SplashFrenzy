@@ -21,7 +21,7 @@ void BPSoundManager::playLoseEffect()
 {
     if (isSoundEffectEnable())
     {
-        AudioEngine::play2d("res/BlackPink/sound/win.mp3");
+        AudioEngine::play2d("res/sound/game_over.mp3");
     }
 }
 
@@ -29,7 +29,7 @@ void BPSoundManager::playClickEffect()
 {
 	if (isSoundEffectEnable()) 
 	{
-		AudioEngine::play2d("res/BlackPink/sound/click5.wav",false,0.5);
+		AudioEngine::play2d("res/sound/sound_click_1.mp3",false,0.5);
 	}
 }
 
@@ -37,14 +37,22 @@ void BPSoundManager::chooseCorect()
 {
     if (isSoundEffectEnable())
     {
-        AudioEngine::play2d("res/BlackPink/sound/true.wav",false,0.5);
+        AudioEngine::play2d("res/sound/coin.mp3",false,0.5);
+    }
+}
+
+void BPSoundManager::playJump()
+{
+    if (isSoundEffectEnable())
+    {
+        AudioEngine::play2d("res/sound/jump.mp3",false,0.5);
     }
 }
 void BPSoundManager::chooseWrong()
 {
     if (isSoundEffectEnable())
     {
-        AudioEngine::play2d("res/BlackPink/sound/wrong.wav",false,0.5);
+        AudioEngine::play2d("res/sound/wrong.wav",false,0.5);
     }
 }
 
@@ -70,11 +78,11 @@ void BPSoundManager::playMainMenuMusic(bool isGameMusic)
 
 	if (isGameMusic) 
 	{
-		gameID = AudioEngine::play2d("res/BlackPink/sound/music.wav", true,0.1);
+		gameID = AudioEngine::play2d("res/sound/game.mp3", true,0.1);
 	}
 	else 
 	{
-		menuID = AudioEngine::play2d("res/BlackPink/sound/music2.wav", true,0.2);
+		menuID = AudioEngine::play2d("res/sound/bg.mp3", true,0.2);
 	}
 }
 

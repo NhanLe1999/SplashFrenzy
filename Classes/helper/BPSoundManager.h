@@ -23,6 +23,7 @@ public:
      void chooseWrong();
      void playFlipCard();
 	 void playChangeCard();
+	 void playJump();
 
      void playLoseEffect();
 	 

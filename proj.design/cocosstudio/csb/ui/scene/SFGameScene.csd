@@ -42,10 +42,10 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="root_game_play" ActionTag="429048893" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TopMargin="0.0001" BottomMargin="-0.0001" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="root_game_play" ActionTag="429048893" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="1024.0000" Y="768.0000" />
             <Children>
-              <AbstractNodeData Name="Panel_1" ActionTag="1854703610" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="7.6801" BottomMargin="-7.6800" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_1" ActionTag="1854703610" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="7.6800" BottomMargin="-7.6800" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1024.0000" Y="768.0000" />
                 <Children>
                   <AbstractNodeData Name="bg_score" ActionTag="1668230532" ZOrder="1" Tag="268" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="30.7200" RightMargin="673.2800" TopMargin="23.0400" BottomMargin="649.9600" LeftEage="99" RightEage="99" TopEage="29" BottomEage="29" Scale9OriginX="99" Scale9OriginY="29" Scale9Width="122" Scale9Height="37" ctype="ImageViewObjectData">
@@ -116,10 +116,10 @@
                     <PreSize X="0.3125" Y="0.1237" />
                     <FileData Type="Normal" Path="res/BlackPink/ui/bis_ui_bar_world_1.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="list_btn" ActionTag="-27273896" Tag="17" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="676.2800" RightMargin="30.7200" TopMargin="23.0400" BottomMargin="649.9600" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" ItemMargin="15" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                  <AbstractNodeData Name="list_btn" ActionTag="-27273896" Tag="17" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="676.2800" RightMargin="30.7200" TopMargin="23.0400" BottomMargin="649.9600" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="15" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                     <Size X="317.0000" Y="95.0000" />
                     <Children>
-                      <AbstractNodeData Name="btn_sound" ActionTag="1866959070" Tag="18" IconVisible="False" RightMargin="222.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="65" Scale9Height="73" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="btn_sound" ActionTag="1866959070" CallBackType="Click" CallBackName="onSoundButtonClicked" Tag="18" IconVisible="False" RightMargin="222.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="65" Scale9Height="73" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="95.0000" Y="95.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="47.5000" Y="47.5000" />
@@ -132,7 +132,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="music" ActionTag="-1294359069" ZOrder="1" Tag="19" IconVisible="False" LeftMargin="110.0000" RightMargin="112.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="65" Scale9Height="73" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="music" ActionTag="-1294359069" ZOrder="1" CallBackType="Click" Tag="19" IconVisible="False" LeftMargin="110.0000" RightMargin="112.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="65" Scale9Height="73" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="95.0000" Y="95.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="157.5000" Y="47.5000" />
@@ -223,7 +223,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="512.0000" Y="383.9999" />
+            <Position X="512.0000" Y="384.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />

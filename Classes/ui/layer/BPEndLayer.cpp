@@ -19,7 +19,6 @@ bool BPEndLayer::init(bool isOver, int gem, int music){
     {
         return false;
     }
-    SOUND_MANAGER->playLoseEffect();
     _currentGem = gem;
     _currentScore = music;
 
@@ -32,6 +31,7 @@ bool BPEndLayer::init(bool isOver, int gem, int music){
     std::string path ="res/BlackPink/popup/popup_pause/bis_popup_pause.png";
     if (isOver) {
         path = "res/BlackPink/popup/game_over/bis_popup_game_over.png";
+        SOUND_MANAGER->playLoseEffect();
     }
     _isOver = isOver;
     _background = Sprite::create(path);

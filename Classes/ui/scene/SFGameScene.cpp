@@ -287,6 +287,7 @@ void SFGameScene::didLoadFromCSB()
                 {
                     return;
                 }
+                SOUND_MANAGER->playJump();
                 _currentStatusNv = StatusNV::JUMP;
                 _character->scheduleOnce([this](float dt) {
                     _currentStatusNv = (isMoveRight || isMoveLeft) ? StatusNV::RUN : StatusNV::RELEAX;
@@ -806,6 +807,7 @@ void SFGameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
         {
             return;
         }
+        SOUND_MANAGER->playJump();
         _numJum++;
         _character->getPhysicsBody()->setVelocity(Vec2(_character->getPhysicsBody()->getVelocity().x, y));
         _currentStatusNv = StatusNV::JUMP;
@@ -1058,6 +1060,7 @@ bool SFGameScene::onContactPreSolve(PhysicsContact& contact, PhysicsContactPreSo
 void SFGameScene::OnCollisionCharaterAndNam(Node* nam)
 {
     nam->scheduleOnce([=](float dt) {
+        SOUND_MANAGER->chooseCorect();
         nam->removeFromParent();
         }, 0.005f, "OnCollisionCharaterAndNam");
 }
@@ -1065,6 +1068,7 @@ void SFGameScene::OnCollisionCharaterAndNam(Node* nam)
 void SFGameScene::OnCollisionCharaterAndDiamon(Node* diamon)
 {
     diamon->scheduleOnce([=](float d) {
+        SOUND_MANAGER->chooseCorect();
         updateDiamond(1);
         diamon->removeFromParent();
         }, 0.005f, "OnCollisionCharaterAndNam");
@@ -1074,7 +1078,7 @@ void SFGameScene::OnCollisionCharaterAndChiaKhoa(Node* ck)
 {
     ck->scheduleOnce([=](float d) {
         ck->removeFromParent();
-
+        SOUND_MANAGER->chooseCorect();
         for (auto tc : _listTuong)
         {
             auto physice = tc->getPhysicsBody();
@@ -1100,6 +1104,7 @@ void SFGameScene::OnCollisionCharaterAndNhac(Node* ck)
 {
     ck->scheduleOnce([=](float d) {
         ck->removeFromParent();
+        SOUND_MANAGER->chooseCorect();
         updateScore(1);
     }, 0.005f, "OnCollisionCharaterAndNhac");
 }
@@ -1111,18 +1116,13 @@ void SFGameScene::OnCollisionCharaterAndXuongRong()
         }, 0.005f, "OnCollisionCharaterAndNam");
 }
 
-void SFGameScene::onShopButtonClicked(cocos2d::Ref* sender)
-{
-    
-}
-
-
 cocos2d::ui::Widget::ccWidgetClickCallback SFGameScene::onLocateClickCallback(const std::string& callBackName)
 {
     std::unordered_map<std::string, ui::Widget::ccWidgetClickCallback> function_map =
     {
         CLICK_MAP(SFGameScene, onPauseButtonClicked),
-        CLICK_MAP(SFGameScene, onShopButtonClicked),
+        CLICK_MAP(SFGameScene, onSoundButtonClicked),
+        CLICK_MAP(SFGameScene, onMusicButtonClicked),
     };
 
     if (function_map.find(callBackName) != function_map.end())
@@ -1175,10 +1175,46 @@ Sprite* SFGameScene::GetAnim(Anim anim)
     return sprite;
 }
 
+void SFGameScene::onSoundButtonClicked(cocos2d::Ref* sender)
+{
+    SOUND_MANAGER->playClickEffect();
+
+    auto button = dynamic_cast<cocos2d::ui::Button*>(sender);
+
+    auto isSoundOn = UserDefault::getInstance()->getBoolForKey(IS_SOUND_KEY_ON, true);
+
+    UserDefault::getInstance()->setBoolForKey(IS_SOUND_KEY_ON, !isSoundOn);
+
+    button->loadTextureNormal(StringUtils::format("res/BlackPink/button_world/button_world_1/bis_button_sound_%s_world_1.png", !SOUND_MANAGER->isSoundEffectEnable() ? "off" : "on"));
+
+}
+
+void SFGameScene::onMusicButtonClicked(cocos2d::Ref* sender)
+{
+    SOUND_MANAGER->playClickEffect();
+
+    auto button = dynamic_cast<cocos2d::ui::Button*>(sender);
+
+    auto isSoundOn = UserDefault::getInstance()->getBoolForKey(IS_MUSIC_KEY_ON, true);
+
+    UserDefault::getInstance()->setBoolForKey(IS_MUSIC_KEY_ON, !isSoundOn);
+
+    if (SOUND_MANAGER->isMusicEffectEnable()) {
+
+        SOUND_MANAGER->resumeAllBackgroundMusics();
+    }
+    else
+    {
+        SOUND_MANAGER->pauseAllBackgroundMusics();
+    }
+    button->loadTextureNormal(StringUtils::format("res/BlackPink/button_world/button_world_1/bis_button_music_%s_world_1.png", !SOUND_MANAGER->isMusicEffectEnable() ? "off" : "on"));
+
+}
+
 void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 {
     this->onGamePause();
-    SOUND_MANAGER->playClickEffect();
+    SOUND_MANAGER->chooseCorect();
     auto view = BPEndLayer::create(false, _currentGem, _currentCoin);
    
     view->setCallback([this]() {

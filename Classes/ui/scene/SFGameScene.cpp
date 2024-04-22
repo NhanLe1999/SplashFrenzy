@@ -43,7 +43,7 @@ Scene* SFGameScene::createScene()
 
     if (scene)
     {
-        //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+        scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = SFGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -99,11 +99,10 @@ void SFGameScene::didLoadFromCSB()
         bg->setScale(std::max(_screenSize.height / 540.00, _screenSize.width / 960.00));
     }
 
-
     root_layout = utils::findChild(this, "root_layout");
     auto root_game_play = utils::findChild(this, "root_game_play");
 
-    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", 3);
+    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", 1);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -123,7 +122,8 @@ void SFGameScene::didLoadFromCSB()
 
     float sca = 0.8f;
 
-    getGroupNameByPoint("tuong", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_8.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_8.png", COLLISION_TUONG, 0.5f);
+    getGroupNameByPoint("tuong_opacity", "", COLLISION_TUONG, 0.5f);
     getGroupNameByPoint("tuong_phai_cao_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_3.png", COLLISION_TUONG);
     getGroupNameByPoint("tuong_phai_thap_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_4.png", COLLISION_TUONG);
     getGroupNameByPoint("tuong_trai_cao_tam_giac", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_2.png", COLLISION_TUONG);
@@ -191,7 +191,7 @@ void SFGameScene::didLoadFromCSB()
     _tileMap->stopActionByTag(9090);
     _tileMap->runAction(followAction);
 
-    _physicSceneWorld->setGravity(Vec2(0, -980));
+    _physicSceneWorld->setGravity(Vec2(0, -1000));
 
    /* cocos2d::Follow* followAction1 = cocos2d::Follow::create(this);
      root_layout->runAction(followAction1);
@@ -381,8 +381,9 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
         auto height = k1["height"].asFloat();
 
         Sprite* sprite = nullptr;
+        std::string n1 = name;
 
-        if (name == "tuong_trai_thap" || name == "tuong_phai_thap" || name == "go_tuong")
+        if (name == "tuong_trai_thap" || name == "tuong_phai_thap" || name == "go_tuong" || name == "tuong_opacity")
         {
             name = "tuong";
         }
@@ -411,6 +412,15 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
         }
 
         sprite = CreateObject(pathSr, cocos2d::Vec2(x, y) + Vec2(width / 2, height), name, collison, ani);
+
+        if (n1 == "tuong_opacity")
+        {
+            sprite->setOpacity(0);
+        }
+
+
+        sprite->setPositionY(sprite->getPositionY() + 25);
+
         if (name == "obj_rotation")
         {
             j++;
@@ -447,11 +457,11 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
                 auto point2 = this->convertToWorldSpaceAR(_character->getPosition());
                 if (std::abs(point1.x - point2.x) <= 25.0f)
                 {
-                    sprite->getPhysicsBody()->setVelocity(Vec2(0, 400));
+                    sprite->getPhysicsBody()->setVelocity(Vec2(0, 500));
                     sprite->unschedule("check_point");
                     sprite->scheduleOnce([=](float dt) {
                         sprite->getPhysicsBody()->setVelocity(Vec2(0, 0));
-                        }, 1.2f, "delay_mushRom_run_scheduleOnce");
+                        }, 0.8f, "delay_mushRom_run_schedleOnce");
                 }
 
                 }, "check_point");
@@ -476,7 +486,7 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
             sprite->schedule([=](float dt) {
 
                 auto point2 = this->convertToWorldSpaceAR(_character->getPosition());
-                if (std::abs(point1.x - point2.x) <= 10.0f)
+                if (std::abs(point1.x - point2.x) <= 20.0f)
                 {
                     sprite->getPhysicsBody()->setDynamic(true);
                     sprite->scheduleOnce([sprite](float dt) {
@@ -513,7 +523,17 @@ Sprite* SFGameScene::CreateObject(std::string path, Vec2 point, std::string name
 {
     Sprite* sprite = nullptr;
 
-    sprite = anim != Anim::DEFAULT ? GetAnim(anim) : Sprite::create(path);
+
+    if (anim != Anim::DEFAULT)
+    {
+        sprite = GetAnim(anim);
+    }else if (path == "")
+    {
+        sprite = Sprite::create();
+    }
+    else {
+        sprite = Sprite::create(path);
+    }
 
     sprite->setAnchorPoint(Point(0.5, 0));
     sprite->setPosition(point);
@@ -1157,12 +1177,12 @@ void SFGameScene::onPauseButtonClicked(cocos2d::Ref* sender)
 
 void SFGameScene::gameOver(int score)
 {
+    return;
     if (_isGameOver)
     {
         return;
     }
     _isGameOver = true;
-
 
     _currentStatusNv = StatusNV::DIE;
     RunActionCharator(Anim::NV_1);

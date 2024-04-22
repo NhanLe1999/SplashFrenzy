@@ -83,10 +83,6 @@ void SFGameScene::didLoadFromCSB()
     _screenSize = Director::getInstance()->getVisibleSize();
     UserDefault::getInstance()->setBoolForKey("key_is_play_anim_swip", false);
 
-    if (auto txtLv = utils::findChild<ui::Text*>(this, "txt_level"))
-    {
-        txtLv->setString(std::to_string(_currentLevelID));
-    }
 
     auto idMap = cocos2d::random(0, (int)ListMap.size() - 1);
 

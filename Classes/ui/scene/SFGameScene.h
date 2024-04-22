@@ -157,50 +157,15 @@ private:
     int                     _score = 0;
     int                     _Diamond = 0;
     bool                    _isGameOver = false;
-    bool _isSetHp = true;
 
-
-    cocos2d::Node* _bar = nullptr;
-    cocos2d::Node* _root = nullptr;
-    cocos2d::ui::ImageView* _levelBar = nullptr;
-
-    cocos2d::Size _catSize;
-
-    bool _isHitFirstDame = false;
-
-    int _currentLevelID = 0;
 
     //////
-    bool _isGamePlay = false;
 
     Sprite* _character;
 
-    float _speed = 250.0f;
-    float _gravity = 350.0f;
-    std::chrono::steady_clock::time_point _clickStartTime;
-    Vec2 _currentPointVelocity;
-
-
-    bool _isUseSkillTime = false;
-    LoadingBar* _loadingBarFrog = nullptr;
-
-    Node* _NStar = nullptr;
 
     int _scroreAdd = 0;
 
-    int _numSkillHammer = 0;
-    int _numSkillKhien = 0;
-    int _numSkillFrog = 0;
-    int _numStar = 0;
-
-    bool _isUseSkillHammer = false;
-    bool _isUseSkillKhien = false;
-    bool _isUseSkillFrog = false;
-
-    bool _isJump = false;
-    bool _isCkick = false;
-
-    float pointX = 0.0f;
     float _timer = 0.0f;
 
     /// <summary>

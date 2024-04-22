@@ -43,7 +43,7 @@ Scene* SFGameScene::createScene()
 
     if (scene)
     {
-        scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+       // scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = SFGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -79,8 +79,7 @@ void SFGameScene::didLoadFromCSB()
 {
     _screenSize = Director::getInstance()->getVisibleSize();
     this->setName("SFGameScene");
-    std::vector<int> ListMap = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,19,13,2,9,22,23,27,4,21,3,1,10,26,24,8,0,16,15,14,7,5,11,20,18,17,25,6,12,0,23,11,17,1,16,12,21,27,6,13,2,25,8,7,18,15,9,14,20,24,22,19,4,10,3,26,5,1,10,21,24,19,17,7,27,13,4,25,18,14,0,5,6,12,9,2,11,26,16,8,20,15,3,22,23,4,5,24,14,20,6,16,12,27,23,1,3,9,2,26,7,17,19,0,15,11,13,22,8,21,10,18,25,27,1,7,21,13,24,6,19,22,26,0,2,9,4,11,16,10,23,3,15,18,25,8,17,14,12,20,5,1,2,16,7,26,9,6,24,13,4,10,23,15,20,22,19,0,21,25,27,18,8,17,12,11,5,3,14,17,20,1,12,18,15,19,23,26,21,2,6,5,27,14,7,13,10,25,9,22,11,3,0,24,4,8,16,5,1,13,23,20,3,18,26,8,15,4,12,25,6,27,17,19,16,21,24,14,2,22,9,11,0,10,7,14,1,10,21,6,8,19,12,22,23,25,13,2,3,0,16,17,5,15,9,7,27,24,26,4,11,20,18,7,12,27,26,20,17,9,0,11,6,2,22,10,3,14,25,23,8,4,21,1,24,13,18,19,5,15,16,26,25,12,22,21,23,14,0,9,2,10,6,5,27,18,19,15,3,20,1,8,7,17,24,11,16,13,4,5,22,10,3,20,24,23,12,17,21,15,11,0,13,14,9,7,27,1,26,19,18,16,6,2,8,25,4,13,0,22,25,12,8,14,6,20,3,5,23,7,16,18,27,11,10,4,21,15,26,9,1,2,19,17,24,21,22,7,27,18,4,20,8,13,19,3,15,26,16,23,1,6,0,12,11,25,14,2,17,24,5,10,9,5,23,12,10,20,26,8,21,17,7,19,11,16,22,0,15,2,24,13,14,6,9,27,1,25,18,4,3,0,16,3,9,12,21,24,11,15,22,5,20,1,14,13,7,6,17,2,19,8,23,10,27,26,25,4,18,11,22,9,12,24,10,8,27,16,18,26,13,15,2,17,4,5,19,21,20,6,0,7,25,3,1,23,14,4,18,8,13,11,14,25,7,19,21,0,24,26,6,22,9,23,16,1,27,12,3,17,2,5,20,15,10,12,21,0,19,25,20,23,2,27,17,14,11,9,26,8,16,5,15,4,3,22,6,18,24,1,7,13,10,10,17,0,3,9,8,21,1,2,22,26,24,19,16,27,6,18,23,5,25,11,13,12,20,7,15,4,14,20,0,10,15,4,14,16,1,3,2,18,17,5,23,21,11,22,26,7,25,12,6,19,9,24,27,13,8,18,23,16,9,6,13,14,5,26,7,19,0,27,21,4,10,20,11,15,24,22,2,17,1,25,3,8,12,0,5,14,19,3,10,27,12,6,4,25,17,8,20,13,16,26,18,23,1,15,22,11,24,21,7,9,2,6,22,16,3,26,1,8,4,18,24,27,13,2,17,9,20,21,25,23,12,14,11,0,7,15,10,5,19,23,24,14,13,22,8,20,25,1,2,27,11,21,19,15,12,18,7,0,10,9,3,16,26,4,6,5,17,3,8,17,19,21,2,16,6,14,20,4,27,26,11,15,12,22,18,13,10,25,9,24,5,1,0,7,23,24,20,18,13,23,2,7,22,16,15,8,0,10,1,19,5,11,27,12,9,6,3,25,17,4,21,26,14,26,4,11,2,14,27,24,15,12,6,22,25,8,10,17,21,13,18,23,20,1,16,9,7,5,3,19,0,27,20,4,1,11,2,17,0,24,12,10,7,6,22,9,16,8,26,15,13,23,14,18,19,5,3,25,21,25,12,18,6,22,15,9,24,23,14,7,11,1,10,16,5,2,20,17,0,19,26,13,3,27,8,21,4,20,16,9,7,19,11,17,4,8,21,3,12,24,0,26,23,15,13,6,18,25,27,5,10,14,2,1,22,18,3,10,21,9,27,11,24,26,4,6,12,19,16,17,22,0,7,5,8,23,20,2,13,1,14,15,25,27,10,2,9,4,12,13,16,0,11,1,18,14,20,23,22,19,8,24,6,15,17,21,3,25,26,7,5,20,16,6,23,8,11,10,0,27,15,19,14,13,2,26,21,5,22,25,3,24,12,17,18,9,7,4,1,5,17,1,11,13,2,22,21,0,7,19,3,27,24,10,12,16,9,8,4,23,14,6,18,26,20,15,25,23,6,14,24,1,4,27,2,8,21,0,25,18,16,11,10,7,5,17,26,22,19,13,12,9,20,3,15,21,12,10,25,24,23,4,2,26,17,7,9,20,19,14,11,3,22,8,13,6,27,5,0,18,1,15,16,25,6,1,3,4,9,23,16,5,12,11,8,14,0,7,26,24,21,17,13,10,27,15,19,18,2,20,22,10,20,1,23,6,7,9,2,8,12,24,16,5,21,0,18,27,11,19,17,3,14,15,26,13,22,4,25,6,24,19,8,20,11,17,0,5,25,14,15,27,22,9,1,3,10,18,16,2,23,21,4,13,12,7,26,27,15,24,14,22,11,12,6,18,0,20,3,4,26,7,5,25,23,2,17,10,21,16,9,19,1,13,8,25,11,2,1,5,10,9,3,0,7,15,20,22,4,12,6,21,14,27,23,17,26,24,18,16,13,8,19,2,10,25,16,8,20,26,0,6,1,12,23,11,4,5,27,14,22,17,3,18,24,19,7,9,15,21,13,27,10,17,15,7,21,4,26,6,1,0,16,18,19,11,2,9,3,14,20,22,25,5,12,24,13,8,23,13,25,20,7,15,14,6,4,24,10,21,27,19,1,17,26,22,8,12,3,23,2,11,18,5,9,0,16,27,7,16,2,6,24,0,9,3,26,4,18,1,12,8,25,13,10,23,17,19,14,5,20,21,15,22,11,12,13,27,4,11,24,9,1,3,15,20,14,26,21,10,18,6,16,2,22,23,17,7,0,19,5,8,25,13,14,12,5,7,26,8,21,27,4,10,2,15,6,20,9,18,24,25,19,23,17,1,11,0,16,3,22,9,19,11,26,5,23,22,13,21,1,15,17,0,25,8,7,24,4,18,10,2,20,12,14,16,3,6,27,24,3,21,7,27,17,9,23,4,0,18,1,20,26,16,2,25,22,19,13,11,6,8,12,10,15,5,14 };
-    SOUND_MANAGER->playMainMenuMusic(true);
+    std::vector<int> ListMap = { 1, 2, 3, 3, 2, 1, 1 ,2, 3, 3, 2, 1, 1 ,2 ,3};
     _screenSize = Director::getInstance()->getVisibleSize();
     UserDefault::getInstance()->setBoolForKey("key_is_play_anim_swip", false);
 
@@ -88,6 +87,8 @@ void SFGameScene::didLoadFromCSB()
     {
         txtLv->setString(std::to_string(_currentLevelID));
     }
+
+    auto idMap = cocos2d::random(0, (int)ListMap.size() - 1);
 
     _currentIdCharater = UserDefault::getInstance()->getIntegerForKey("CharacterActive", 1);
     SetDataAnimForCharater();
@@ -102,7 +103,7 @@ void SFGameScene::didLoadFromCSB()
     root_layout = utils::findChild(this, "root_layout");
     auto root_game_play = utils::findChild(this, "root_game_play");
 
-    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", 1);
+    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -138,7 +139,7 @@ void SFGameScene::didLoadFromCSB()
     getGroupNameByPoint("chia_khoa", "", COLLISION_CHIA_KHOA, sca);
     getGroupNameByPoint("xuong_rong_1", "res/BlackPink/object/PTModelSprite_ID55205.png", COLLISION_XUONG_RONG, 0.8f);
     getGroupNameByPoint("xuong_rong_doc", "res/BlackPink/object/PTModelSprite_ID37838.png", COLLISION_XUONG_RONG, sca);
-    getGroupNameByPoint("tuong_khoa", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_5.png", COLLISION_TUONG);
+    getGroupNameByPoint("tuong_khoa", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_tuong_move_up", "res/BlackPink/ground/ground_world_1/t_1.png", COLLISION_TUONG);
     getGroupNameByPoint("go_tuong", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("go_rotation", "res/BlackPink/object/bis_object_falling.png", COLLISION_TUONG);
@@ -1138,7 +1139,7 @@ Sprite* SFGameScene::GetAnim(Anim anim)
     {
     case Anim::MUSHROM_WORD_1:
         sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_run_0.png",
-            "MUSHROM_WORD_1", "res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_run_%d.png", 0, 4, 0.05f, -1);
+            "MUSHROM_WORD_1", "res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_run_%d.png", 1, 4, 0.1f, -1);
         break;
     case Anim::DIAMOND:
         sprite = HELPER_MANAGER->getAnimateSprite("res/BlackPink/animation/get_diamond/animation_get_dianond01.png",

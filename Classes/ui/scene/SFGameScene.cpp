@@ -43,7 +43,7 @@ Scene* SFGameScene::createScene()
 
     if (scene)
     {
-       // scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+        scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = SFGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -99,7 +99,7 @@ void SFGameScene::didLoadFromCSB()
     root_layout = utils::findChild(this, "root_layout");
     auto root_game_play = utils::findChild(this, "root_game_play");
 
-    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", ListMap[idMap]);
+    auto path = cocos2d::StringUtils::format("res/map/title_map/map_%d.tmx", 3);
     _tileMap = TMXTiledMap::create(path);
     _tileMap->setAnchorPoint(Vec2(0, 0));
     _tileMap->setName("objectPause__tileMap");
@@ -131,11 +131,11 @@ void SFGameScene::didLoadFromCSB()
     getGroupNameByPoint("tuong_phai_thap", "res/BlackPink/ground/ground_world_1/bis_object_ground_world_1_13.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_t_1", "res/BlackPink/ground/ground_world_1/t_1.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_rotation", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
-    getGroupNameByPoint("mushrom_world_1", "", COLLISION_ENEMY, sca);
+    getGroupNameByPoint("mushrom_world_1", "", COLLISION_TUONG_DIE, sca);
     getGroupNameByPoint("kim_cuong", "res/BlackPink/object/PTModelSprite_ID56969.png", COLLISION_DIAMOND, 0.7);
     getGroupNameByPoint("kim_cuong_dynamic", "res/BlackPink/object/PTModelSprite_ID56969.png", COLLISION_DIAMOND, 0.7);
     getGroupNameByPoint("chia_khoa", "", COLLISION_CHIA_KHOA, sca);
-    getGroupNameByPoint("xuong_rong_1", "res/BlackPink/object/PTModelSprite_ID55205.png", COLLISION_XUONG_RONG, 0.8f);
+    getGroupNameByPoint("xuong_rong_1", "res/BlackPink/object/PTModelSprite_ID55205.png", COLLISION_XUONG_RONG, 0.5f);
     getGroupNameByPoint("xuong_rong_doc", "res/BlackPink/object/PTModelSprite_ID37838.png", COLLISION_XUONG_RONG, sca);
     getGroupNameByPoint("tuong_khoa", "res/BlackPink/object/bis_object_rotate.png", COLLISION_TUONG);
     getGroupNameByPoint("obj_tuong_move_up", "res/BlackPink/ground/ground_world_1/t_1.png", COLLISION_TUONG);
@@ -145,8 +145,7 @@ void SFGameScene::didLoadFromCSB()
 
     this->scheduleUpdate();
 
-    auto id = cocos2d::random(0, 1111) % 2 + 1;
-    std::string nameMap = cocos2d::StringUtils::format("res/map/map_bg/%d/map_bg.tmx", id);
+    std::string nameMap = cocos2d::StringUtils::format("res/map/map_bg/%d/map_bg.tmx", 1);
     _mapBg = TMXTiledMap::create(nameMap);
     _mapBg->setAnchorPoint(Vec2(0, 0));
     _mapBg->setPosition(Vec2(_pointX, 0));
@@ -368,7 +367,7 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
 
         if (n1 == "tuong_opacity" || n1 == "tuong_opacity_not_die")
         {
-            sprite->setOpacity(0);
+            sprite->setVisible(false);
         }
 
 
@@ -397,6 +396,17 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
                 }, time, "delay_mushRom_run_scheduleOnce");
 
             sprite->getPhysicsBody()->setContactTestBitmask(true);
+
+            auto sp = Sprite::create("res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_run_1.png");
+            sp->setAnchorPoint(Vec2(0.5f, 0.5f));
+            sp->setPosition(sprite->getContentSize() / 2);
+            sprite->addChild(sp);
+            sprite->setPositionY(sprite->getPositionY() + 10);
+            sp->setName("mushroom_run_die");
+
+            sp->setVisible(false);
+
+            PhysicsShapeCache::getInstance()->setBodyOnSprite("mushroom_run_die", sp, COLLISION_ENEMY);
 
         }
 
@@ -503,7 +513,6 @@ Sprite* SFGameScene::CreateObject(std::string path, Vec2 point, std::string name
 
     return sprite;
 }
-
 
 void SFGameScene::SetDataAnimForCharater()
 {
@@ -740,6 +749,7 @@ void SFGameScene::update(float dt)
 
 void SFGameScene::OnGameOver()
 {
+    _character->getPhysicsBody()->setEnabled(false);
     gameOver(_score);
 }
 
@@ -751,7 +761,6 @@ void SFGameScene::OnMoveLeft()
     _character->setScaleX(-std::abs(_character->getScaleX()));
     _currentStatusNv = StatusNV::RUN;
 }
-
 
 void SFGameScene::OnMoveRight()
 {
@@ -1032,9 +1041,12 @@ bool SFGameScene::onContactPreSolve(PhysicsContact& contact, PhysicsContactPreSo
     return true;
 }
 
-
 void SFGameScene::OnCollisionCharaterAndTuongDie(Node* node)
 {
+    if (auto sp = node->getChildByName("mushroom_run_die"))
+    {
+        sp->getPhysicsBody()->setEnabled(false);
+    }
     node->scheduleOnce([=](float dt) {
        
         OnGameOver();
@@ -1044,20 +1056,24 @@ void SFGameScene::OnCollisionCharaterAndTuongDie(Node* node)
 
 void SFGameScene::OnCollisionCharaterAndNam(Node* nam)
 {
+    nam->getParent()->getPhysicsBody()->setEnabled(false);
     nam->scheduleOnce([=](float dt) {
+
+        auto parent = nam->getParent();
+
         SOUND_MANAGER->chooseCorect();
 
         auto sp = Sprite::create("res/BlackPink/animation/enemy/mushroom/mushrom_world_1/mushroom_die.png");
-        sp->setPosition(nam->getPosition());
-        sp->setAnchorPoint(nam->getAnchorPoint());
-        nam->getParent()->addChild(sp);
-        sp->setScaleY(nam->getScaleY());
-        sp->setScaleX(nam->getScaleX());
+        sp->setPosition(parent->getPosition());
+        sp->setAnchorPoint(parent->getAnchorPoint());
+        parent->getParent()->addChild(sp);
+        sp->setScaleY(parent->getScaleY());
+        sp->setScaleX(parent->getScaleX());
         sp->scheduleOnce([=](float dt) {
             sp->removeFromParent();
             }, 0.5f, "OnCollisionCharaterAndNam");
 
-        nam->removeFromParent();
+        parent->removeFromParent();
 
 
         }, 0.005f, "OnCollisionCharaterAndNam");
@@ -1258,14 +1274,7 @@ void SFGameScene::gameOver(int score)
     _currentStatusNv = StatusNV::DIE;
     RunActionCharator(Anim::NV_1);
 
-   // _scroreAdd = score;
-    //updateScore(_scroreAdd);
-
-   // SOUND_MANAGER->playOnGameOver();
-
     this->unschedule("delay_update_level");
-
-   // onGamePause();
 
     this->scheduleOnce([=](float dt) {
         onGamePause();

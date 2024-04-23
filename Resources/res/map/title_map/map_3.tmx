@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="180" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="30" nextobjectid="686">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="180" height="18" tilewidth="50" tileheight="50" infinite="0" nextlayerid="30" nextobjectid="689">
  <tileset firstgid="1" source="img_map.tsx"/>
  <layer id="27" name="Tile Layer 1" width="180" height="18">
   <data encoding="csv">
@@ -319,8 +319,6 @@
  </objectgroup>
  <objectgroup id="17" name="xuong_rong_doc">
   <object id="221" gid="95" x="1900" y="300" width="50" height="50"/>
-  <object id="222" gid="95" x="2000" y="300" width="50" height="50"/>
-  <object id="223" gid="95" x="2100" y="300" width="50" height="50"/>
   <object id="224" gid="95" x="2200" y="300" width="50" height="50"/>
   <object id="469" gid="95" x="7600" y="250" width="50" height="50"/>
   <object id="486" gid="95" x="5500" y="100" width="50" height="50"/>
@@ -335,6 +333,8 @@
   <object id="571" gid="95" x="6800" y="150" width="50" height="50"/>
   <object id="573" gid="95" x="6650" y="100" width="50" height="50"/>
   <object id="574" gid="95" x="8300" y="350" width="50" height="50"/>
+  <object id="687" gid="95" x="1550" y="300" width="50" height="50"/>
+  <object id="688" gid="95" x="1700" y="300" width="50" height="50"/>
  </objectgroup>
  <objectgroup id="18" name="chia_khoa">
   <object id="565" gid="87" x="4650" y="200" width="50" height="50"/>
@@ -349,8 +349,8 @@
   <object id="40" gid="7" x="1800" y="750" width="50" height="50"/>
  </objectgroup>
  <objectgroup id="13" name="mushrom_world_1">
-  <object id="59" gid="67" x="1350" y="750" width="50" height="50"/>
   <object id="362" gid="67" x="4750" y="700" width="50" height="50"/>
+  <object id="686" gid="67" x="2050" y="750" width="50" height="50"/>
  </objectgroup>
  <objectgroup id="4" name="tuong_phai_cao_tam_giac">
   <object id="39" gid="5" x="1750" y="750" width="50" height="50"/>

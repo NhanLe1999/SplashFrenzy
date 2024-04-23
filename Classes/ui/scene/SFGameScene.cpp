@@ -43,7 +43,7 @@ Scene* SFGameScene::createScene()
 
     if (scene)
     {
-        scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+      //  scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
         auto view = SFGameScene::createView();
         view->setPhysicsWorld(scene->getPhysicsWorld());
         view->setPosition(Director::getInstance()->getVisibleOrigin());
@@ -380,20 +380,22 @@ void SFGameScene::getGroupNameByPoint(std::string name, std::string pathSr, int 
 
         if (name == "mushrom_world_1")
         {
-            int s = cocos2d::random(50, 200);
+            int s = cocos2d::random(90, 120);
             sprite->setTag(s);
             sprite->setPositionY(sprite->getPositionY() - 10);
-            float time = cocos2d::rand_0_1() * (float)cocos2d::random(1, 5);
-            sprite->scheduleOnce([=](float dt) {
-                sprite->schedule([=](float  dt) {
-                    auto tag = sprite->getTag();
 
-                    sprite->getPhysicsBody()->setVelocity(Vec2(sprite->getTag(), 0));
-                    sprite->setTag(-sprite->getTag());
-                    sprite->setScaleX(-sprite->getScaleX());
+            /*sprite->getPhysicsBody()->setVelocity(Vec2(sprite->getTag(), 0));
+            sprite->setTag(-sprite->getTag());
+            sprite->setScaleX(sprite->getScaleX());*/
 
-                    }, 1.55f, "delay_mushRom_run");
-                }, time, "delay_mushRom_run_scheduleOnce");
+            sprite->schedule([=](float  dt) {
+                auto tag = sprite->getTag();
+
+                sprite->getPhysicsBody()->setVelocity(Vec2(sprite->getTag(), 0));
+                sprite->setTag(-sprite->getTag());
+                sprite->setScaleX(-sprite->getScaleX());
+
+                }, 1.55f, "delay_mushRom_run");
 
             sprite->getPhysicsBody()->setContactTestBitmask(true);
 

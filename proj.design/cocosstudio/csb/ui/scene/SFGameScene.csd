@@ -45,7 +45,7 @@
           <AbstractNodeData Name="root_game_play" ActionTag="429048893" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="1024.0000" Y="768.0000" />
             <Children>
-              <AbstractNodeData Name="Panel_1" ActionTag="1854703610" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="7.6800" BottomMargin="-7.6800" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_1" ActionTag="1854703610" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="30.7200" BottomMargin="-30.7200" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1024.0000" Y="768.0000" />
                 <Children>
                   <AbstractNodeData Name="bg_score" ActionTag="1668230532" ZOrder="1" Tag="268" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="30.7200" RightMargin="673.2800" TopMargin="23.0400" BottomMargin="649.9600" LeftEage="99" RightEage="99" TopEage="29" BottomEage="29" Scale9OriginX="99" Scale9OriginY="29" Scale9Width="122" Scale9Height="37" ctype="ImageViewObjectData">
@@ -172,10 +172,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="512.0000" Y="376.3200" />
+                <Position X="512.0000" Y="353.2800" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.4900" />
+                <PrePosition X="0.5000" Y="0.4600" />
                 <PreSize X="1.0000" Y="1.0000" />
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />

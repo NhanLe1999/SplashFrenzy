@@ -917,17 +917,28 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -44.00000,11.00000 }</string>
-                                <string>{ -44.00000,10.00000 }</string>
+                                <string>{ 59.00000,-9.00000 }</string>
+                                <string>{ 32.00000,-7.00000 }</string>
+                                <string>{ 49.00000,4.00000 }</string>
+                                <string>{ 61.00000,5.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -44.00000,8.00000 }</string>
+                                <string>{ -32.00000,-6.00000 }</string>
                                 <string>{ -56.00000,-4.00000 }</string>
                                 <string>{ -56.00000,10.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 56.00000,-6.00000 }</string>
+                                <string>{ -33.00000,9.00000 }</string>
+                                <string>{ -2.00000,3.00000 }</string>
+                                <string>{ -27.00000,-5.00000 }</string>
+                                <string>{ -32.00000,-6.00000 }</string>
+                                <string>{ -44.00000,8.00000 }</string>
+                            </array>
+                            <array>
                                 <string>{ 32.00000,-7.00000 }</string>
-                                <string>{ 28.00000,4.00000 }</string>
-                                <string>{ 50.00000,7.00000 }</string>
-                                <string>{ 57.00000,6.00000 }</string>
+                                <string>{ -2.00000,3.00000 }</string>
+                                <string>{ 49.00000,4.00000 }</string>
                             </array>
                             <array>
                                 <string>{ 36.00000,-38.00000 }</string>
@@ -943,6 +954,7 @@
                                 <string>{ -20.00000,-34.00000 }</string>
                                 <string>{ -28.00000,-16.00000 }</string>
                                 <string>{ -27.00000,-5.00000 }</string>
+                                <string>{ -2.00000,3.00000 }</string>
                                 <string>{ -6.00000,-31.00000 }</string>
                                 <string>{ -8.00000,-35.00000 }</string>
                             </array>
@@ -951,13 +963,6 @@
                                 <string>{ 12.00000,-42.00000 }</string>
                                 <string>{ 4.00000,-39.00000 }</string>
                                 <string>{ 3.00000,-35.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 32.00000,-7.00000 }</string>
-                                <string>{ 29.00000,-25.00000 }</string>
-                                <string>{ 6.00000,-31.00000 }</string>
-                                <string>{ -2.00000,6.00000 }</string>
-                                <string>{ 28.00000,4.00000 }</string>
                             </array>
                             <array>
                                 <string>{ -35.00000,-21.00000 }</string>
@@ -974,26 +979,11 @@
                             </array>
                             <array>
                                 <string>{ 29.00000,-25.00000 }</string>
-                                <string>{ 32.00000,-7.00000 }</string>
-                                <string>{ 33.00000,-16.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 6.00000,-31.00000 }</string>
-                                <string>{ -27.00000,-5.00000 }</string>
-                                <string>{ -44.00000,10.00000 }</string>
-                                <string>{ -33.00000,11.00000 }</string>
-                                <string>{ -2.00000,6.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -27.00000,-5.00000 }</string>
                                 <string>{ 6.00000,-31.00000 }</string>
                                 <string>{ -6.00000,-31.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -32.00000,-6.00000 }</string>
-                                <string>{ -56.00000,-4.00000 }</string>
-                                <string>{ -44.00000,10.00000 }</string>
-                                <string>{ -27.00000,-5.00000 }</string>
+                                <string>{ -2.00000,3.00000 }</string>
+                                <string>{ 32.00000,-7.00000 }</string>
+                                <string>{ 33.00000,-16.00000 }</string>
                             </array>
                         </array>
                         

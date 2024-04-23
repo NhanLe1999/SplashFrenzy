@@ -47,6 +47,11 @@ bool BPLeaderboardLayer::init()
 	btReset->addClickEventListener([=](Ref* sender) {
 		SOUND_MANAGER->playClickEffect();
 		auto layer = BPResetLayer::create();
+
+		layer->setCallback([this](bool isSucess) {
+			ResetData();
+			});
+
 		this->addChild(layer,1000);
 		});
 
@@ -73,26 +78,61 @@ void BPLeaderboardLayer::onEnter(){
 void BPLeaderboardLayer::onExit(){
     cocos2d::Layer::onExit();
 }
+
+void BPLeaderboardLayer::ResetData()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		if (auto music = utils::findChild<Label*>(this, "music_" + std::to_string(i)))
+		{
+			music->setString(std::to_string(0));
+		}
+
+		if (auto gem = utils::findChild<Label*>(this, "gem_" + std::to_string(i)))
+		{
+			gem->setString(std::to_string(0));
+		}
+	}
+	UserDefault::getInstance()->setIntegerForKey("key_hight_music", 0);
+	UserDefault::getInstance()->setIntegerForKey("key_hight_gem", 0);
+}
+
 void BPLeaderboardLayer::loadHighScore(){
 	float posY = 515;
 	float disY = 90;
+
+	auto hightMusic = UserDefault::getInstance()->getIntegerForKey("key_hight_music", 0);
+	auto hightGem = UserDefault::getInstance()->getIntegerForKey("key_hight_gem", 0);
 	
 	for (int i = 0; i < 4; i++) {
-		auto music = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf",40);
+
+		auto mmusic = 0, gem = 0;
+		if (i == 0)
+		{
+			mmusic = hightMusic;
+			gem = hightGem;
+		}
+
+		auto music = Label::createWithTTF(std::to_string(mmusic), "fonts/Baloo2-Bold.ttf",40);
 		music->setPosition(Vec2(485, posY));
+		music->setName("music_" + std::to_string(i));
 		_background->addChild(music);
 
-		auto coin = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf",40);
+		auto coin = Label::createWithTTF(std::to_string(gem), "fonts/Baloo2-Bold.ttf",40);
 		coin->setPosition(Vec2(690, posY));
 		_background->addChild(coin);
 		posY -= disY;
+		coin->setName("gem_" + std::to_string(i));
+
 	}
 	posY = 85;
-	auto music = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf", 40);
+	auto music = Label::createWithTTF(std::to_string(hightMusic), "fonts/Baloo2-Bold.ttf", 40);
 	music->setPosition(Vec2(485, posY));
+	music->setName("music_" + std::to_string(4));
 	_background->addChild(music);
 
-	auto coin = Label::createWithTTF("1000", "fonts/Baloo2-Bold.ttf", 40);
+	auto coin = Label::createWithTTF(std::to_string(hightGem), "fonts/Baloo2-Bold.ttf", 40);
 	coin->setPosition(Vec2(690, posY));
+	coin->setName("gem_" + std::to_string(4));
 	_background->addChild(coin);
 }

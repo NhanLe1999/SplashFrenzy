@@ -21,6 +21,17 @@ bool BPEndLayer::init(bool isOver, int gem, int music){
     }
     _currentGem = gem;
     _currentScore = music;
+    auto hightMusic = UserDefault::getInstance()->getIntegerForKey("key_hight_music", 0);
+    auto hightGem = UserDefault::getInstance()->getIntegerForKey("key_hight_gem", 0);
+
+    if (_currentScore > hightMusic)
+    {
+        UserDefault::getInstance()->setIntegerForKey("key_hight_music", _currentScore);
+    }
+    if (_currentGem > hightGem)
+    {
+        UserDefault::getInstance()->setIntegerForKey("key_hight_gem", _currentGem);
+    }
 
     _lv = BPGameManager::GetInstance()->_currentLv;
     Size visibleSize = Director::getInstance()->getVisibleSize();

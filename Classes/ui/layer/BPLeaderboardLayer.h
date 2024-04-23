@@ -25,6 +25,9 @@ public:
     void onExit() override;
     void initButton();
     void loadHighScore();
+
+    void ResetData();
+
 private:
     cocos2d::ui::Button* _btNext;
     cocos2d::ui::Button* _btBack;

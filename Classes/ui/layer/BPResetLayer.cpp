@@ -56,6 +56,10 @@ bool BPResetLayer::init()
     btOK->setPosition(Vec2(posX - 110 , posY));
     btOK->addClickEventListener([=](Ref* sender) {
         SOUND_MANAGER->playClickEffect();
+        if (_callback)
+        {
+            _callback(true);
+        }
         this->removeFromParent();
         });
     return true;
